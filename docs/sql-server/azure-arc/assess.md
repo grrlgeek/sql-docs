@@ -108,6 +108,8 @@ You can automatically enable best practices assessment on multiple Arc-enabled S
 >The policy enables best practices assessment only for SQL Server instances purchased through either [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) or [pay-as-you-go (PAYG)](https://www.microsoft.com/sql-server/sql-server-2022-pricing) licensing options.
 >
 >For instructions to configure the appropriate license type, review [Manage SQL Server license and billing options](manage-configuration.md).
+>
+># [Portal](#tab/portal)
 
 1. Navigate to **Azure Policy** in the Azure portal and choose **Definitions**.
 1. Search for *Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment.* and select the policy.
@@ -122,6 +124,37 @@ You can automatically enable best practices assessment on multiple Arc-enabled S
 1. Choose **System assigned managed identity** (recommended) or **User assigned managed identity**.
 1. Select **Review + Create**.
 1. Select **Create**.
+
+# [PowerShell](#tab/powershell)
+
+# Define resource group and policy 
+$rg = Get-AzResourceGroup -Name "<Resource Group Name>"
+$policyAssignmentName = "SQLBestPracticesAssessmentAssignment"
+$policyDefinitionName = "Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment."
+$policyDefinition = Get-AzPolicyDefinition |
+  Where-Object { $_.Properties.DisplayName -eq 'Configure Arc-enabled Servers with SQL Server extension installed to enable or disable SQL best practices assessment.'}
+
+#  Assign policy parameters
+$policyParameterObj = @{
+    "effect" = "DeployIfNotExists"
+    "laWorkspaceId" = "<Log Analytics Workspace ID>"
+    "laWorkspaceLocation" = "<Log Analytics Workspace Location>"
+    "isEnabled" = $true 
+}
+
+# Assign the policy
+New-AzPolicyAssignment -Name $policyAssignmentName `
+    -DisplayName $policyDefinitionName `
+    -PolicyDefinition $policyDefinition `
+    -Scope $rg.ResourceId `
+    -PolicyParameterObject $policyParameterObj `
+    -IdentityType 'SystemAssigned' `
+    -Location $rg.Location
+
+# Verify the policy assignment
+Get-AzPolicyAssignment -Name $policyAssignmentName -Scope $rg.ResourceId
+
+----
 
 See [Azure Policy documentation](/azure/governance/policy) for general instructions about how to assign an Azure policy using Azure portal or an API of your choice.
 
