@@ -779,6 +779,10 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 > [!NOTE]  
 > When COPY INTO is used with compressed CSV files or files with UTF-16 encoding, COPY INTO automatically switches to PARSER_VERSION 1.0, without user action required. For multi-character terminators on FIELDTERMINATOR or ROWTERMINATOR, the COPY INTO statement will fail. Use PARSER_VERSION = '1.0' if multi-character separators are needed.
 
+## Permissions
+
+ The COPY command requires a minimum **CONTRIBUTOR role** at the workspace level, or alternatively, the **VIEWER** role at the workspace level plus **ADMINISTER BULK OPERATIONS** database permission and **INSERT** permission on the table objects.
+
 ## Remarks
 
 COPY INTO in [!INCLUDE [fabricdw](../../includes/fabric-dw.md)] doesn't allow setting a date format for interpreting date character strings. By default, all dates are considered to have the month-day-year format. To ingest a CSV file with a different date format, use *SET DATEFORMAT* to specify the desired date format at the session level. For more information, see [SET DATEFORMAT (Transact-SQL)](set-dateformat-transact-sql.md).
