@@ -129,6 +129,9 @@ Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversio
 - Distributed availability groups.
 - Log shipping where the target database is in the contained AG. Log shipping with the source database in the contained AG is supported.
 
+### Resource Governor
+The Resource Governor is not applicable to Contained AG hence Resource Governor doesn't work on contained AG context.
+
 ### Change data capture
 
 Change data capture (CDC) is implemented as SQL Agent jobs, so the SQL Agent needs to be running on all instances with replicas in the contained AG.
