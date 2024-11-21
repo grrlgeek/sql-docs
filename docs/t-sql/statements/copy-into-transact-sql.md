@@ -781,7 +781,7 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ## Permissions
 
-The COPY command requires a minimum **CONTRIBUTOR role** at the workspace level, or alternatively, the **VIEWER** role at the workspace level plus **ADMINISTER BULK OPERATIONS** database permission and **INSERT** permission on the table objects.
+The COPY command requires a minimum **CONTRIBUTOR role** at the workspace level, or alternatively, the **VIEWER** role at the workspace level plus **ADMINISTER DATABASE BULK OPERATIONS** database permission and **INSERT** permission on the table objects.
 
 ## Remarks
 
