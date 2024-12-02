@@ -51,7 +51,7 @@ GeneMi, DevOps = 1467988 (MsEng > TechnicalContent) , 2019/03/19
 ::: moniker range="=sql-server-ver16"
 ## SQL Server 2022 Reporting Services
 
-## 16.0.9101.19239, 2024/12/04
+## 16.0.9101.19239, 2025/01/06
 *(Product Version: 16.0.1116.38)*
 
 - Changed default SupportedHyperlinkSchemes advanced server property value to disallow JavaScript
@@ -147,7 +147,7 @@ Release Candidate 0 (RC0)
 
 SSRS 2019 build: Pipelines - Run 15.0.1103.41
 
-## 15.0.9098.6826, 2024/12/04
+## 15.0.9098.6826, 2025/01/06
 *(Product Version: 15.0.1103.41 )*
 
 - Added Mobile Report support back to SSRS 2019
