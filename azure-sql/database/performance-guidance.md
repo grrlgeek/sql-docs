@@ -261,7 +261,15 @@ Connection pooling can improve throughput, reduce latency, and enhance the overa
    - [JDBC connection pooling](/sql/connect/jdbc/using-connection-pooling?view=azuresqldb-current&preserve-view=true)
    - [PHP connection pooling](/sql/connect/php/connection-pooling-microsoft-drivers-for-php-for-sql-server?view=azuresqldb-current&preserve-view=true)
 
-- Cloud applications should implement [retry logic](develop-overview.md#resiliency) to handle transient connectivity failures gracefully. Learn more about how to design [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). 
+- Cloud applications should implement [retry logic](develop-overview.md#resiliency) to handle transient connectivity failures gracefully. Learn more about how to design [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+
+- Token-based authentication mechanisms, such as Microsoft Entra ID authentication, may affect connection pooling due to token expiration, which can invalidate connections and interrupt reuse. To mitigate these issues, ensure tokens are refreshed proactively, configure token lifetimes to align with expected connection durations, monitor for expiration errors to trigger reauthentication, and minimize connection churn through effective pooling configurations.
+
+- Network latency and endpoint configurations can influence the efficiency of connection pooling. Public endpoints often introduce higher latency than private or direct connections. In cloud-native environments with dynamic IP addresses, ensure firewall rules are synchronized with changing addresses to avoid disruptions. Using private endpoints or Azure Virtual Network integration can help reduce latency and improve stability.
+
+- TLS/SSL encryption settings must align between the database and connection configurations to avoid connection failures. Missing encryption parameters in connection strings can disrupt pooling. Ensure consistent encryption settings and verify that certificates used for encryption are valid, properly configured, and not expired.
+
+- Misconfigured or inconsistent DNS settings in private endpoints or custom DNS configurations can delay or block connections, impacting connection pooling performance. Regularly audit DNS configurations and ensure they resolve correctly in hybrid or private cloud setups. Using tools like Azure DNS or optimized custom DNS servers can help enhance connection reuse efficiency.
 
 - [Monitor Azure SQL Database](monitoring-sql-database-azure-monitor.md) connection performance and resource usage to identify bottlenecks, such as excessive idle connections or insufficient pool limits, and adjust configurations accordingly. Consider using [database watcher](../database-watcher-overview.md) or [Azure Monitor](monitoring-metrics-alerts.md).
 
