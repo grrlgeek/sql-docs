@@ -225,6 +225,13 @@ sections:
       - question: My query duration is too long. How can I analyze wait statistics on my managed instance?
         answer: |
           See [Analyzing wait statistics on SQL Managed Instance](/archive/blogs/sqlserverstorageengine/analyzing-wait-statistics-on-managed-instance). Wait statistics are information that might help you understand why the query duration is long and identify the queries that are waiting for something in database engine.
+      
+      - question: What does the MSSQLSERVER_833 error mean in SQL Managed Instance, and how should I address it?
+        answer: |
+          The MSSQLSERVER_833 error signifies that completing an I/O request has taken longer than 15 seconds. In SQL MI, this error is not related to workload but rather overall infrastructure conditions. In cloud environments and systems utilizing remote storage, multiple architectural layers impact a single I/O request. This is an expected behavior and known limitation of the service, typically resulting from transient networking issues or temporary unavailability of Azure storage resources, and the system will usually recover without intervention.
+          This rare occurrence is not expected to impact the average latency of I/O requests to remote storage. Depending on the workload or thread initiating the I/O, customers may observe SQL command timeouts and increased latency in specific scenarios, while others may experience no impact at all, i.e., not all long-running I/O requests block operations; for instance, read-ahead page access is often unaffected.
+          To mitigate these limitations, Azure SQL managed Instance is introducing the [Next-gen General Purpose service tier](service-tiers-next-gen-general-purpose-use.md) offering (currently in public preview), which provides improved performance and reliability at no additional cost. Customers are encouraged to explore it for enhanced service quality.
+          If this error occurs persistently, consider reviewing workload patterns, storage performance, and networking configurations. Additionally, consider using Business Critical service tier that is designed for applications with low I/O latency requirements.
 
   - name: Monitoring, Metrics and Alerts
     questions:
