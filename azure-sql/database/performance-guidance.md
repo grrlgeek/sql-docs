@@ -267,7 +267,8 @@ Connection pooling can improve throughput, reduce latency, and enhance the overa
   - **Implement proactive token renewal:** [Refresh Microsoft Entra ID tokens](/entra/identity-platform/refresh-tokens) to renew access tokens *before* expiration. This minimizes interruptions to connection reuse caused by invalid tokens.
   - **Adjust token lifetimes:** [Configure token expiration policies in Microsoft Entra ID](/entra/identity/conditional-access/howto-conditional-access-session-lifetime) to accommodate the expected duration of connections in your application. 
 
-- [Monitor Azure SQL Database](monitoring-sql-database-azure-monitor.md) connection performance and resource usage to identify bottlenecks, such as excessive idle connections, insufficient pool limits, or authentication issues caused by expired tokens, and adjust configurations accordingly. Use [Microsoft Entra ID logs](/entra/identity/monitoring-health/concept-sign-ins) or [Azure Monitor](monitoring-metrics-alerts.md) to track token expiration errors and ensure token lifetimes are appropriately configured. Consider using [database watcher](../database-watcher-overview.md) or Azure Monitor for overall connection performance monitoring.
+- [Monitor Azure SQL Database](monitoring-sql-database-azure-monitor.md) connection performance and resource usage to identify bottlenecks, such as excessive idle connections or insufficient pool limits, and adjust configurations accordingly. Use [Microsoft Entra ID logs](/entra/identity/monitoring-health/concept-sign-ins) to track token expiration errors and ensure token lifetimes are appropriately configured. Consider using [Database Watcher](../database-watcher-overview.md) or [Azure Monitor](monitoring-metrics-alerts.md) where applicable.
+
 
 
 ## Best practices for very large database architectures in Azure SQL Database
