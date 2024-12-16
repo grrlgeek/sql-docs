@@ -4531,6 +4531,8 @@ items:
         href: database-engine/configure-windows/ad-hoc-distributed-queries-server-configuration-option.md
       - name: ADR cleaner retry timeout
         href: database-engine/configure-windows/adr-cleaner-retry-timeout-configuration-option.md
+      - name: ADR Cleaner Thread Count
+        href: database-engine/configure-windows/adr-cleaner-thread-count-configuration-option.md
       - name: ADR Preallocation Factor
         href: database-engine/configure-windows/adr-preallocation-factor-server-configuration-option.md
       - name: affinity Input-Output mask
@@ -8660,15 +8662,15 @@ items:
       items:
       - name: Frequently asked questions
         href: ssms/ssms-21/faq.yml
-      - name: Release notes for SQL Server Managemement Studio 21 Preview
+      - name: Release notes
         href: ssms/ssms-21/release-notes-21.md
-      - name: System requirements for SQL Server Managemement Studio 21 Preview
+      - name: System requirements
         href: ssms/ssms-21/system-requirements.md
-      - name: Known issues for SQL Server Managemement Studio 21 Preview
+      - name: Known issues
         href: ssms/ssms-21/known-issues.md
       - name: Installation
         items:
-        - name: Download and install SQL Server Managemement Studio 21 Preview
+        - name: Download and install
           href: ssms/install/install.md
         - name: Select installation location
           href: ssms/install/select-install-location.md
@@ -8680,18 +8682,26 @@ items:
           href: ssms/install/local-help-content.md
         - name: Install versions side-by-side
           href: ssms/install/side-by-side.md
-        - name: Update SQL Server Managemement Studio 21 Preview
+        - name: Update
           href: ssms/install/update.md
-        - name: Modify SQL Server Managemement Studio 21 Preview
+        - name: Modify
           href: ssms/install/modify.md
-        - name: Repair SQL Server Managemement Studio 21 Preview
+        - name: Repair
           href: ssms/install/repair.md
-        - name: Troubleshoot installation
+        - name: Troubleshoot installation issues
           href: ssms/install/troubleshoot.md
-        - name: Uninstall SQL Server Managemement Studio 21 Preview
+        - name: Uninstall
           href: ssms/install/uninstall.md
-        - name: Channels for SQL Server Managemement Studio 21 Preview
+        - name: Channels
           href: ssms/install/channels-release.md
+      - name: Feedback and Troubleshooting
+        items:
+        - name: Suggest a feature
+          href: ssms/feedback-and-troubleshooting/suggest-feature.md
+        - name: Report a problem
+          href: ssms/feedback-and-troubleshooting/report-problem.md
+        - name: Customer Experience Improvement Program
+          href: ssms/feedback-and-troubleshooting/customer-experience-improvement-program.md
       - name: User permissions
         href: ssms/ssms-21/user-permissions.md
       - name: Sign in or switch user accounts
@@ -11847,6 +11857,20 @@ items:
           href: relational-databases/errors-events/mssqlserver-42108-database-engine-error.md
         - name: 42109
           href: relational-databases/errors-events/mssqlserver-42109-database-engine-error.md
+        - name: 41962
+          href: relational-databases/errors-events/mssqlserver-41962-database-engine-error.md
+        - name: 41973
+          href: relational-databases/errors-events/mssqlserver-41973-database-engine-error.md
+        - name: 41974
+          href: relational-databases/errors-events/mssqlserver-41974-database-engine-error.md
+        - name: 41976
+          href: relational-databases/errors-events/mssqlserver-41976-database-engine-error.md
+        - name: 41977
+          href: relational-databases/errors-events/mssqlserver-41977-database-engine-error.md
+        - name: 41986
+          href: relational-databases/errors-events/mssqlserver-41986-database-engine-error.md
+        - name: 47521
+          href: relational-databases/errors-events/mssqlserver-47521-database-engine-error.md
       - name: Native client error 50,000
         href: relational-databases/errors-events/sql-server-native-client-error-mssqlserver-50000.md
   - name: Event classes
@@ -12301,6 +12325,8 @@ items:
         href: relational-databases/system-catalog-views/sys-database-usage-azure-sql-database.md
       - name: sys.dm_elastic_pool_resource_stats
         href: relational-databases/system-dynamic-management-views/sys-dm-elastic-pool-resource-stats-azure-sql-database.md
+      - name: sys.dm_hs_database_log_rate
+        href: relational-databases/system-dynamic-management-views/sys-dm-hs-database-log-rate.md
       - name: sys.elastic_pool_resource_stats
         href: relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database.md
       - name: sys.event_log

@@ -73,8 +73,8 @@ You'll also need the following tools:
 
 | Tool | Notes  | 
 | --- | --- |
-| [SSMS 20.2](/sql/ssms/download-sql-server-management-studio-ssms) or later | SQL Server Management Studio (SSMS) is the easiest way to use the Managed Instance link since it provides wizards that automate link setup. |
-| [Az.SQL 3.9.0](https://www.powershellgallery.com/packages/Az.Sql) or later | A PowerShell module is required for manual configuration steps. |
+| The latest [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) | SQL Server Management Studio (SSMS) is the easiest way to use the Managed Instance link since it provides wizards that automate link setup. |
+| The latest [Az.SQL](https://www.powershellgallery.com/packages/Az.Sql) or [Azure CLI](/cli/azure/install-azure-cli) | For link setup via scripts. |
 
 > [!NOTE]
 > The Managed Instance link feature is available in all public Azure regions and national or government clouds.
@@ -226,6 +226,7 @@ To use the link:
 - [Fail over the link](managed-instance-link-failover-how-to.md)
 - [Migrate with the link](managed-instance-link-migrate.md)
 - [Best practices for maintaining the link](managed-instance-link-best-practices.md)
+- [Troubleshoot issues with the link](managed-instance-link-troubleshoot-how-to.md)
 
 To learn more about the link: 
 - [Disaster recovery with Managed Instance link](managed-instance-link-disaster-recovery.md)
