@@ -39,7 +39,6 @@ For instances in the General Purpose service tier, it's possible to save on comp
 
 ## Data and log storage
 
-
 The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical tiers. 
 
 - In the General Purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
@@ -54,7 +53,6 @@ To monitor total consumed instance storage size for SQL Managed Instance, use th
 ## Backup storage
 
 Storage for database backups is allocated to support the capabilities of SQL Managed Instance. This storage is separate from data and log file storage, and is billed separately.
-
 
 - [Point-in-time restore (PITR)](recovery-using-backups.md): The storage consumption depends on the rate of change of the database and the retention period configured for backups. You can configure a separate retention period for each database between 1 to 35 days for SQL Managed Instance. A backup storage amount equal to the configured maximum data size is provided at no extra charge.
 - [Long-term retention (LTR)](../database/long-term-retention-overview.md):  You have the option to configure long-term retention of full backups for up to 10 years. The configuration you choose determines how much storage will be used for LTR backups. 
@@ -111,7 +109,6 @@ The General Purpose service tier is the default service tier in Azure SQL Manage
 
 [!INCLUDE [azure-sql-managed-instance-compare-service-tiers](../includes/sql-managed-instance/azure-sql-managed-instance-next-gen-general-purpose-upgrade.md)]
 
-
 ### Business Critical
 
 The Business Critical service tier model is based on a cluster of database engine processes. This architectural model relies on a quorum of always available database engine nodes to minimize performance impacts to your workload, even during maintenance activities. Azure upgrades and patches the underlying operating system, drivers, and SQL Server database engine transparently, with minimal down-time for end users. 
@@ -148,7 +145,9 @@ When specifying service tier in templates or scripts, tier is provided by using 
 |General Purpose|GeneralPurpose|
 |Business Critical|BusinessCritical|
 
+## High availability
 
+[!INCLUDE [high-availability-through-zone-redundancy](../includes/sql-managed-instance/high-availability-through-zone-redundancy.md)]
 
 ## Hardware configurations
 
