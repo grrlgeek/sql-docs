@@ -130,7 +130,8 @@ Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversio
 - Log shipping where the target database is in the contained AG. Log shipping with the source database in the contained AG is supported.
 
 ### Resource Governor
-The Resource Governor is not applicable to Contained AG hence Resource Governor cannot be configured through Contained AG Connection.
+
+Resource Governor with a contained availability group isn't applicable. Configuring a Resource Governor when connected to a contained availability group doesn't work. 
 
 ### Change data capture
 
