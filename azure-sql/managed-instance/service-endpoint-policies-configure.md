@@ -4,7 +4,7 @@ description: Configure Azure Storage service endpoint policies to protect Azure 
 author: zoran-rilak-msft
 ms.author: zoranrilak
 ms.reviewer: mathoma
-ms.date: 20/12/2024
+ms.date: 11/02/2021
 ms.service: azure-sql-managed-instance
 ms.subservice: security
 ms.topic: how-to
