@@ -19,7 +19,7 @@ helpviewer_keywords:
 monikerRange: ">=sql-server-2016"
 ---
 
-# View the Windows Application Log to troubleshoot SQL Server
+# View the Windows Application log to troubleshoot SQL Server
 
 [!INCLUDE [SQL Server Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
 
@@ -39,4 +39,20 @@ For more information about using Event Viewer, managing the application log, and
 
 ## To view the Windows application log
 
-[View the Windows Application Log (Windows)](../../relational-databases/performance/view-the-windows-application-log-windows-10.md)
+### Permissions required
+
+To view the Windows Application Log using SQL Server Management Studio (SSMS), the following permissions are required:
+
+- The user account must have access to the Event Viewer.
+- Typically, the account must be a member of the **Administrators group** or the **Event Log Readers** group on the server where the logs reside.
+- If SSMS isn't running with elevated privileges, you might encounter an error. To resolve this, right-click the SSMS shortcut and select **Run as Administrator**.
+
+### Troubleshooting permissions
+
+If you still encounter issues:
+
+- Verify that your account has the appropriate group memberships.
+- For domain accounts, contact your system administrator to ensure you have the correct Active Directory permissions.
+- As a workaround, consider exporting the Event Log and viewing it on a machine where you have the required privileges.
+
+For more information about how to view the Windows application log, visit [Windows Application Log (Windows)](../../relational-databases/performance/view-the-windows-application-log-windows-10.md).

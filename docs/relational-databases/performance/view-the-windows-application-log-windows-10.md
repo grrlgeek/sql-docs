@@ -27,7 +27,7 @@ helpviewer_keywords:
 
   This article covers Windows 10 operating systems and later.
 
-## View the Windows application log
+## To view the Windows application log
 
 1. On the **Search bar**, type **Event Viewer**, and then select the **Event Viewer** desktop app.
 
