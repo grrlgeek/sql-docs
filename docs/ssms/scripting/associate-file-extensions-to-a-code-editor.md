@@ -1,6 +1,6 @@
 ---
 title: "Associate File Extensions to a Code Editor"
-description: Learn how to associate a file extension to a specific code editor so that when you double-click a file with the extension it is opened by the associated editor.
+description: Learn how to associate a file extension to a specific code editor so that when you double-click a file with the extension it's opened by the associated editor.
 author: markingmyname
 ms.author: maghan
 ms.date: 12/26/2024
@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 monikerRange: ">=aps-pdw-2016 || =azuresqldb-current || =azure-sqldw-latest || >=sql-server-2016 || >=sql-server-linux-2017 || =azuresqldb-mi-current"
 ---
 
-# Associate File Extensions to a Code Editor
+# Associate file extensions to a code editor
 
 [!INCLUDE [SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
@@ -31,7 +31,7 @@ There are two steps in the process. First associate the extension with [!INCLUDE
 
 1. **Choose Default Apps by File Type**: Scroll down and Select **Choose default apps by file type**.
 
-1. **Find Your File Extension**: Locate the file extension you want to associate (e.g., .sql).
+1. **Find Your File Extension**: Locate the file extension you want to associate (for example, .sql).
 
 1. **Set SSMS as Default**: Select the current default app and select SQL Server Management Studio from the list.
 
