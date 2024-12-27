@@ -40,7 +40,7 @@ CLR return type: **SqlDouble**
 
 ## Remarks
 
-`STArea()` returns 0 if a **geometry** instance contains only 0- and 1-dimensional figures, or if it's empty. `STArea()` returns **NULL** if the **geometry** instance hasn't been initialized.
+`STArea()` returns `0` if a **geometry** instance contains only 0-dimensional and 1-dimensional figures, or if it's empty. `STArea()` returns `NULL` if the **geometry** instance hasn't been initialized.
 
 ## Examples
 
