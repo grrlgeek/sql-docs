@@ -24,7 +24,7 @@ monikerRange: "=azuresqldb-current || >=sql-server-2016 || >=sql-server-linux-20
 
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance FabricSQLDB](../../includes/applies-to-version/sql-asdb-asdbmi-fabricsqldb.md)]
 
-The `STArea` function returns the area of a geometry instance in square units based on the spatial reference identifier (SRID) of the geometry.
+The `STArea` function returns the area of a **geometry** instance in square units, based on the spatial reference identifier (SRID) of the geometry.
 
 ## Syntax
 
