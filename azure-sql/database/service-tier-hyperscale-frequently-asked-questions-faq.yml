@@ -104,7 +104,7 @@ sections:
       - question: |
           What transaction isolation level is the default in a Hyperscale database?
         answer: |
-          On the primary replica, the default transaction isolation level is `READ COMMITTED` using row versioning (Read Committed Snapshot Isolation or RCSI). On the secondary replicas, the isolation level is `SNAPSHOT`. This is the same as in any other Azure SQL database.
+          On the primary replica, the default transaction isolation level is `READ COMMITTED` with the `READ_COMMITTED_SNAPSHOT` database option (RCSI) enabled. On the secondary replicas, the isolation level is `SNAPSHOT`. This is the same as in any other Azure SQL database.
 
       - question: |
           Can I bring my on-premises or IaaS SQL Server license to Hyperscale?
