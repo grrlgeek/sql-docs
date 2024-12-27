@@ -8,6 +8,7 @@ ms.date: 12/27/2024
 ms.service: sql
 ms.subservice: configuration
 ms.topic: conceptual
+ai-usage: ai-assisted
 helpviewer_keywords:
   - "static database views"
   - "snapshots [SQL Server database snapshots]"
