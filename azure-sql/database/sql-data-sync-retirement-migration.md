@@ -90,7 +90,7 @@ Consider the following synchronization solutions by platform.
 |                | **SQL Server** | **Azure SQL Managed Instance**\* | **Azure SQL Database** |
 | **SQL Server** |  Always On availability groups<br /> Azure Data Factory<br /> Transactional replication<br /> Linked server |  Always On availability groups<br /> Azure Data Factory<br /> Transactional replication<br /> Linked server |  Azure Data Factory<br /> Azure Functions<br /> Transactional replication |
 | **Azure SQL Managed Instance**\* |  Always On availability groups<br /> Azure Data Factory<br /> Transactional replication<br /> Linked server | Always On availability groups<br /> Azure Data Factory<br /> Transactional replication<br /> Linked server<br /> Read replicas| Azure Data Factory<br /> Azure Functions<br /> Transactional replication |
-| **Azure SQL Database**  | Azure Data Factory | Azure Data Factory<br /> Transactional replication<br /> Linked Server| Azure Data Factory<br /> Azure Functions<br /> Active geo-replication<br /> Copy Database |
+| **Azure SQL Database**  | Azure Data Factory | Azure Data Factory<br /> Linked Server| Azure Data Factory<br /> Azure Functions<br /> Active geo-replication<br /> Copy Database |
 
  \* SQL Data Sync does not support Azure SQL Managed Instance.
 
