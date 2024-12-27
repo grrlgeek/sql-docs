@@ -102,14 +102,14 @@ sections:
       - question: |
           What transaction isolation level is the default in a Hyperscale database?
         answer: |
-          On the primary replica, the default transaction isolation level is Read Committed using versioning (Read Committed Snapshot Isolation or RCSI). On the Read Scale-out secondary replicas, the isolation level is Snapshot. This is the same as in any other Azure SQL database.
+          On the primary replica, the default transaction isolation level is `READ COMMITTED` using row versioning (Read Committed Snapshot Isolation or RCSI). On the secondary replicas, the isolation level is `SNAPSHOT`. This is the same as in any other Azure SQL database.
 
       - question: |
           Can I bring my on-premises or IaaS SQL Server license to Hyperscale?
         answer: |
           With the new, simplified pricing in effect since December 15, 2023, the price of compute has been reduced for newly created Hyperscale databases, all serverless Hyperscale databases, and all Hyperscale elastic pools. With the new, simplified pricing, there is no need to apply Azure Hybrid Benefit (AHB) to obtain equivalent savings. Azure Hybrid Benefit (AHB) can only be applied to older (created before December 15, 2023) Hyperscale single databases with provisioned compute. For those older databases, AHB is only applicable until December 2026, after which those databases will also be billed as per the new, simplified pricing.
 
-          For more information, see [Hyperscale pricing blog](https://aka.ms/hsignite2023) and [Azure SQL Database Hyperscale - lower, simplified pricing!](https://aka.ms/hsprice2023).
+          For more information, see [Hyperscale pricing blog](https://aka.ms/hsignite2023) and [Azure SQL Database Hyperscale - lower, simplified pricing](https://aka.ms/hsprice2023).
           
       - question: |
           What kind of workloads is Hyperscale designed for?
@@ -150,7 +150,7 @@ sections:
       - question: |
           For high availability, do I need to provision additional compute replicas?
         answer: |
-          In Hyperscale databases, data resiliency is provided at the storage level. You only need one replica (the primary) to provide resiliency. If the compute replica fails, a new replica is created automatically with no data loss.
+          In Hyperscale databases, data resiliency is provided at the storage level. You only need one replica (the primary) to provide resiliency. If the compute replica fails or is under maintenance, a new replica is created automatically with no data loss.
           
           However, if there's only the primary replica, it can take a minute or two to create a new replica, vs. seconds in the case when an HA secondary replica is available. The new replica will have cold caches initially, which can result in higher storage latency and reduced query performance immediately after failover.
           
@@ -533,13 +533,17 @@ sections:
             SELECT replica_id,
                    DB_NAME() AS named_replica_database_name,
                    synchronization_state_desc,
-                   log_send_queue_size/1024.0/1024.0 AS log_send_queue_size_gb,
+                   log_send_queue_size / 1024.0 / 1024.0 AS log_send_queue_size_gb,
                    last_sent_time,
                    last_received_time,
                    last_commit_time,
+                   redo_queue_size / 1024.0 / 1024.0 AS redo_queue_size_gb,
+                   redo_rate,
                    secondary_lag_seconds
             FROM sys.dm_database_replica_states
-            WHERE replica_id = DATABASEPROPERTYEX(DB_NAME(), 'ReplicaID');
+            WHERE is_local = 1
+                  AND
+                  replica_id = DATABASEPROPERTYEX(DB_NAME(), 'ReplicaID');
           ```
 
 additionalContent: |
