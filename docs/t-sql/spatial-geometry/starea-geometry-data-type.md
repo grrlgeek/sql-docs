@@ -1,5 +1,5 @@
 ---
-title: "STArea (Geometry Data Type)"
+title: "STArea (geometry Data Type)"
 description: "STArea (geometry Data Type)"
 author: MladjoA
 ms.author: mlandzic
