@@ -83,7 +83,7 @@ SELECT *
 FROM sys.dm_io_virtual_file_stats(0, NULL);
 ```
 
-A ratio of reads from the local SSD cache to the aggregated reads from all other data files is the local SSD cache hit ratio. This metric is provided by the `RBPEX cache hit ratio` and `RBPEX cache hit ratio base` performance counters, available in the [sys.dm_os_performance_counters](/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql) DMV.
+A ratio of reads from the local SSD cache to the aggregated reads from all other data files is the local SSD cache hit ratio. This metric is provided by the `RBPEX cache hit ratio` and `RBPEX cache hit ratio base` performance counters, available in the [sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql/) DMV.
 
 ### Data reads
 
@@ -105,7 +105,7 @@ A ratio of reads from the local SSD cache to the aggregated reads from all other
 
 ## Data IO in resource utilization statistics
 
-In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](./resource-limits-logical-server.md#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in the `avg_data_io_percent` column. The same value is reported as the **Data IO Percentage** Azure Monitor metric.
+In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](./resource-limits-logical-server.md#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database/) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database/) views, in the `avg_data_io_percent` column. The same value is reported as the **Data IO Percentage** Azure Monitor metric.
 
 In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local SSD storage on compute replica only, which includes I/O against the local SSD cache and in the `tempdb` database. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase the compute size to increase the resource governance **Max Data IOPS** [limit](resource-limits-vcore-single-databases.md). For resource governance of local SSD cache reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the database engine.
 
