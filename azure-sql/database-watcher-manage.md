@@ -5,7 +5,7 @@ description: Setup and configuration details for database watcher
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: wiassaf
-ms.date: 12/18/2024
+ms.date: 12/28/2024
 ms.service: azure-sql
 ms.subservice: monitoring
 ms.topic: how-to
@@ -289,7 +289,7 @@ To allow a watcher to collect SQL monitoring data, you need to execute a T-SQL s
 - To execute the script in Azure SQL Database, you need server administrator access to the logical server containing databases and elastic pools you want to monitor.
     - In Azure SQL Database, you only need to execute the script once per logical server for every watcher you create. This grants the watcher access to all existing and new databases and elastic pools on that server.
 
-- To execute the script in Azure SQL Managed Instance, you need to be a member of either `sysadmin` or `securityadmin` server role, or have the `CONTROL` server permission on the SQL managed instance.
+- To execute the script in Azure SQL Managed Instance, you need to be a member of either `sysadmin` or `securityadmin` server role, or have the `CONTROL SERVER` permission on the SQL managed instance.
     - In Azure SQL Managed Instance, you need to execute the script on each instance you want to monitor.
 
 1. Navigate to the watcher in Azure portal, select **SQL targets**, select one of the **Grant access** links to open the T-SQL script, and copy the script. Make sure to choose the correct link for your target type and the authentication type you want to use.
@@ -340,7 +340,7 @@ This script creates a Microsoft Entra (formerly known as Azure Active Directory)
 
 If the watcher uses the system assigned managed identity, you must use the watcher name as the login name. If the watcher uses a user assigned managed identity, you must use the display name of the identity as the login name.
 
-The script must be executed in the `master` database on the managed instance. You must be logged in using a Microsoft Entra authentication login that is a member of either `sysadmin` or `securityadmin` server role, or has the `CONTROL` server permission.
+The script must be executed in the `master` database on the managed instance. You must be logged in using a Microsoft Entra authentication login that is a member of either `sysadmin` or `securityadmin` server role, or has the `CONTROL SERVER` permission.
 
 ```sql
 USE master;
@@ -390,7 +390,7 @@ ALTER SERVER ROLE ##MS_DatabaseConnector## ADD MEMBER [login-name-placeholder];
 
 This script creates a SQL authentication login on a SQL managed instance. It grants the login the necessary and sufficient permissions to collect monitoring data from the instance.
 
-The script must be executed in the `master` database on the instance, using a login that is a member of either `sysadmin` or `securityadmin` server role, or has the `CONTROL` server permission.
+The script must be executed in the `master` database on the instance, using a login that is a member of either `sysadmin` or `securityadmin` server role, or has the `CONTROL SERVER` permission.
 
 ```sql
 USE master;
