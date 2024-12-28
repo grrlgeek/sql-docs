@@ -19,7 +19,7 @@ helpviewer_keywords:
 
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-There are four main functional extensions to ADO.NET that are specifically for in-process use. The following articles will these extensions in detail.
+There are four main functional extensions to ADO.NET that are specifically for in-process use. The following articles will cover these extensions in detail.
 
 ## In this section
 
