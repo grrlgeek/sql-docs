@@ -26,7 +26,7 @@ At times, log generation rate on the primary compute replica must be reduced to 
 > [!NOTE]
 > Log generation rate of 150 MB/s is available as an opt-in preview feature. For more information and to opt-in to 150 MB/s, see [Blog: November 2024 Hyperscale enhancements](https://aka.ms/AAslnql).
 
-The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) appear when the log rate is reduced, and describe the reasons for the reduction:
+The following wait types appear in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/) when the log rate is reduced:
 
 | Wait type | Reason |
 |:--|:--|
@@ -39,7 +39,7 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 | `RBIO_RG_STORAGE_CHECKPOINT` | Delayed log consumption on by a page server due to slow database checkpoint |
 | `RBIO_RG_MIGRATION_TARGET` | Delayed log consumption by the non-Hyperscale database during reverse migration |
 
-The [sys.dm_hs_database_log_rate()](/sql/relational-databases/system-dynamic-management-views/sys-dm-hs-database-log-rate) dynamic management function (DMF) provides additional details to help you understand log rate reduction, if any. For example, it can tell you which specific secondary replica, or a page server corresponding to a data file is behind applying log, and what is the total size of the not yet applied transaction log records.
+The [sys.dm_hs_database_log_rate()](/sql/relational-databases/system-dynamic-management-views/sys-dm-hs-database-log-rate) dynamic management function (DMF) provides additional details to help you understand log rate reduction, if any. For example, it can tell you which specific secondary replica is behind applying log records, and what is the total size of the not yet applied transaction log.
 
 ## Page server reads
 
@@ -65,18 +65,18 @@ Several dynamic managed views (DMVs) and extended events have columns and fields
   - `query_store_execution_runtime_info`
 - `ActualPageServerReads`/`ActualPageServerReadAheads` attributes are present in the query plan XML for plans that include runtime statistics. For example:
     ```xml
-    <RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />
+    <RunTimeCountersPerThread Thread="8" ActualRows="90466461" [...] ActualPageServerReads="0" ActualPageServerReadAheads="5687297" ActualLobPageServerReads="0" ActualLobPageServerReadAheads="0" />
     ```
-    > [!NOTE]
+    > [!TIP]
     > To view these attributes in the query plan properties window, SSMS 18.3 or later is required.
 
 ## Virtual file stats and IO accounting
 
-In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is one way to monitor database I/O statistics such as IOPS, throughput, and latency. I/O characteristics in Hyperscale are different due to its [distributed architecture](service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on read and write data file I/O as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a page server. The DMF also provides I/O statistics for the local SSD cache on the compute replica.
+In Azure SQL Database, the [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF is one way to monitor database I/O statistics such as IOPS, throughput, and latency. I/O characteristics in Hyperscale are different due to its [distributed architecture](service-tier-hyperscale.md#distributed-functions-architecture). In this section, we focus on read and write I/O as seen in this DMF. In Hyperscale, each data file visible in this DMF corresponds to a page server. The DMF also provides I/O statistics for the local SSD cache on the compute replica and for the transaction log.
 
 ### Local SSD cache usage
 
-Because the local SSD cache exists on the same compute replica where the database engine is processing queries, I/O against this cache is faster than I/O against page servers. In a Hyperscale databas, `sys.dm_io_virtual_file_stats()` has a special row reporting I/O statistics for the local SSD cache. This row has the value of `0` for both `database_id` and `file_id` columns. For example, the query below returns the local SSD cache I/O statistics since database startup.
+Because the local SSD cache exists on the same compute replica where the database engine is processing queries, I/O against this cache is faster than I/O against page servers. In a Hyperscale database or elastic pool, `sys.dm_io_virtual_file_stats()` has a special row reporting I/O statistics for the local SSD cache. This row has the value of `0` for both `database_id` and `file_id` columns. For example, the query below returns the local SSD cache I/O statistics since database startup.
 
 ```sql
 SELECT *
@@ -88,28 +88,28 @@ A ratio of reads from the local SSD cache to the aggregated reads from all other
 ### Data reads
 
 - When reads are issued by the database engine on a compute replica, they might be served either by the local SSD cache, or by page servers, or by a combination of the two if reading multiple pages.
-- When the compute replica reads some pages from a specific data file, for example the file with `file_id` 1, if this data resides solely in the local SSD cache, all IO for this read is accounted against `file_id` 0. If some part of that data is in the local SSD cache, and some part is on a page server, then IO is accounted towards `file_id` 0 for the part served from the local SSD cache, and the part served from page servers is accounted towards their corresponding files.
+- When the compute replica reads some pages from a specific data file, for example the file with `file_id` 1, if this data resides solely in the local SSD cache, all IO for this read is accounted against `file_id` 0. If some part of that data is in the local SSD cache, and some part is on page servers, then IO is accounted towards `file_id` 0 for the part served from the local SSD cache, and the part served from page servers is accounted towards their corresponding files.
 - When a compute replica requests a page at a particular LSN from a page server, if the page server has not yet caught up to the LSN requested, the read on the compute replica waits until the page server catches up before the page is returned. For any read from a page server on the compute replica, you see a `PAGEIOLATCH_*` wait type if it is waiting on that IO. In Hyperscale, this wait time includes both the time to catch up the requested page on the page server to the LSN required, and the time needed to transfer the page from the page server to the compute replica.
-- Large reads such as read-aheads are often done using ["Scatter-Gather" Reads](/sql/relational-databases/reading-pages/). This allows reading up to 4 MB as a single read IO. However, when the data being read is in the local SSD cache, these reads are accounted as multiple individual 8-KB reads, since the buffer pool and the local SSD cache always use 8-KB pages. As the result, the number of read IOs seen against the local SSD cache might be larger than the actual number of IOs performed by the engine.
+- Large reads such as read-aheads are often done using [scatter-gather reads](/sql/relational-databases/reading-pages/). This allows reading up to 4 MB as a single read IO. However, when the data being read is in the local SSD cache, these reads are accounted as multiple individual 8-KB reads, since the buffer pool and the local SSD cache always use 8-KB pages. As the result, the number of read IOs seen against the local SSD cache might be larger than the actual number of IOs performed by the engine.
 
 ### Data writes
 
-- The primary compute replica does not write directly to page servers. Instead, log records from the log service are replayed on corresponding page servers.
-- Writes that happen on the compute replica are predominantly writes to the local SSD cache (`file_id` 0). For writes that are larger than 8 KB, in other words those done using [Gather-write](/sql/relational-databases/writing-pages/), each write operation is translated into multiple 8-KB individual writes to the local SSD cache since the buffer pool and the local SSD cache always use 8-KB pages. As the result, the number of write IOs seen against the local SSD cache might be larger than the actual number of IOs performed by the engine.
-- Data files other than `file_id` 0 that correspond to page servers might also show writes. In Hyperscale, these writes are simulated, because compute replicas never write directly to page servers. Write IOPS and throughput are accounted as they occur on the compute replica, but latency for data files other than `file_id` 0 does not reflect the actual latency of writes that occur on page servers.
+- The primary compute replica does not write directly to page servers. Instead, log records from the log service are replayed on the corresponding page servers.
+- Writes on the compute replica are predominantly writes to the local SSD cache (`file_id` 0). For writes that are larger than 8 KB, in other words those done using [gather-write](/sql/relational-databases/writing-pages/), each write operation is translated into multiple 8-KB individual writes to the local SSD cache since the buffer pool and the local SSD cache always use 8-KB pages. As the result, the number of write IOs seen against the local SSD cache might be larger than the actual number of IOs performed by the engine.
+- Data files other than `file_id` 0 that correspond to page servers might also show writes. In Hyperscale, these writes are simulated, because compute replicas never write directly to page servers. I/O statistics are accounted as they occur on the compute replica. IOPS, throughput, and latency seen on a compute replica for data files other than `file_id` 0 do not reflect the actual I/O statistics of writes that occur on page servers.
 
 ### Log writes
 
 - On the primary compute replica, a log write is accounted in `sys.dm_io_virtual_file_stats()` under `file_id` 2.
-- Unlike AlwaysOn Availability Groups, when a transaction commits on the primary compute replica, log records are not hardened on the secondary replica. In Hyperscale, log is hardened in the log service, and applied to the secondary replicas asynchronously. Because log writes don't actually occur on secondary replicas, any accounting of log IOs in `sys.dm_io_virtual_file_stats()` on the secondary replicas shouldn't be used as log I/O statistics.
+- Unlike in AlwaysOn Availability Groups, when a transaction commits on the primary compute replica, log records are not hardened on the secondary replica. In Hyperscale, log is hardened in the log service, and applied to the secondary replicas asynchronously. Because log writes don't actually occur on secondary replicas, any accounting of log IOs in `sys.dm_io_virtual_file_stats()` on the secondary replicas shouldn't be used as transaction log I/O statistics.
 
 ## Data IO in resource utilization statistics
 
-In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](./resource-limits-logical-server.md#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database/) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database/) views, in the `avg_data_io_percent` column. The same value is reported as the **Data IO Percentage** Azure Monitor metric.
+In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](./resource-limits-logical-server.md#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database/) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database/) views, in the `avg_data_io_percent` column. The corresponding DMVs for elastic pools are [sys.dm_elastic_pool_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-elastic-pool-resource-stats-azure-sql-database/) and [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database/). The same values are reported as the **Data IO Percentage** Azure Monitor metrics for databases and elastic pools.
 
-In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local SSD storage on compute replica only, which includes I/O against the local SSD cache and in the `tempdb` database. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase the compute size to increase the resource governance **Max Data IOPS** [limit](resource-limits-vcore-single-databases.md). For resource governance of local SSD cache reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the database engine.
+In a Hyperscale database, these columns and metrics report on the data IOPS utilization relative to the limit for local SSD storage on compute replica only, which includes I/O against the local SSD cache and in the `tempdb` database. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase the compute size to increase the resource governance **Max Data IOPS** [limit](resource-limits-vcore-single-databases.md). For resource governance of local SSD cache reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the database engine.
 
-Data IO against page servers is not reported in resource utilization views or via Azure Monitor metrics, but is reported in the `sys.dm_io_virtual_file_stats()`, as described earlier.
+Data IO against page servers is not reported in resource utilization views or via Azure Monitor metrics, but is reported in `sys.dm_io_virtual_file_stats()` as described earlier.
 
 ## Related content
 
