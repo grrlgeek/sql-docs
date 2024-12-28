@@ -2262,21 +2262,21 @@ items:
         href: relational-databases/clr-integration-data-access-in-process-ado-net/sqlpipe-object.md
       - name: SqlTriggerContext Object
         href: relational-databases/clr-integration-data-access-in-process-ado-net/sqltriggercontext-object.md
-    - name: User-Defined Functions
+    - name: User-defined functions
       href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-user-defined-functions.md
       items:
-      - name: Scalar-Valued
+      - name: Scalar-valued
         href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-scalar-valued-functions.md
-      - name: Table-Valued
+      - name: Table-valued
         href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-table-valued-functions.md
-      - name: User-Defined Aggregates
+      - name: User-defined aggregates
         href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-user-defined-aggregates.md
         items:
         - name: Requirements
           href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-user-defined-aggregates-requirements.md
-        - name: Invoking Functions
+        - name: Invoking functions
           href: relational-databases/clr-integration-database-objects-user-defined-functions/clr-user-defined-aggregate-invoking-functions.md
-    - name: User-Defined Types
+    - name: User-defined types
       href: relational-databases/clr-integration-database-objects-user-defined-types/clr-user-defined-types.md
       items:
       - name: Create
@@ -2291,18 +2291,18 @@ items:
       - name: Working with
         href: relational-databases/clr-integration-database-objects-user-defined-types/working-with-user-defined-types-in-sql-server.md
         items:
-        - name: Defining UDT Tables & Columns
+        - name: Defining UDT tables & columns
           href: relational-databases/clr-integration-database-objects-user-defined-types/working-with-user-defined-types-defining-udt-tables-and-columns.md
-        - name: Manipulating UDT Data
+        - name: Manipulating UDT data
           href: relational-databases/clr-integration-database-objects-user-defined-types/working-with-user-defined-types-manipulating-udt-data.md
       - name: Accessing in ADO.NET
         href: relational-databases/clr-integration-database-objects-user-defined-types/accessing-user-defined-types-in-ado-net.md
         items:
-        - name: Retrieving UDT Data
+        - name: Retrieving UDT data
           href: relational-databases/clr-integration-database-objects-user-defined-types/accessing-user-defined-types-retrieving-udt-data.md
-        - name: Updating UDT Columns with DataAdapters
+        - name: Updating UDT columns with DataAdapters
           href: relational-databases/clr-integration-database-objects-user-defined-types/accessing-user-defined-types-updating-udt-columns-with-dataadapters.md
-    - name: Integration & Transactions
+    - name: Integration & transactions
       href: relational-databases/clr-integration-data-access-transactions/clr-integration-and-transactions.md
       items:
       - name: Transaction Promotion
@@ -2378,20 +2378,20 @@ items:
         href: relational-databases/clr-integration/debugging-clr-database-objects.md
       - name: Deploy
         href: relational-databases/clr-integration/deploying-clr-database-objects.md
-      - name: Monitoring & Troubleshooting
+      - name: Monitoring & troubleshooting
         href: relational-databases/clr-integration/monitoring-and-troubleshooting-managed-database-objects.md
-      - name: Data Access from CLR Database Objects
+      - name: Data access from CLR database objects
         href: relational-databases/clr-integration/data-access/data-access-from-clr-database-objects.md
-      - name: Data Types in the .NET Framework
+      - name: Data types in the .NET Framework
         href: relational-databases/clr-integration-database-objects-types-net-framework/sql-server-data-types-in-the-net-framework.md
         items:
         - name: Collation & data types
           href: relational-databases/clr-integration-database-objects-types-net-framework/collation-and-clr-integration-data-types.md
-        - name: Large Object (LOB) Parameters
+        - name: Large object (LOB) parameters
           href: relational-databases/clr-integration-database-objects-types-net-framework/handling-large-object-lob-parameters-in-the-clr.md
         - name: Mapping parameter data
           href: relational-databases/clr-integration-database-objects-types-net-framework/mapping-clr-parameter-data.md
-        - name: Nullability & three-value logic Comparisons
+        - name: Nullability & three-value logic comparisons
           href: relational-databases/clr-integration-database-objects-types-net-framework/nullability-and-three-value-logic-comparisons.md
   - name: Extended stored procedures
     items:
