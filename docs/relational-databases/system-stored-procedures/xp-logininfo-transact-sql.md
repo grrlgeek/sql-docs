@@ -76,7 +76,7 @@ If *@acctname* and `members` are specified, a list of the next-level members of 
 
 ## Permissions
 
-Requires membership in the **sysadmin** fixed server role or membership in the **public** fixed database role in the `master` database with EXECUTE permission granted.
+Requires the CONTROL SERVER permission or a user-account in `master` database with EXECUTE permission on ***xp_logininfo*** granted.
 
 ## Examples
 
