@@ -129,7 +129,7 @@ sections:
 
   - name: Free SQL Managed Instance offer
     questions:
-      - question: What if I don't see the banner and **Apply Offer** button?
+      - question: What if I don't see the banner and "Apply Offer" button?
         answer: |
           It's possible your subscription isn't eligible for the [free SQL Managed Instance](free-offer.md#prerequisites). Otherwise, there's a limit of one free instance per subscription. You need to remove an existing free instance to create another one. If you have recently deleted your free instance, it can take up to one hour for the free offer banner to reappear.
 
@@ -609,7 +609,7 @@ sections:
 
       - question: My instance isn't able to use features introduced by the November 2022 feature wave. Why?
         answer: |
-          The feature wave is available to instances in [eligible subnets](doc-changes-updates-release-notes-whats-new.md#november-2022-feature-wave). If you don't see new features, it's likely the subnet that contains your SQL managed instance isn't eligible as it's still in the enrollment process. Instances in subnets not enrolled in the wave continue to see the Feature Wave page in the Azure Portal.
+          The feature wave is available to instances in [eligible subnets](doc-changes-updates-release-notes-whats-new.md#november-2022-feature-wave). If you don't see new features, it's likely the subnet that contains your SQL managed instance isn't eligible as it's still in the enrollment process. Instances in subnets not enrolled in the wave continue to see the Feature Wave page in the Azure portal.
 
   - name: Next-gen General Purpose service tier upgrade
     questions:
