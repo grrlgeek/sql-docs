@@ -105,7 +105,7 @@ Azure SQL Managed Instance requires aspects of the delegated subnet to be config
 - Configuring custom DNS resolution, or
 - Setting up peering or a VPN
 
-To meet the "Compliant Network Configuration" criteria in Service Level Agreement for Microsoft Online Services, the subnet and virtual network in which SQL Managed Instance is deployed must meet the following requirements:
+To meet the "Compliant Network Configuration" criteria in Service Level Agreement for Microsoft Online Services, the virtual network and subnet in which SQL Managed Instance is deployed must meet the following requirements:
 
 - **Dedicated subnet**: The subnet SQL Managed Instance uses can be delegated only to the SQL Managed Instance service. The subnet can't be a gateway subnet, and you can deploy only SQL Managed Instance resources in the subnet.
 - **Subnet delegation**: The SQL Managed Instance subnet must be delegated to the `Microsoft.Sql/managedInstances` resource provider.
