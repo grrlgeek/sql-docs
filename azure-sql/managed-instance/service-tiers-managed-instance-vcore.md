@@ -212,7 +212,7 @@ When specifying hardware parameter in templates or scripts, hardware is provided
 ### SKU names
 
 > [!NOTE]
-> When specyfing hardware and service tier in templates or scripts, you can specify them independently, or you can provide a SKU name. When specifying the SKU name, the following table applies:
+> When specifying hardware and service tier in templates or scripts, you can specify them independently, or you can provide a SKU name. When specifying the SKU name, the following table applies:
 
 |SKU|Service Tier|Hardware|
 |:-- |:-- |:-- |
