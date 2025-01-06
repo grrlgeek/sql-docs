@@ -12,7 +12,7 @@ ms.custom: intro-deployment
 
 # Load data from or into Oracle database
 
-This document focuses on how to export data from and load data into Oracle data source in SSIS.
+This document focuses on how to export data from and load data into Oracle data database.
 
 ## Install Oracle Client
 
