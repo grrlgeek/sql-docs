@@ -19,13 +19,14 @@ dev_langs:
   - "TSQL"
 monikerRange: ">=sql-server-2017 || >=sql-server-linux-2017 || =azuresqldb-mi-current"
 ---
+
 # sys.dm_tran_version_store_space_usage (Transact-SQL)
 
 [!INCLUDE [tsql-appliesto-2016sp2-asdb-xxxx-xxx-md](../../includes/tsql-appliesto-2016sp2-asdb-xxxx-xxx-md.md)]
 
-Returns a table that displays total space in `tempdb` used by version store records for each database. **sys.dm_tran_version_store_space_usage** is efficient and not expensive to run, as it does not navigate through individual version store records, and returns aggregated version store space consumed in tempdb per database.
+Returns a table that displays total space in `tempdb` used by version store records for each database. **sys.dm_tran_version_store_space_usage** is efficient and not expensive to run, as it doesn't navigate through individual version store records, and returns aggregated version store space consumed in tempdb per database.
 
-Each versioned record is stored as binary data, together with some tracking or status information. Similar to records in database tables, version-store records are stored in 8192-byte pages. If a record exceeds 8192 bytes, the record will be split across two different records.
+Each versioned record is stored as binary data, together with some tracking or status information. Similar to records in database tables, version-store records are stored in 8192-byte pages. If a record exceeds 8,192 bytes, the record is split across two different records.
 
 Because the versioned record is stored as binary, there are no problems with different collations from different databases. Use **sys.dm_tran_version_store_space_usage** to monitor and plan `tempdb` size based on the version store space usage of databases in a SQL Server instance.
 
