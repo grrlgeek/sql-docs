@@ -171,7 +171,7 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
 View the backups that are retained for a specific database with an LTR policy, and restore from those backups.
 
 > [!NOTE]
-> If the logical server has been deleted, use Azure CLI or Powershell commands to view and restore LTR backups.
+> If the logical server has been deleted, use Azure CLI or PowerShell commands to view and restore LTR backups.
 
 # [Portal](#tab/portal)
 
