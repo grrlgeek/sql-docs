@@ -146,7 +146,7 @@ Release Candidate 0 (RC0)
 ## SQL Server 2019 Reporting Services
 
 ## 15.0.9098.6826, 2025/01/06
-*(Product Version: 15.0.1103.41 )*
+*(Product Version: 15.0.1103.41)*
 
 - Added Mobile Report support back to SSRS 2019
 - Updated SSRS to use Microsoft.Data.SqlClient in place of (now deprecated) System.Data.SqlClient
@@ -157,7 +157,7 @@ Release Candidate 0 (RC0)
 - Fixed issue changing service account password in RSConfig tool.
 
 ## 15.0.8969.33375, 2024/07/23
-*(Product Version: 15.0.1103.12 )*
+*(Product Version: 15.0.1103.12)*
 
 - Fixed error faced when editing data driven subscriptions
 - Fixed verbose log causing RDL reports to not render
