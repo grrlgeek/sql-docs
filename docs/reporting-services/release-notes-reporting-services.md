@@ -145,8 +145,6 @@ Release Candidate 0 (RC0)
 
 ## SQL Server 2019 Reporting Services
 
-SSRS 2019 build: Pipelines - Run 15.0.1103.41
-
 ## 15.0.9098.6826, 2025/01/06
 *(Product Version: 15.0.1103.41 )*
 
