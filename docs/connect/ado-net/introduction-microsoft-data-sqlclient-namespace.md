@@ -1,9 +1,9 @@
 ---
 title: Introduction to Microsoft.Data.SqlClient namespace
 description: Learn about the Microsoft.Data.SqlClient namespace and how it's the preferred way to connect to SQL for .NET applications.
-author: David-Engel
-ms.author: davidengel
-ms.date: 05/31/2024
+author: cheenamalhotra
+ms.author: cmalhotra
+ms.date: 01/09/2025
 ms.service: sql
 ms.subservice: connectivity
 ms.topic: conceptual
@@ -19,6 +19,127 @@ There are a few differences in less-used APIs compared to System.Data.SqlClient 
 ## API reference
 
 The Microsoft.Data.SqlClient API details can be found in the [.NET API Browser](/dotnet/api/microsoft.data.sqlclient).
+
+## Release notes for Microsoft.Data.SqlClient 6.0
+
+### Breaking changes in 6.0
+
+- Dropped support for .NET Standard. [#2386](https://github.com/dotnet/SqlClient/pull/2386)
+- Dropped support for .NET 6 [#2927](https://github.com/dotnet/SqlClient/pull/2927)
+- Dropped UWP (uap) references. [#2483](https://github.com/dotnet/SqlClient/pull/2483)
+- Dropped SQL 2000 client-side debugging support for .NET Framework [#2981](https://github.com/dotnet/SqlClient/pull/2981), [#2940](https://github.com/dotnet/SqlClient/pull/2940)
+
+### New features in 6.0
+
+- Added support for JSON datatype [#2916](https://github.com/dotnet/SqlClient/pull/2916), [#2892](https://github.com/dotnet/SqlClient/pull/2892), [#2891](https://github.com/dotnet/SqlClient/pull/2891), [#2880](https://github.com/dotnet/SqlClient/pull/2880), [#2882](https://github.com/dotnet/SqlClient/pull/2882), [#2829](https://github.com/dotnet/SqlClient/pull/2829), [#2830](https://github.com/dotnet/SqlClient/pull/2830)
+- Added support for .NET 9 [#2946](https://github.com/dotnet/SqlClient/pull/2946)
+- Added localization in Czech, Polish, and Turkish [#2987](https://github.com/dotnet/SqlClient/pull/2987)
+- Added `TokenCredential` object to take advantage of token caching in `ActiveDirectoryAuthenticationProvider`. [#2380](https://github.com/dotnet/SqlClient/pull/2380)
+- Added `DateOnly` and `TimeOnly` support to `DataTable` as a structured parameter. [#2258](https://github.com/dotnet/SqlClient/pull/2258)
+- Added `Microsoft.Data.SqlClient.Diagnostics.SqlClientDiagnostic` type in .NET. [#2226](https://github.com/dotnet/SqlClient/pull/2226)
+- Added scope trace for `GenerateSspiClientContext`. [#2497](https://github.com/dotnet/SqlClient/pull/2497), [#2725](https://github.com/dotnet/SqlClient/pull/2725)
+- Added readme to nuget package [#2826](https://github.com/dotnet/SqlClient/pull/2826)
+- Enabled NuGet package auditing via NuGet.org audit source [#3024](https://github.com/dotnet/SqlClient/pull/3024)
+- Added missing SqlCommand_BeginExecuteReader code sample [#3009](https://github.com/dotnet/SqlClient/pull/3009)
+- Added support for `SqlConnectionOverrides` in `OpenAsync()` API [#2433](https://github.com/dotnet/SqlClient/pull/2433)
+
+### Json support
+
+JSON Datatype support is now available in Microsoft.Data.SqlClient v6.0. This release introduces `SqlJson` type available as an extension to `System.Data.SqlDbTypes`:
+
+```cs
+using System;
+using System.Data.SqlTypes;
+using System.Text.Json;
+
+namespace Microsoft.Data.SqlTypes
+{
+    /// <summary>
+    /// Represents the Json Data type in SQL Server.
+    /// </summary>
+    public class SqlJson : INullable
+    {
+        /// <summary>
+        /// Parameterless constructor. Initializes a new instance of the SqlJson class which 
+        /// represents a null JSON value.
+        /// </summary>
+        public SqlJson() { }
+
+        /// <summary>
+        /// Takes a <see cref="string"/> as input and initializes a new instance of the SqlJson class.
+        /// </summary>
+        /// <param name="jsonString"></param>
+        public SqlJson(string jsonString) { }
+
+        /// <summary>
+        /// Takes a <see cref="JsonDocument"/> as input and initializes a new instance of the SqlJson class.
+        /// </summary>
+        /// <param name="jsonDoc"></param>
+        public SqlJson(JsonDocument jsonDoc) { }
+
+        /// <inheritdoc/>
+        public bool IsNull => throw null;
+
+        /// <summary>
+        /// Represents a null instance of the <see cref="SqlJson"/> type.
+        /// </summary>
+        public static SqlJson Null { get { throw null; } }
+
+        /// <summary>
+        /// Gets the string representation of the Json content of this <see cref="SqlJson" /> instance.
+        /// </summary>
+        public string Value { get ; }
+    }
+}
+```
+
+Json datatype is supported by the driver for reading, writing, streaming and performing bulk copy operations.
+
+### Introducing SqlClientDiagnostics
+
+`SqlClientDiagnostic` is now available as a strongly-typed collection of key-value pairs that can be captured by consuming applications.
+
+```cs
+// Class that provides strongly-typed collection of key-value pairs for SqlClient diagnostic objects.
+public abstract class SqlClientDiagnostic : System.Collections.Generic.IReadOnlyList<System.Collections.Generic.KeyValuePair<string, object>>
+{
+    // A guid value used to correlate before, after and error events.
+    public System.Guid OperationId;
+    
+    // The name of the operation.
+    public string Operation;
+
+    // The timestamp of the event.
+    public long Timestamp;
+
+    // The number of elements in the collection.
+    public int Count;
+
+    // The element at the specified index in the read-only list.
+    public System.Collections.Generic.KeyValuePair<string, object> this[int index];
+    
+    // An enumerator that can be used to iterate through the collection.
+    public System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string, object>> GetEnumerator();
+}
+```
+
+### Added support for Connection Overrides in OpenAsync() API
+
+The default behavior of `SqlConnection.OpenAsync()` can be overridden to disable the ten-second delay and automatic connection retries triggered by transient errors.
+
+```cs
+using(SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integrated Security=true;Initial Catalog=AdventureWorks;"))
+{
+    await sqlConnection.OpenAsync(SqlConnectionOverrides.OpenWithoutRetry, cancellationToken);
+}
+```
+
+## 6.0 Target platform support
+
+- .NET Framework 4.6.2+ (Windows x86, Windows x64)
+- .NET 8.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+
+Full release notes, including dependencies, are available in the GitHub Repository: [6.0 Release Notes](https://github.com/dotnet/SqlClient/tree/main/release-notes/6.0).
 
 ## Release notes for Microsoft.Data.SqlClient 5.2
 
@@ -74,7 +195,7 @@ SqlConnection supports `TokenCredential` authentication by introducing a new `Ac
 
 Example usage:
 
-```C#
+```cs
 using Microsoft.Data.SqlClient;
 using Azure.Identity;
 
@@ -104,7 +225,7 @@ Console.WriteLine("State: {0}", connection.State);
 
 Example usage:
 
-```csharp
+```cs
 using Microsoft.Data.SqlClient;
 
 class Program
@@ -730,7 +851,7 @@ _[Applies to all .NET Platforms (.NET Framework, .NET Core, and .NET Standard)]_
     SqlAuthenticationProvider customAuthProvider = new ActiveDirectoryAuthenticationProvider(APP_CLIENT_ID);
     SqlAuthenticationProvider.SetProvider(SqlAuthenticationMethod.ActiveDirectoryInteractive, customAuthProvider);
     
-    using (SqlConnection sqlConnection = new SqlConnection("<connection_string>")
+    using (SqlConnection sqlConnection = new SqlConnection("<connection_string>"))
     {
         sqlConnection.Open();
     }
@@ -924,13 +1045,15 @@ The RowsCopied property provides read-only access to the number of rows that hav
 
 The default behavior of SqlConnection.Open() can be overridden to disable the ten-second delay and automatic connection retries triggered by transient errors.
 
-```csharp
-using SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integrated Security=true;Initial Catalog=AdventureWorks;");
-sqlConnection.Open(SqlConnectionOverrides.OpenWithoutRetry);
+```cs
+using(SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integrated Security=true;Initial Catalog=AdventureWorks;"))
+{
+    sqlConnection.Open(SqlConnectionOverrides.OpenWithoutRetry);
+}
 ```
 
 > [!NOTE]
-> Note that this override can only be applied to SqlConnection.Open() and not SqlConnection.OpenAsync().
+> Note that this override can be applied to `SqlConnection.OpenAsync()` with Microsoft.Data.SqlClient v6.0.0 onwards.
 
 #### Username support for Active Directory Interactive mode
 
@@ -938,7 +1061,7 @@ A username can be specified in the connection string when using Microsoft Entra 
 
 Set a username using the **User ID** or **UID** connection string property:
 
-```csharp
+```cs
 "Server=<server name>; Database=<db name>; Authentication=Active Directory Interactive; User Id=<username>;Encrypt=True;"
 ```
 
@@ -966,7 +1089,7 @@ Full release notes, including dependencies, are available in the GitHub Reposito
 
 Always Encrypted is available starting in Microsoft SQL Server 2016. Secure enclaves are available starting in Microsoft SQL Server 2019. To use the enclave feature, connection strings should include the required attestation protocol and attestation URL. For example:
 
-```csharp
+```cs
 "Attestation Protocol=HGS;Enclave Attestation Url=<attestation_url_for_HGS>"
 ```
 
@@ -1007,7 +1130,7 @@ Full release notes, including dependencies, are available in the GitHub Reposito
 
 Data Classification brings a new set of APIs exposing read-only Data Sensitivity and Classification information about objects retrieved via SqlDataReader when the underlying source supports the feature and contains metadata about [data sensitivity and classification](../../relational-databases/security/sql-data-discovery-and-classification.md). See the sample application at [Data Discovery and Classification in SqlClient](https://github.com/dotnet/SqlClient/tree/master/release-notes/1.1).
 
-```csharp
+```cs
 public class SqlDataReader
 {
     public Microsoft.Data.SqlClient.DataClassification.SensitivityClassification SensitivityClassification
