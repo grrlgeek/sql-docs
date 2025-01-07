@@ -5,7 +5,7 @@ description: Setup and configuration details for database watcher
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: wiassaf
-ms.date: 12/28/2024
+ms.date: 01/07/2024
 ms.service: azure-sql
 ms.subservice: monitoring
 ms.topic: how-to
@@ -19,13 +19,15 @@ monikerRange: "=azuresql || =azuresql-db || =azuresql-mi"
 
 [!INCLUDE [sqldb-sqlmi](./includes/appliesto-sqldb-sqlmi.md)]
 
-This article contains detailed steps to create, configure, and start a database watcher in the Azure portal for Azure SQL Database and Azure SQL Managed Instance. 
+This article contains detailed steps to create, configure, and start a database watcher in the Azure portal for Azure SQL Database and Azure SQL Managed Instance.
 
 Database watcher does not require you to deploy and maintain any monitoring agents or other monitoring infrastructure. You can enable in-depth database monitoring of your Azure SQL resources in minutes.
 
 For a simplified step-by-step example to create and configure a database watcher, see [Quickstart: Create a database watcher to monitor Azure SQL](database-watcher-quickstart.md).
 
-To see how you can create and configure a database watcher with [Bicep](/azure/azure-resource-manager/bicep/overview) or an ARM template, see the [Create a database watcher](/samples/azure/azure-quickstart-templates/create-watcher/) code sample.
+To see how you can create and configure a database watcher with [Bicep](/azure/azure-resource-manager/bicep/overview) or an [ARM template](/azure/azure-resource-manager/templates/syntax), see the [Create a database watcher](/samples/azure/azure-quickstart-templates/create-watcher/) code sample.
+
+To define watchers using Infrastructure as Code, including [Bicep](/azure/azure-resource-manager/bicep/overview), [ARM templates](/azure/azure-resource-manager/templates/syntax), or [Terraform AzAPI](/azure/developer/terraform/overview-azapi-provider), see the [Azure resource reference](/azure/templates/microsoft.databasewatcher/watchers) documentation.
 
 To manage database watchers programmatically, see the database watcher [REST API](/rest/api/databasewatcher) documentation.
 
