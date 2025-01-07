@@ -33,15 +33,15 @@ The Microsoft.Data.SqlClient API details can be found in the [.NET API Browser](
 
 - Added support for JSON datatype [#2916](https://github.com/dotnet/SqlClient/pull/2916), [#2892](https://github.com/dotnet/SqlClient/pull/2892), [#2891](https://github.com/dotnet/SqlClient/pull/2891), [#2880](https://github.com/dotnet/SqlClient/pull/2880), [#2882](https://github.com/dotnet/SqlClient/pull/2882), [#2829](https://github.com/dotnet/SqlClient/pull/2829), [#2830](https://github.com/dotnet/SqlClient/pull/2830)
 - Added support for .NET 9 [#2946](https://github.com/dotnet/SqlClient/pull/2946)
+- Added `Microsoft.Data.SqlClient.Diagnostics.SqlClientDiagnostic` type in .NET. [#2226](https://github.com/dotnet/SqlClient/pull/2226)
+- Added `DateOnly` and `TimeOnly` support to `DataTable` as a structured parameter. [#2258](https://github.com/dotnet/SqlClient/pull/2258)
+- Added support for `SqlConnectionOverrides` in `OpenAsync()` API [#2433](https://github.com/dotnet/SqlClient/pull/2433)
 - Added localization in Czech, Polish, and Turkish [#2987](https://github.com/dotnet/SqlClient/pull/2987)
 - Added `TokenCredential` object to take advantage of token caching in `ActiveDirectoryAuthenticationProvider`. [#2380](https://github.com/dotnet/SqlClient/pull/2380)
-- Added `DateOnly` and `TimeOnly` support to `DataTable` as a structured parameter. [#2258](https://github.com/dotnet/SqlClient/pull/2258)
-- Added `Microsoft.Data.SqlClient.Diagnostics.SqlClientDiagnostic` type in .NET. [#2226](https://github.com/dotnet/SqlClient/pull/2226)
-- Added scope trace for `GenerateSspiClientContext`. [#2497](https://github.com/dotnet/SqlClient/pull/2497), [#2725](https://github.com/dotnet/SqlClient/pull/2725)
 - Added readme to nuget package [#2826](https://github.com/dotnet/SqlClient/pull/2826)
 - Enabled NuGet package auditing via NuGet.org audit source [#3024](https://github.com/dotnet/SqlClient/pull/3024)
 - Added missing SqlCommand_BeginExecuteReader code sample [#3009](https://github.com/dotnet/SqlClient/pull/3009)
-- Added support for `SqlConnectionOverrides` in `OpenAsync()` API [#2433](https://github.com/dotnet/SqlClient/pull/2433)
+- Added scope trace for `GenerateSspiClientContext`. [#2497](https://github.com/dotnet/SqlClient/pull/2497), [#2725](https://github.com/dotnet/SqlClient/pull/2725)
 
 ### Json support
 
