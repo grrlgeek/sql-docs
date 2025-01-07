@@ -4,7 +4,7 @@ description: CREATE EXTERNAL TABLE (Transact-SQL) creates an external table.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: hudequei
-ms.date: 07/11/2023
+ms.date: 01/07/2025
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
@@ -258,13 +258,13 @@ PolyBase in SQL Server 2016 has a row width limit of 32 KB based on the maximum 
 
 The following data types cannot be used in PolyBase external tables:
 
-- `geography`
-- `geometry`
-- `hierarchyid`
-- `image`
-- `text`
-- `nText`
-- `xml`
+- **geography**
+- **geometry**
+- **hierarchyid**
+- **image**
+- **text**
+- **ntext**
+- **xml**
 - Any user-defined type
 
 ### Data source specific limitations
@@ -707,7 +707,7 @@ The one to three-part name of the table to create. For an external table, SQL st
 CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability, and collation. You can't use the DEFAULT CONSTRAINT on external tables.
 
 > [!NOTE]  
-> `Text`, `nText` and `XML` are not supported data types for columns in external tables for Azure SQL Database.
+> The **text**, **ntext**, **xml**, and **json** data types are not supported for columns in external tables for Azure SQL Database.
 
 The column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
 
@@ -789,13 +789,13 @@ You can create multiple external tables that each reference different external d
 
 The following data types cannot be used in PolyBase external tables:
 
-- `geography`
-- `geometry`
-- `hierarchyid`
-- `image`
-- `text`
-- `nText`
-- `xml`
+- **geography**
+- **geometry**
+- **hierarchyid**
+- **image**
+- **text**
+- **ntext**
+- **xml**
 - Any user-defined type
 
 ## Locking
@@ -948,7 +948,7 @@ The one to three-part name of the table to create. For an external table, only t
 CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability, and collation. You can't use the DEFAULT CONSTRAINT on external tables.
 
 > [!NOTE]  
-> Deprecated data types `text`, `ntext` and `XML` are not supported data types for columns in external tables for Synapse Analytics.
+> The data types **text**, **ntext**, and **xml** are not supported data types for columns in external tables for Synapse Analytics.
 
 - When reading delimited files, the column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
 - When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
@@ -1126,13 +1126,13 @@ PolyBase in Azure Data Warehouse has a row width limit of 1 MB based on the maxi
 
 The following data types cannot be used in PolyBase external tables:
 
-- `geography`
-- `geometry`
-- `hierarchyid`
-- `image`
-- `text`
-- `nText`
-- `xml`
+- **geography**
+- **geometry**
+- **hierarchyid**
+- **image**
+- **text**
+- **ntext**
+- **xml**
 - Any user-defined type
 
 ## Locking
@@ -1428,13 +1428,13 @@ In Azure Synapse Analytics, this limitation has been raised to 1 MB.
 
 The following data types cannot be used in PolyBase external tables:
 
-- `geography`
-- `geometry`
-- `hierarchyid`
-- `image`
-- `text`
-- `nText`
-- `xml`
+- **geography**
+- **geometry**
+- **hierarchyid**
+- **image**
+- **text**
+- **ntext**
+- **xml**
 - Any user-defined type
 
 ## Locking
@@ -1619,13 +1619,14 @@ The row width limit of 1 MB is based on the maximum size of a single valid row b
 
 The following data types cannot be used in external tables in [!INCLUDE[ssazuremi-md](../../includes/ssazuremi-md.md)]:
 
-- `geography`
-- `geometry`
-- `hierarchyid`
-- `image`
-- `text`
-- `nText`
-- `xml`
+- **geography**
+- **geometry**
+- **hierarchyid**
+- **image**
+- **text**
+- **ntext**
+- **xml**
+- **json**
 - Any user-defined type
 
 ## Locking
