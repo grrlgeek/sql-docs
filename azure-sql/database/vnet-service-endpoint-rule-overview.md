@@ -77,7 +77,7 @@ For SQL Database, the virtual network rules feature has the following limitation
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules don't:
   - [Site-to-site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
   - On-premises via [Azure ExpressRoute](/azure/expressroute/index)
-  - Both subscriptions must be in the same Microsoft Entra tenant.
+- Both subscriptions must be in the same Microsoft Entra tenant.
 
 ### Considerations when you use service endpoints
 
