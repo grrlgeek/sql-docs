@@ -45,4 +45,4 @@ Use ADO NET destination loads data into ADO.NET-compliant databases. For details
 :::image type="content" source="media/load-data-to-from-oracle-generic/ado-destination.png" alt-text="ado.net destination":::
 
 > [!NOTE]
-> ADO.NET allows packages to access data sources with the .NET OracleClient Data Provider. When migrating from Microsoft's connector for Oracle, custom properties in Oracle source and Oracle destination components are not available in ADO.NET source and destination.
+> ADO.NET allows packages to access data sources with the .NET OracleClient Data Provider. When migrating from Microsoft's connector for Oracle, custom properties in Oracle source and Oracle destination components aren't available in ADO.NET source and destination.
