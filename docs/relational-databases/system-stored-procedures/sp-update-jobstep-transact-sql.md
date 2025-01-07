@@ -1,10 +1,10 @@
 ---
 title: "sp_update_jobstep (Transact-SQL)"
-description: "sp_update_jobstep changes the settings for a step in a job in the SQL Server Agent service."
+description: sp_update_jobstep changes the settings for a step in a job in the SQL Server Agent service.
 author: markingmyname
 ms.author: maghan
 ms.reviewer: randolphwest, wiassaf
-ms.date: 08/21/2024
+ms.date: 01/07/2025
 ms.service: sql
 ms.subservice: system-objects
 ms.topic: "reference"
@@ -82,7 +82,7 @@ The subsystem used by [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.m
 
 #### [ @command = ] N'*command*'
 
-The command(s) to be executed through *@subsystem*. *@command* is **nvarchar(max)**, with a default of `NULL`.
+The commands to be executed through *@subsystem*. *@command* is **nvarchar(max)**, with a default of `NULL`.
 
 #### [ @additional_parameters = ] N'*additional_parameters*'
 
@@ -164,10 +164,10 @@ An option that controls behavior. *@flags* is **int**, with a default of `NULL`.
 | --- | --- | --- |
 | `0` (default) | Overwrite output file | |
 | `2` | Append to output file | |
-| `4` | Write Transact-SQL job step output to step history | Apply to Type : Transact-SQL, Analysis Services Command and Analysis Query |
+| `4` | Write Transact-SQL job step output to step history | Apply to Type: Transact-SQL, Analysis Services Command, and Analysis Query |
 | `8` | Write log to table (overwrite existing history) | |
 | `16` | Write log to table (append to existing history) | |
-| `32` | Write SSIS/CmdExe/Powershell job step output to step history | Apply to Type : CmdExe, Powershell and Integration Services Package |
+| `32` | Write SSIS/CmdExe/PowerShell job step output to step history | Apply to Type: CmdExe, PowerShell, and Integration Services Package |
 
 #### [ @proxy_id = ] *proxy_id*
 
@@ -213,7 +213,7 @@ The following example changes the number of retry attempts for the first step of
 USE msdb;
 GO
 
-EXEC dbo.sp_update_jobstep
+EXECUTE dbo.sp_update_jobstep
     @job_name = N'Weekly Sales Data Backup',
     @step_id = 1,
     @retry_attempts = 10;
