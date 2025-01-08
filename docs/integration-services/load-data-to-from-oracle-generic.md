@@ -28,7 +28,7 @@ First, download [the latest Oracle Client for Microsoft Tools](https://www.oracl
 1. Create ADO.NET connection for Oracle connection
 1. Choose .Net Providers\OracleClient Data Provider, then enter server name, username, and password.
 
-:::image type="content" source="media/load-data-to-from-oracle-generic/connection-manager.png" alt-text="ado.net connection manager":::
+:::image type="content" source="media/load-data-to-from-oracle-generic/connection-manager.png" alt-text="Screenshot of ado.net connection manager.":::
 
 For details, see [ADO.NET connection manager](connection-manager/ado-net-connection-manager.md).
 
@@ -36,13 +36,13 @@ For details, see [ADO.NET connection manager](connection-manager/ado-net-connect
 
 Export data using the ADO NET source. For details, see [ADO NET Source](data-flow/ado-net-source.md).
 
-:::image type="content" source="media/load-data-to-from-oracle-generic/ado-source.png" alt-text="ado.net source":::
+:::image type="content" source="media/load-data-to-from-oracle-generic/ado-source.png" alt-text="Screenshot of ado.net source.":::
 
 ## Configure ADO.NET Destination
 
 Use ADO NET destination loads data into ADO.NET-compliant databases. For details, see [ADO NET Destination](data-flow/ado-net-destination.md).
 
-:::image type="content" source="media/load-data-to-from-oracle-generic/ado-destination.png" alt-text="ado.net destination":::
+:::image type="content" source="media/load-data-to-from-oracle-generic/ado-destination.png" alt-text="Screenshot of ado.net destination.":::
 
 > [!NOTE]
 > ADO.NET allows packages to access data sources with the .NET OracleClient Data Provider. When migrating from Microsoft's connector for Oracle, custom properties in Oracle source and Oracle destination components aren't available in ADO.NET source and destination.
