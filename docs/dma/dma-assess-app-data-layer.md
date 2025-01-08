@@ -1,10 +1,10 @@
 ---
-title: "Assess an app's data access layer with Data Migration Assistant"
+title: "Assess an App's Data Access Layer With Data Migration Assistant"
 description: Learn how to use the Data Migration Assistant to assess the data access layer for an application. The data access layer gives access to persisted data.
 author: ajithkr-ms
 ms.author: ajithkr
 ms.reviewer: randolphwest
-ms.date: 06/28/2024
+ms.date: 01/08/2025
 ms.service: sql
 ms.subservice: dma
 ms.topic: how-to
@@ -34,9 +34,13 @@ As an application owner, you need to be able to identify the various databases t
 
 ## Assess an application with Data Access Migration Toolkit
 
+> [!IMPORTANT]  
+> Data Access Migration Toolkit (DAMT) is [deprecated](/lifecycle/definitions#deprecation). For migration options from [!INCLUDE [ssnoversion-md](../includes/ssnoversion-md.md)] to Azure SQL, see the [migration options for SQL Server to Azure SQL](/data-migration/sql-server/overview).
+
 To enable this assessment, use the Data Access Migration Toolkit (DAMT), a Visual Studio Code extension. The latest version of this extension (v 0.2) adds support for .NET applications and T-SQL dialect.
 
 1. Download and install [VS Code](https://code.visualstudio.com/download).
+
 1. Enable the [Data Access Migration Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) from the Extensions Marketplace.
 
    :::image type="content" source="media/dma-assess-app-data-layer/dma-damt-extension-page.png" alt-text="Screenshot shows the Data Access Migration Toolkit extension page in Visual Studio Code." lightbox="media/dma-assess-app-data-layer/dma-damt-extension-page.png":::
@@ -104,6 +108,5 @@ Now, in addition to having the database perspective of the migration, users also
 ## Related content
 
 - [Overview of Data Migration Assistant](dma-overview.md)
-- [Data Migration Assistant: Configuration settings](dma-configurationsettings.md)
-- [Data Migration Assistant: Best Practices](dma-bestpractices.md)
-- [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- [Configure settings for Data Migration Assistant](dma-configurationsettings.md)
+- [Best practices for running Data Migration Assistant](dma-bestpractices.md)
