@@ -43,7 +43,7 @@ The Microsoft.Data.SqlClient API details can be found in the [.NET API Browser](
 - Added missing SqlCommand_BeginExecuteReader code sample [#3009](https://github.com/dotnet/SqlClient/pull/3009)
 - Added scope trace for `GenerateSspiClientContext`. [#2497](https://github.com/dotnet/SqlClient/pull/2497), [#2725](https://github.com/dotnet/SqlClient/pull/2725)
 
-### Json support
+### JSON datatype support
 
 JSON Datatype support is now available in Microsoft.Data.SqlClient v6.0. This release introduces `SqlJson` type available as an extension to `System.Data.SqlDbTypes`:
 
@@ -86,42 +86,34 @@ namespace Microsoft.Data.SqlTypes
         public static SqlJson Null { get { throw null; } }
 
         /// <summary>
-        /// Gets the string representation of the Json content of this <see cref="SqlJson" /> instance.
+        /// Gets the string representation of the JSON content of this <see cref="SqlJson" /> instance.
         /// </summary>
         public string Value { get ; }
     }
 }
 ```
 
-Json datatype is supported by the driver for reading, writing, streaming and performing bulk copy operations.
+JSON datatype is supported by the driver for reading, writing, streaming and performing bulk copy operations.
 
 ### Introducing SqlClientDiagnostics
 
-`SqlClientDiagnostic` is now available as a strongly-typed collection of key-value pairs that can be captured by consuming applications.
+New types are available in the `Microsoft.Data.SqlClient.Diagnostics` namespace that provide a strongly-typed collection of key-value pairs to be captured by consuming applications for gathering diagnostic events emitted by the driver. Below types are introduced with this release:
 
-```cs
-// Class that provides strongly-typed collection of key-value pairs for SqlClient diagnostic objects.
-public abstract class SqlClientDiagnostic : System.Collections.Generic.IReadOnlyList<System.Collections.Generic.KeyValuePair<string, object>>
-{
-    // A guid value used to correlate before, after and error events.
-    public System.Guid OperationId;
-    
-    // The name of the operation.
-    public string Operation;
-
-    // The timestamp of the event.
-    public long Timestamp;
-
-    // The number of elements in the collection.
-    public int Count;
-
-    // The element at the specified index in the read-only list.
-    public System.Collections.Generic.KeyValuePair<string, object> this[int index];
-    
-    // An enumerator that can be used to iterate through the collection.
-    public System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string, object>> GetEnumerator();
-}
-```
+- `SqlClientCommandBefore`
+- `SqlClientCommandAfter`
+- `SqlClientCommandError`
+- `SqlClientConnectionOpenBefore`
+- `SqlClientConnectionOpenAfter`
+- `SqlClientConnectionOpenError`
+- `SqlClientConnectionCloseBefore`
+- `SqlClientConnectionCloseAfter`
+- `SqlClientConnectionCloseError`
+- `SqlClientTransactionCommitBefore`
+- `SqlClientTransactionCommitAfter`
+- `SqlClientTransactionCommitError`
+- `SqlClientTransactionRollbackBefore`
+- `SqlClientTransactionRollbackAfter`
+- `SqlClientTransactionRollbackError`
 
 ### Added support for Connection Overrides in OpenAsync() API
 
