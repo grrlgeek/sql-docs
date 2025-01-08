@@ -1045,7 +1045,7 @@ using(SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integ
 ```
 
 > [!NOTE]
-> Note that this override can be applied to `SqlConnection.OpenAsync()` with Microsoft.Data.SqlClient v6.0.0 onwards.
+> Note that this override can be applied to `SqlConnection.OpenAsync()` starting with Microsoft.Data.SqlClient v6.0.0.
 
 #### Username support for Active Directory Interactive mode
 

@@ -20,7 +20,7 @@ If you need to download the Microsoft.Data.SqlClient package for offline use, it
 
 For more information about version compatibility and support, see [SQL version compatibility with Microsoft.Data.SqlClient](sqlclient-driver-support-lifecycle.md#sql-version-compatibility-with-microsoftdatasqlclient).
 
-## Download supported stable versions of Microsoft SqlClient Data Provider for SQL Server
+## Download supported versions of Microsoft SqlClient Data Provider for SQL Server
 
 * [6.0.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/6.0.0)
 * [5.2.2](https://www.nuget.org/packages/Microsoft.Data.SqlClient/5.2.2)
