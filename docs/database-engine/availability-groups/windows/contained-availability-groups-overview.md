@@ -131,7 +131,7 @@ Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversio
 
 ### Resource Governor
 
-Resource Governor with a contained availability group isn't applicable. Configuring a Resource Governor when connected to a contained availability group doesn't work. 
+Resource Governor works at the instance level. Resource Governor with a contained availability group isn't applicable.
 
 ### Change data capture
 
