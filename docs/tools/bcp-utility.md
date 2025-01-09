@@ -454,7 +454,7 @@ To check if your version of **bcp** includes support for Microsoft Entra authent
 
 - **Microsoft Entra interactive**
 
-  **Applies to:** Windows only. Linux and macOS is not supported.
+  **Applies to:** Windows only. Linux and macOS are not supported.
 
   Microsoft Entra interactive authentication, available for all Azure SQL, and [!INCLUDE [sssql22-md](../includes/sssql22-md.md)] and later versions, allows you to use an interactive dialog to authenticate, which also supports multifactor authentication.
 
