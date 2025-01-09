@@ -45707,7 +45707,17 @@
     },
     {
       "source_path": "docs/connect/odbc/connecting-with-bcp.md",
-      "redirect_url": "/sql/connect/odbc/linux-mac/connecting-with-bcp",
+      "redirect_url": "/sql/tools/bcp-utility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/connect/odbc/linux/connecting-with-bcp.md",
+      "redirect_url": "/sql/tools/bcp-utility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/connect/odbc/linux-mac/connecting-with-bcp.md",
+      "redirect_url": "/sql/tools/bcp-utility",
       "redirect_document_id": false
     },
     {
@@ -45728,11 +45738,6 @@
     {
       "source_path": "docs/connect/odbc/windows/using-transparent-network-ip-resolution.md",
       "redirect_url": "/sql/connect/odbc/using-transparent-network-ip-resolution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/connect/odbc/linux/connecting-with-bcp.md",
-      "redirect_url": "/sql/connect/odbc/linux-mac/connecting-with-bcp",
       "redirect_document_id": false
     },
     {
