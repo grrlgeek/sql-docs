@@ -59,7 +59,7 @@ To support the [!INCLUDE [ssHADR](../../../includes/sshadr-md.md)] feature, ensu
 
 - **Identical disk layout:** Every computer on which a server instance hosts an availability replica should have an identical disk layout (with exact disk drive letters and sizes) to ensure file paths for database files (mdf, ldf) are mirrored, preventing complications during seeding and synchronization.  Review [Restrictions (availability databases)](#RestrictionsDb) for disk layouts that differ.
 
-- **Resource Governor configuration**: If you are using Resource Governor, use the same Resource Governor configuration on all instances that host availability group replicas.
+- **Resource Governor configuration:** If you are using Resource Governor, use the same Resource Governor configuration on all instances that host availability group replicas.
 
 ### <a id="PermissionsWindows"></a> Permissions (Windows system)
 
