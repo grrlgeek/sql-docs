@@ -74,6 +74,10 @@ You can restore a contained system database using one of two different ways.
 
   1. Recreate the contained AG using original nodes and name, using `WITH (CONTAINED, REUSE_SYSTEM_DATABASES)` syntax.
 
+### Contain availability group jobs
+
+Jobs that belong to a contained availability group run on the primary replica only. They do not run on secondary replicas.
+
 ### Connect (contained environment)
 
 It's important to distinguish the difference between connecting to the instance, and connecting to the contained AG. The only way to access the environment of the contained AG is to connect to the contained AG listener, or to connect to a database that is in the contained AG.
