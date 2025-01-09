@@ -88,7 +88,7 @@ Different Windows operating systems have different SMB protocol versions, and th
 - The [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] service account and [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] agent service account should have `FULL CONTROL` share permissions and NTFS permissions on the SMB share folders. The [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] service account can be a domain account or a system account if an SMB file server is used. For more information about share and NTFS permissions, see [Share and NTFS Permissions on a File Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754178(v=ws.11)).
 
   > [!NOTE]  
-  > The `FULL CONTROL` share permissions and NTFS permissions on the SMB share folders should be restricted to the [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] service account, the [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] Agent service account, and Windows users with admininstrator server roles.
+  > The `FULL CONTROL` share permissions and NTFS permissions on the SMB share folders should be restricted to the [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] service account, the [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] Agent service account, and Windows users with administrator server roles.
 
   Use a domain account as a [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] service account. If system account is used as a service account, grant the permissions for the machine account in the format `<domain-name>\<computer-name>*$*`.
 
