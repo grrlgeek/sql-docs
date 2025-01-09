@@ -136,6 +136,10 @@ Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversio
 
 Resource Governor works at the instance level. Resource Governor with a contained availability group isn't applicable.
 
+Resource Governor configuration DDL commands have no effect when executed on a contained availability group connection.
+
+If Resource Governor is enabled via an instance connection, it has no effect on the contained availability group connections.
+
 ### Change data capture
 
 Change data capture (CDC) is implemented as SQL Agent jobs, so the SQL Agent needs to be running on all instances with replicas in the contained AG.

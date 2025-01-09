@@ -49,6 +49,7 @@ Resource governor has the following limitations:
 - Very short queries, such as queries in some OLTP workloads, might not use CPU long enough to apply CPU bandwidth controls. This might skew CPU usage statistics and limit the effectiveness of CPU resource governance.
 - The ability to govern physical I/O applies only to user operations and not system tasks. System tasks perform transaction log, checkpoint, and lazy writer I/O. Resource governor governs user physical reads I/O but not write I/O performed by system tasks.
 - You can't modify resource governance controls for the `internal` resource pool and workload group.
+- Resource Governor works at the instance level. Resource Governor with a contained availability group isn't applicable.
 
 ## Resource concepts
 
