@@ -8,6 +8,8 @@ ms.date: 09/18/2024
 ms.service: sql
 ms.subservice: system-objects
 ms.topic: reference
+ms.custom:
+  - ignite-2024
 f1_keywords:
   - "sp_configure_automatic_tuning"
   - "sp_configure_TSQL"
@@ -15,7 +17,7 @@ helpviewer_keywords:
   - "sp_configure_automatic_tuning"
 dev_langs:
   - "TSQL"
-monikerRange: ">=sql-server-2017 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =azuresqldb-current ||=fabric"
+monikerRange: ">=sql-server-2017 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =azuresqldb-current || =fabric"
 ---
 # sp_configure_automatic_tuning (Transact-SQL)
 
@@ -70,7 +72,7 @@ The query ID from Query Store that the configuration should be applied to. *@typ
 
 #### [ @option_value = ] '*option_value*'
 
-The desired state of the configuration setting. *@option_value* is **varchar(60)** with no defaults. Possible values are `ON` or `OFF`.
+The desired state of the configuration setting. *@option_value* is **varchar(60)** with no defaults. Possible values are `ON` or `OFF`. For the `FORCE_LAST_GOOD_PLAN` option, setting the value to `OFF` causes APC to ignore a `query_id` in the Query Store from being monitored by the system for query plan regressions.
 
 ## Return code values
 
@@ -78,7 +80,7 @@ The desired state of the configuration setting. *@option_value* is **varchar(60)
 
 ## Check the current configuration values
 
-You can also check to see which configuration options are set, by viewing the output of the [sys.database_automatic_tuning_configuration](../system-catalog-views/sys-database-automatic-tuning-configuration-transact-sql.md) catalog view. Changes to the catalog view are also written to the [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] error log.
+You can also check to see which configuration options are set, by viewing the output of the [sys.database_automatic_tuning_configurations](../system-catalog-views/sys-database-automatic-tuning-configurations-transact-sql.md) catalog view. Changes to the catalog view are also written to the [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] error log.
 
 ## Permissions
 
@@ -95,7 +97,7 @@ For [!INCLUDE [ssSQL22](../../includes/sssql22-md.md)] CU 4 and later versions, 
 The following example shows how to configure automatic tuning to ignore a query if it's eligible for automatic plan forcing. This example uses a value of `422` as the `query_id` that was selected from the Query Store.
 
 ```sql
-EXECUTE sys.sp_configure_automatic_tuning 'FORCE_LAST_GOOD_PLAN', 'QUERY', 422, 'ON';
+EXECUTE sys.sp_configure_automatic_tuning 'FORCE_LAST_GOOD_PLAN', 'QUERY', 422, 'OFF';
 ```
 
 ### B. Configure the Automatic Tuning (Force Last Good Plan option) to ignore a specific query using named parameters
@@ -151,4 +153,4 @@ EXECUTE sys.sp_configure_automatic_tuning 'FORCE_LAST_GOOD_PLAN_EXTENDED_CHECK',
 - [sys.database_query_store_options (Transact-SQL)](../system-catalog-views/sys-database-query-store-options-transact-sql.md)
 - [sys.dm_db_tuning_recommendations (Transact-SQL)](../system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md)
 - [sys.database_automatic_tuning_mode](../system-catalog-views/sys-database-automatic-tuning-mode-transact-sql.md)
-- [sys.database_automatic_tuning_configuration (Transact-SQL)](../system-catalog-views/sys-database-automatic-tuning-configuration-transact-sql.md)
+- [sys.database_automatic_tuning_configurations (Transact-SQL)](../system-catalog-views/sys-database-automatic-tuning-configurations-transact-sql.md)

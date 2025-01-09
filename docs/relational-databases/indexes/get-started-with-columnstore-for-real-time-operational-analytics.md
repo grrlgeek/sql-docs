@@ -9,7 +9,8 @@ ms.subservice: table-view-index
 ms.topic: quickstart
 ms.custom:
   - intro-quickstart
-monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||=fabric"
+  - ignite-2024
+monikerRange: "=azuresqldb-current || >=sql-server-2016 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =fabric"
 ---
 # Get started with columnstore indexes for real-time operational analytics
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance FabricSQLDB](../../includes/applies-to-version/sql-asdb-asdbmi-fabricsqldb.md)]
@@ -149,7 +150,7 @@ CREATE TABLE  orders (
 -- 0 => 'Order Started'  
 -- 1 => 'Order Closed'  
 -- 2 => 'Order Paid'  
--- 3 => 'Order Fullfillment Wait'  
+-- 3 => 'Order Fulfillment Wait'  
 -- 4 => 'Order Shipped'  
 -- 5 => 'Order Received'  
   

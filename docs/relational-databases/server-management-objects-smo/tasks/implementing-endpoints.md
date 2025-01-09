@@ -6,9 +6,11 @@ ms.author: "maghan"
 ms.date: "08/06/2017"
 ms.service: sql
 ms.topic: "reference"
+ms.custom:
+  - ignite-2024
 helpviewer_keywords:
   - "endpoints [SMO]"
-monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||=fabric"
+monikerRange: "=azuresqldb-current || =azure-sqldw-latest || >=sql-server-2016 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =fabric"
 ---
 # Implementing Endpoints
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance Synapse Analytics FabricSQLDB](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-fabricsqldb.md)]
@@ -102,7 +104,7 @@ Console.WriteLine(ep.EndpointState)
 CD \sql\localhost\  
 $srv = get-item default  
   
-#Get a new endpoint to congure and add  
+#Get a new endpoint to configure and add  
 $ep = New-Object -TypeName Microsoft.SqlServer.Management.SMO.Endpoint -argumentlist $srv,"Mirroring_Endpoint"  
   
 #Set some properties  

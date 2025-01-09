@@ -7,6 +7,8 @@ ms.reviewer: wiassaf
 ms.date: 04/25/2024
 ms.service: sql
 ms.topic: concept-article
+ms.custom:
+  - ignite-2024
 f1_keywords:
   - "sql13.swb.exportdac.progress.f1"
   - "sql13.swb.exportdac.summary.f1"
@@ -78,7 +80,7 @@ This page describes the steps for the Export Data-tier Application Wizard.
 
 **Cancel** - Cancels the operation and closes the Wizard.
 
-:::image type="content" source="export-a-data-tier-application/introduction.png" alt-text="Screensheet of the export a data-tier application introduction page." lightbox="export-a-data-tier-application/introduction.png":::
+:::image type="content" source="export-a-data-tier-application/introduction.png" alt-text="Screenshot of the export a data-tier application introduction page." lightbox="export-a-data-tier-application/introduction.png":::
 
 ### <a id="Export_settings"></a> Export Settings page
 

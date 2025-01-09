@@ -6,9 +6,11 @@ ms.author: "maghan"
 ms.date: "08/06/2017"
 ms.service: sql
 ms.topic: "reference"
+ms.custom:
+  - ignite-2024
 helpviewer_keywords:
   - "full-text search [SMO]"
-monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||=fabric"
+monikerRange: "=azuresqldb-current || =azure-sqldw-latest || >=sql-server-2016 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =fabric"
 ---
 # Implementing Full-Text Search
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance Synapse Analytics FabricSQLDB](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-fabricsqldb.md)]
@@ -58,7 +60,7 @@ Public Class A
       ' Create the Full-Text Search catalog on the instance of SQL Server.  
       ftc.Create()  
   
-      ' Define a FullTextIndex object varaible by supplying the parent table argument in the constructor.  
+      ' Define a FullTextIndex object variable by supplying the parent table argument in the constructor.  
       Dim fti As FullTextIndex = Nothing  
       fti = New FullTextIndex(tb)  
   
@@ -118,7 +120,7 @@ public class A {
       // Create the Full-Text Search catalog on the instance of SQL Server.  
       ftc.Create();  
   
-      // Define a FullTextIndex object varaible by supplying the parent table argument in the constructor.  
+      // Define a FullTextIndex object variable by supplying the parent table argument in the constructor.  
       FullTextIndex fti = default(FullTextIndex);  
       fti = new FullTextIndex(tb);  
   

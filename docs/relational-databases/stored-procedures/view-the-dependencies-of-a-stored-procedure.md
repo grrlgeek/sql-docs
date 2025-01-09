@@ -7,6 +7,8 @@ ms.date: "03/14/2017"
 ms.service: sql
 ms.subservice: stored-procedures
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 helpviewer_keywords:
   - "stored procedures [SQL Server], dependencies"
   - "displaying stored procedure dependencies"
@@ -198,7 +200,7 @@ monikerRange: ">=aps-pdw-2016 || =azuresqldb-current || >=sql-server-2016 || >=s
     GO  
     SELECT OBJECT_SCHEMA_NAME ( referencing_id ) AS referencing_schema_name,  
         OBJECT_NAME(referencing_id) AS referencing_entity_name,   
-        o.type_desc AS referencing_desciption,   
+        o.type_desc AS referencing_description,   
         COALESCE(COL_NAME(referencing_id, referencing_minor_id), '(n/a)') AS referencing_minor_id,   
         referencing_class_desc, referenced_class_desc,  
         referenced_server_name, referenced_database_name, referenced_schema_name,  
@@ -248,7 +250,7 @@ monikerRange: ">=aps-pdw-2016 || =azuresqldb-current || >=sql-server-2016 || >=s
     USE AdventureWorks2022;  
     GO  
     SELECT OBJECT_NAME(referencing_id) AS referencing_entity_name,   
-        o.type_desc AS referencing_desciption,   
+        o.type_desc AS referencing_description,   
         COALESCE(COL_NAME(referencing_id, referencing_minor_id), '(n/a)') AS referencing_minor_id,   
         referencing_class_desc, referenced_class_desc,  
         referenced_server_name, referenced_database_name, referenced_schema_name,  

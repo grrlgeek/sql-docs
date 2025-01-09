@@ -1,8 +1,8 @@
 ---
 title: "SaaS apps: Geo-redundant backups for disaster recovery"
 description: Learn to use Azure SQL Database geo-redundant backups to recover a multitenant SaaS app in the event of an outage
-author: bgavrilMS
-ms.author: bogavril
+author: bgavrilovicMS
+ms.author: bgavrilovic
 ms.reviewer: mathoma, wiassaf
 ms.date: 01/14/2019
 ms.service: azure-sql-database
@@ -50,7 +50,7 @@ Disaster recovery (DR) is an important consideration for many applications, whet
  * Repatriate databases to their original region with minimal impact to tenants when the outage is resolved.  
 
 > [!NOTE]
-> The application is recovered into the paired region of the region in which the application is deployed. For more information, see [Azure paired regions](/azure/availability-zones/cross-region-replication-azure).   
+> The application is recovered into the paired region of the region in which the application is deployed. For more information, see [Azure paired regions](/azure/reliability/cross-region-replication-azure).   
 
 This tutorial uses features of Azure SQL Database and the Azure platform to address these challenges:
 
@@ -173,7 +173,7 @@ Imagine there's an outage in the region in which the application is deployed, an
 
 	* The script opens in a new PowerShell window and then starts a set of PowerShell jobs that run in parallel. These jobs restore servers, pools, and databases to the recovery region.
 
-	* The recovery region is the paired region associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](/azure/availability-zones/cross-region-replication-azure). 
+	* The recovery region is the paired region associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](/azure/reliability/cross-region-replication-azure). 
 
 3. Monitor the status of the recovery process in the PowerShell window.
 

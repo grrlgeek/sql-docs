@@ -6,7 +6,10 @@ ms.author: drskwier
 ms.reviewer: maghan, randolphwest
 ms.date: 08/30/2024
 ms.service: sql
+ms.subservice: sql-database-projects
 ms.topic: concept-article
+ms.custom:
+  - ignite-2024
 f1_keywords:
   - "sql.data.tools.publish.dialog"
   - "sql.data.tools.publishdacproject"

@@ -8,6 +8,8 @@ ms.date: 04/15/2024
 ms.service: sql
 ms.subservice: security
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 monikerRange: "=azuresqldb-current || =azure-sqldw-latest || >=sql-server-2016 || >=sql-server-linux-2017 || =azuresqldb-mi-current || =fabric"
 ---
 # Dynamic data masking
@@ -61,7 +63,7 @@ You don't need any special permission to create a table with a dynamic data mask
 Adding, replacing, or removing the mask of a column, requires the **ALTER ANY MASK** permission and **ALTER** permission on the table. It's appropriate to grant **ALTER ANY MASK** to a security officer.
 
 > [!NOTE]  
-> The UNMASK permission does not influence metadata visibility: granting UNMASK alone doesn't disclose any metadata. UNMASK will always need to be accompanied by a SELECT permission to have any effect. Example: granting UNMASK on database scope and granting SELECT on an individual Table will have the result that the user can only see the metadata of the individual table from which he can select, not any others. Also see [Metadata Visibility Configuration](../../relational-databases/security/metadata-visibility-configuration.md).
+> The UNMASK permission does not influence metadata visibility: granting UNMASK alone doesn't disclose any metadata. UNMASK will always need to be accompanied by a SELECT permission to have any effect. Example: granting UNMASK on database scope and granting SELECT on an individual Table will have the result that the user can only see the metadata of the individual table from which they can select, not any others. Also see [Metadata Visibility Configuration](../../relational-databases/security/metadata-visibility-configuration.md).
 
 ## Best practices and common use cases
 

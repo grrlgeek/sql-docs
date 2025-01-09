@@ -6,7 +6,10 @@ ms.author: drskwier
 ms.reviewer: maghan, randolphwest
 ms.date: 08/30/2024
 ms.service: sql
+ms.subservice: sql-database-projects
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 zone_pivot_groups: sq1-sql-projects-tools
 ---
 

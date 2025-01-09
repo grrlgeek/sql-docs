@@ -8,6 +8,8 @@ ms.date: 09/25/2024
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
+ms.custom:
+  - ignite-2024
 f1_keywords:
   - "JOIN"
   - "FROM_TSQL"
@@ -1020,7 +1022,7 @@ SELECT *
 FROM Sales.Customer TABLESAMPLE SYSTEM(10 PERCENT);
 ```
 
-## Related conent
+## Related content
 
 - [CONTAINSTABLE (Transact-SQL)](../../relational-databases/system-functions/containstable-transact-sql.md)
 - [FREETEXTTABLE (Transact-SQL)](../../relational-databases/system-functions/freetexttable-transact-sql.md)

@@ -9,6 +9,8 @@ ms.date: 11/19/2024
 ms.service: azure-sql-managed-instance
 ms.subservice: service-overview
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ---
 # What is an instance pool? - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,7 +28,7 @@ Instance pools in Azure SQL Managed Instance allow you to deploy multiple instan
 Instance pools provide the following core benefits:
 
 - Ability to host 2-vCore instances, which are only available within instance pools
-- Predictable and fast instance deployment time (up to 5 minutes).
+- Predictable and fast instance deployment time (up to 10 minutes).
 - Cost-saving infrastructure when migrating multiple SQL Server instances.
 
 The following diagram illustrates an instance pool with multiple managed instances deployed to a virtual cluster in a virtual network subnet: 
@@ -41,7 +43,7 @@ November 2024 brings the following capabilities:
 - Update pool configuration settings (such as compute size, license, properties) by using PowerShell or the Azure CLI. 
 - Support for premium-series hardware.
 - Move an instance in and out of the pool by using PowerShell or the Azure CLI. 
-- Instance pool support for [reserved capacity pricing](#reserved-capacity-pricing). 
+- Instance pool support for [reservations pricing](#reservations-pricing). 
 
 ## Architecture
 
@@ -126,9 +128,9 @@ For full instance pool pricing details, refer to the *instance pools* section on
 > [!NOTE]
 > Instance pools created on [subscriptions eligible for the dev-test benefit](https://azure.microsoft.com/pricing/dev-test/) automatically receive discounted rates of up to 55 percent on Azure SQL Managed Instance.
 
-### Reserved capacity pricing
+### Reservations pricing
 
-[Reserved capacity](../database/reserved-capacity-overview.md) lets you save on compute cost by providing a deep discount when you reserve the price of resources for a predetermined period. You can now allocate reserved capacity to an instance pool, which creates the most cost-effective way to run multiple instances. 
+[Azure Reservations](../database/reservations-discount-overview.md) lets you save on compute cost by providing a deep discount when you reserve the price of resources for a predetermined period. You can now allocate reservations to an instance pool, which creates the most cost-effective way to run multiple instances. 
 
 ## Limitations
 

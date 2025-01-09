@@ -6,6 +6,8 @@ ms.author: "maghan"
 ms.date: "08/06/2017"
 ms.service: sql
 ms.topic: "reference"
+ms.custom:
+  - ignite-2024
 helpviewer_keywords:
   - "SMO [SQL Server], properties"
   - "SQL Server Management Objects, properties"
@@ -175,7 +177,7 @@ Next
 //Connect to the local, default instance of SQL Server.   
 Server srv;   
 srv = new Server();   
-//Set properties on the uspGetEmployeedManagers stored procedure on the AdventureWorks2022 database.   
+//Set properties on the uspGetEmployeeManagers stored procedure on the AdventureWorks2022 database.   
 Database db;   
 db = srv.Databases["AdventureWorks2022"];   
 StoredProcedure sp;   

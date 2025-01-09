@@ -7,6 +7,8 @@ ms.date: "11/12/2019"
 ms.service: sql
 ms.subservice: system-objects
 ms.topic: "reference"
+ms.custom:
+  - ignite-2024
 f1_keywords:
   - "sys.index_resumable_operations_TSQL"
   - "sys.indexes_TSQL"
@@ -35,7 +37,7 @@ monikerRange: "=azuresqldb-current || >=sql-server-2017 || >=sql-server-linux-20
 |**state**|**tinyint**|Operational state for resumable index:<br /><br />0=Running<br /><br />1=Pause|
 |**state_desc**|**nvarchar(60)**|Description of the operational state for resumable index (running or Paused)|  
 |**start_time**|**datetime**|Index operation start time (not nullable)|
-|**last_pause_time**|**datatime**| Index operation last pause time (nullable). NULL if operation is running and never paused.|
+|**last_pause_time**|**datetime**| Index operation last pause time (nullable). NULL if operation is running and never paused.|
 |**total_execution_time**|**int**|Total execution time from start time in minutes (not nullable)|
 |**percent_complete**|**real**|Index operation progress completion in % ( not nullable).|
 |**page_count**|**bigint**|Total number of index pages allocated by the index build operation for the new and mapping indexes ( not nullable ).
