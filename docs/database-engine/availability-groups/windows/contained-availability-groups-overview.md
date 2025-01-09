@@ -132,13 +132,13 @@ Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversio
 - Distributed availability groups.
 - Log shipping where the target database is in the contained AG. Log shipping with the source database in the contained AG is supported.
 
-### Resource Governor
+### Resource governor
 
-Resource Governor works at the instance level. Resource Governor with a contained availability group isn't applicable.
+Resource governor works at the instance level. Resource governor with a contained availability group isn't applicable.
 
-Resource Governor configuration DDL commands have no effect when executed on a contained availability group connection.
+Resource governor configuration DDL commands have no effect when executed on a contained availability group connection.
 
-If Resource Governor is enabled via an instance connection, it has no effect on the contained availability group connections.
+If Resource governor is enabled via an instance connection, it has no effect on the contained availability group connections.
 
 ### Change data capture
 
