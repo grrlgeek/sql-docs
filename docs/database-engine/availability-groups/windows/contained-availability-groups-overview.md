@@ -128,13 +128,13 @@ This connection string would get you connected to the readable secondary that is
 
 There are additional considerations when using certain features with contained AGs, and there are some features that are currently unsupported.
 
-### Not supported
+### Back up
 
-Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] features aren't supported with a contained AG:
+Procedures to back up databases in a contained AG are the same as all system and user database backup procedures. If you configure backup jobs inside fo the contained AG, they run on the primary replica. 
 
-- [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] Replication of any type (transactional, merge, snapshot, and so on).
-- Distributed availability groups.
-- Log shipping where the target database is in the contained AG. Log shipping with the source database in the contained AG is supported.
+If the backup location is local, the backup files are placed on the server that runs the backup job. This means your backup files may be in different locations.
+
+If you point to a network location, all servers that host replicas need access to the backup location.
 
 ### Resource governor
 
@@ -171,6 +171,14 @@ To transfer the DMK from the `master` database of the instance, to the contained
 ### SSIS packages & maintenance plans
 
 Using SSIS packages, including maintenance plans, is not supported with contained availability groups.
+
+## Not supported
+
+Currently, the following [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] features aren't supported with a contained AG:
+
+- [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)] Replication of any type (transactional, merge, snapshot, and so on).
+- Distributed availability groups.
+- Log shipping where the target database is in the contained AG. Log shipping with the source database in the contained AG is supported.
 
 ## DDL changes
 
