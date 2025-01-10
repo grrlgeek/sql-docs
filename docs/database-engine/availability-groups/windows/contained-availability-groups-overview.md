@@ -134,7 +134,7 @@ Procedures to back up databases in a contained AG are the same as all system and
 
 If the backup location is local, the backup files are placed on the server that runs the backup job. This means your backup files may be in different locations.
 
-If you point to a network location, all servers that host replicas need access to the backup location.
+If the backup location is on a network resource, all servers that host replicas need access to that resource.
 
 ### Resource governor
 
