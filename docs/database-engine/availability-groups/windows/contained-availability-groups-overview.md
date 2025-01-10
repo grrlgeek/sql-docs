@@ -74,7 +74,7 @@ You can restore a contained system database using one of two different ways.
 
   1. Recreate the contained AG using original nodes and name, using `WITH (CONTAINED, REUSE_SYSTEM_DATABASES)` syntax.
 
-### Contain availability group jobs
+### Contained availability group jobs
 
 Jobs that belong to a contained availability group run on the primary replica only. They do not run on secondary replicas.
 
