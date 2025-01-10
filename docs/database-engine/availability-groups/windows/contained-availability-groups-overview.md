@@ -142,7 +142,7 @@ Resource governor works at the instance level. Resource governor with a containe
 
 Resource governor configuration DDL commands have no effect when executed on a contained availability group connection.
 
-If Resource governor is enabled via an instance connection, it has no effect on the contained availability group connections.
+If resource governor is enabled via an instance connection, it has no effect on the contained availability group connections.
 
 ### Change data capture
 
