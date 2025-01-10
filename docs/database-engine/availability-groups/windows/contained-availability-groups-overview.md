@@ -130,7 +130,7 @@ There are additional considerations when using certain features with contained A
 
 ### Back up
 
-Procedures to back up databases in a contained AG are the same as any user database backup procedures.
+Procedures to back up databases in a contained AG are the same as any user database backup procedures. This is true for both the contained AG user databases and the contained AG system databases.
 
 If the backup location is local, the backup files are placed on the server that runs the backup job. This means your backup files may be in different locations.
 
