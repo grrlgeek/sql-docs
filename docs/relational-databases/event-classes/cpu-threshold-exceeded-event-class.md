@@ -1,6 +1,6 @@
 ---
-title: CPU threshold exceeded event class
-description: CPU threshold exceeded event class
+title: CPU Threshold Exceeded Event Class
+description: CPU Threshold Exceeded Event Class
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 01/13/2025
@@ -16,7 +16,7 @@ monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||
 
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
-The **CPU threshold exceeded** event class indicates that resource governor detected a batch request that exceeds the CPU threshold specified for the `REQUEST_MAX_CPU_TIME_SEC` argument of a [workload group](../resource-governor/resource-governor-workload-group.md). For more information, see [CREATE WORKLOAD GROUP](../../t-sql/statements/create-workload-group-transact-sql#request_max_cpu_time_sec--value).
+The **CPU threshold exceeded** event class indicates that resource governor detected a batch request that exceeds the CPU threshold specified for the `REQUEST_MAX_CPU_TIME_SEC` argument of a [workload group](../resource-governor/resource-governor-workload-group.md). For more information, see [CREATE WORKLOAD GROUP](../../t-sql/statements/create-workload-group-transact-sql.md#request_max_cpu_time_sec--value).
 
 ## CPU threshold exceeded data columns
 
@@ -35,5 +35,5 @@ The **CPU threshold exceeded** event class indicates that resource governor dete
 - [sp_trace_setevent](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md)
 - [Resource governor](../../relational-databases/resource-governor/resource-governor.md)
 - [Resource governor workload group](../../relational-databases/resource-governor/resource-governor-workload-group.md)
-- [ALTER WORKLOAD GROUP](../statements/alter-workload-group-transact-sql.md)
+- [ALTER WORKLOAD GROUP](../../t-sql/statements/alter-workload-group-transact-sql.md)
 
