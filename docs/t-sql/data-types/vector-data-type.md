@@ -16,7 +16,7 @@ helpviewer_keywords:
   - "vector, data type"
 dev_langs:
   - "TSQL"
-monikerRange: "= azuresqldb-current"
+monikerRange: "=azuresqldb-current||=fabric"
 ---
 # Vector data type (preview)
 
