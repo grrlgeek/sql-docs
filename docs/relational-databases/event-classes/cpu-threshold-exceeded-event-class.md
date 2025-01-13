@@ -3,7 +3,7 @@ title: CPU Threshold Exceeded Event Class
 description: CPU Threshold Exceeded Event Class
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviwer: dfurman
+ms.reviewer: dfurman
 ms.date: 01/13/2025
 ms.service: sql
 ms.subservice: supportability
