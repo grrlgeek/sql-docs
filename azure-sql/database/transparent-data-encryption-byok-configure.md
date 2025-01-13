@@ -47,7 +47,7 @@ This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azur
 
 # [PowerShell](#tab/azure-powershell)
 
-For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
+For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 For specifics on Key Vault, see [PowerShell instructions from Key Vault](/azure/key-vault/secrets/quick-create-powershell) and [How to use Key Vault soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery).
 
