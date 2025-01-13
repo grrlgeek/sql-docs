@@ -3,6 +3,7 @@ title: CPU Threshold Exceeded Event Class
 description: CPU Threshold Exceeded Event Class
 author: WilliamDAssafMSFT
 ms.author: wiassaf
+ms.reviwer: dfurman
 ms.date: 01/13/2025
 ms.service: sql
 ms.subservice: supportability
@@ -22,13 +23,13 @@ The **CPU threshold exceeded** event class indicates that resource governor dete
 
 | Data column name | Data type | Description | Column ID | Filterable |
 |:--|:--|:--|:--|:--|
-| CPU | **int** | CPU usage in milliseconds.| 18 | Yes |
-| EventClass | **int** | 214 | 27 | No |
-| EventSubClass | **int** | CPU limit violation. | 21 | Yes |
-| GroupID | **int** | Group ID where the violation occurred. | 66 | Yes |
-| OwnerID | **int** | SPID of the process that caused the violation. | 58 | Yes |
-| SPID | **int** | ID of the server process that fires this event.<br /><br /> Note: This can differ from the actual user SPID if a system thread validates CPU usage as a background task. | 12 | Yes |
-| StartTime | **datetime** | The time when this event fired. | 14 | Yes |
+| `CPU` | **int** | CPU usage in milliseconds.| 18 | Yes |
+| `EventClass` | **int** | 214 | 27 | No |
+| `EventSubClass` | **int** | CPU limit violation. | 21 | Yes |
+| `GroupID` | **int** | Group ID where the violation occurred. | 66 | Yes |
+| `OwnerID` | **int** | SPID of the process that caused the violation. | 58 | Yes |
+| `SPID` | **int** | ID of the server process that fires this event.<br /><br /> Note: This can differ from the actual user SPID if a system thread validates CPU usage as a background task. | 12 | Yes |
+| `StartTime` | **datetime** | The time when this event fired. | 14 | Yes |
 
 ## Related content
 
