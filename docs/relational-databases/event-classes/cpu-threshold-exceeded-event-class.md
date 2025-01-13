@@ -1,6 +1,6 @@
 ---
-title: "CPU Threshold Exceeded Event Class"
-description: "CPU Threshold Exceeded Event Class"
+title: CPU threshold exceeded event class
+description: CPU threshold exceeded event class
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 01/13/2025
@@ -8,7 +8,7 @@ ms.service: sql
 ms.subservice: supportability
 ms.topic: reference
 helpviewer_keywords:
-  - "CPU Threshold Exceeded Event Class"
+  - "cpu threshold exceeded event class"
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 
@@ -35,7 +35,5 @@ The **CPU threshold exceeded** event class indicates that resource governor dete
 - [sp_trace_setevent](../../relational-databases/system-stored-procedures/sp-trace-setevent-transact-sql.md)
 - [Resource governor](../../relational-databases/resource-governor/resource-governor.md)
 - [Resource governor workload group](../../relational-databases/resource-governor/resource-governor-workload-group.md)
-- [Create a workload group](../../relational-databases/resource-governor/create-a-workload-group.md)
-- [CREATE WORKLOAD GROUP](../statements/create-workload-group-transact-sql.md)
 - [ALTER WORKLOAD GROUP](../statements/alter-workload-group-transact-sql.md)
 
