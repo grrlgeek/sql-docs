@@ -2,7 +2,7 @@
 author: rwestMSFT
 ms.author: randolphwest
 ms.reviewer: dfurman
-ms.date: 09/15/2022
+ms.date: 01/13/2022
 ms.service: sql
 ms.topic: include
 ---
@@ -69,11 +69,16 @@ Starting with [!INCLUDE [sssql19-md](../../includes/sssql19-md.md)], the value c
 
 #### REQUEST_MAX_CPU_TIME_SEC = *value*
 
-Specifies the maximum amount of CPU time, in seconds, that a request can use. *value* must be 0 or a positive integer. The default setting for *value* is 0, which means unlimited.
+Specifies the maximum amount of CPU time, in seconds, that a batch request can use. *value* must be 0 or a positive integer. The default setting for *value* is 0, which means unlimited.
 
-By default, resource governor doesn't prevent a request from continuing if the maximum time is exceeded. However, an event is generated. For more information, see [CPU Threshold Exceeded Event Class](../../relational-databases/event-classes/cpu-threshold-exceeded-event-class.md).
+When the maximum CPU time is exceeded, the `cpu_threshold_exceeded` extended event and a trace event are generated. For more information, see [CPU Threshold Exceeded Event Class](../../relational-databases/event-classes/cpu-threshold-exceeded-event-class.md).
 
-Starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2 and [!INCLUDE [sssql17-md](../../includes/sssql17-md.md)] CU3, and using [trace flag 2422](../database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#tf2422), resource governor aborts a request when the maximum CPU time is exceeded.
+In Azure SQL Managed Instance, when the maximum CPU time is exceeded, resource governor aborts the request with error 10961.
+
+In [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)], resource governor doesn't abort the request by default. However, starting with [!INCLUDE [sssql16-md](../../includes/sssql16-md.md)] SP2 and [!INCLUDE [sssql17-md](../../includes/sssql17-md.md)] CU3, resource governor aborts a request with error 10961 when [trace flag 2422](../database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#tf2422) is enabled and the maximum CPU time is exceeded.
+
+> [!NOTE]
+> The detection interval for CPU time usage is five seconds. An event is generated if a query exceeds the specified limit by at least five seconds. However, if a query exceeds the specified threshold by less than five seconds, its detection might be missed depending on the timing of the query and the time of last detection sweep.
 
 #### REQUEST_MEMORY_GRANT_TIMEOUT_SEC = *value*
 
