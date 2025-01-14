@@ -41,7 +41,7 @@ This how-to guide goes over the approach to render databases **inaccessible** af
 
 # [PowerShell](#tab/azure-powershell)
 
- For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Use [the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+ For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Use [the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 # [The Azure CLI](#tab/azure-cli)
 

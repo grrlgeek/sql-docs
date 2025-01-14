@@ -163,7 +163,7 @@ The v3.6 release of Data Migration Assistant introduces "Auto fix" for the schem
 This release provides autofix for the following migration blocker and behavior change issues:
 
 - The schema objects that use Unqualified Join syntax.
-- The schema objects that use the legacy RAISEERROR statement.
+- The schema objects that use the legacy RAISERROR statement.
 - SQL statements that use Order By Integer Literal.
 
 Data Migration Assistant performs automatic schema conversion for the objects affected by the listed issues and prompts the user for confirmation before proceeding with the schema conversion. Users can review the suggested code changes and then either accept or reject all conversions for any given database object.
