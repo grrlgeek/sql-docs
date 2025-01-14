@@ -42,7 +42,7 @@ Prepare your environment for PowerShell.
 [!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The `Az` module replaces `AzureRM`. All future development is for the `Az.Sql` module.
 
 For `Get-AzSqlDatabaseLongTermRetentionBackup` and `Restore-AzSqlDatabase`, you need to be a member of one of the following roles:
 
