@@ -57,7 +57,7 @@ Starting with [!INCLUDE [sssql19-md](../../includes/sssql19-md.md)], the value c
 > [!IMPORTANT]
 > The amount specified only refers to query workspace memory obtained via query memory grants.
 >
-> It is not recommended to set *value* too large (for example, greater than 70) because the server may be unable to set aside enough free memory for other concurrent queries. This can lead to a memory grant timeout [error 8645](../../relational-databases/errors-events/mssqlserver-8645-database-engine-error.md).
+> It is not recommended to set *value* too large (for example, greater than 70) because the server may be unable to set aside enough free memory for other concurrent queries. This can lead to a memory grant time out [error 8645](../../relational-databases/errors-events/mssqlserver-8645-database-engine-error.md).
 >
 > Setting *value* to 0 or a small value might prevent queries with operators that require workspace memory, such as `sort` and `hash`, from running in user-defined workload groups. If the query memory requirements exceed the limit defined by this parameter, the following behavior occurs:
 >
@@ -80,7 +80,7 @@ In [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)], resource gover
 
 Specifies the maximum time, in seconds, that a query can wait for a memory grant from the query workspace memory to become available. *value* must be 0 or a positive integer. The default setting for *value*, 0, uses an internal calculation based on query cost to determine the maximum time.
 
-A query doesn't always fail when a memory grant timeout is reached. A query only fails if there are too many concurrent queries running. Otherwise, the query might only get the minimum memory grant, resulting in reduced query performance.
+A query doesn't always fail when a memory grant time out is reached. A query only fails if there are too many concurrent queries running. Otherwise, the query might only get the minimum memory grant, resulting in reduced query performance.
 
 #### MAX_DOP = *value*
 
@@ -125,7 +125,7 @@ When a query is marked as serial at compile time (`MAXDOP = 1`), it can't execut
 When you change a plan affecting setting such as `MAX_DOP`, the new setting takes effect in previously cached plans only after executing `DBCC FREEPROCCACHE (<pool_name>)`, where `<pool_name>` is the name of a resource governor resource pool used by the current workload group.
 
 - If changing `MAX_DOP` to 1, executing `DBCC FREEPROCCACHE` isn't required because parallel plans can run in serial mode. However, such a plan might be less efficient than a plan compiled as a serial plan.
-- If changing `MAX_DOP` from 1 to 0 or a value greater than 1,executing `DBCC FREEPROCCACHE` isn't required. However, serial plans can't run in parallel, so clearing the respective cache allows new plans to potentially be compiled using parallelism.
+- If changing `MAX_DOP` from 1 to 0 or a value greater than 1, executing `DBCC FREEPROCCACHE` isn't required. However, serial plans can't run in parallel, so clearing the respective cache allows new plans to potentially be compiled using parallelism.
 
 > [!WARNING]
 > Clearing cached plans from a resource pool that is associated with more than one workload group affects all workload groups using the user-defined resource pool identified by `<pool_name>`.
