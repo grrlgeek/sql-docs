@@ -137,10 +137,7 @@ REVOKE SELECT ON Person.Person(AdditionalContactInfo) FROM [Sales];
 These permissions will show up in sys.database_permissions as one GRANT (on the table) and one REVOKE (on the column).
 
 > [!IMPORTANT]  
-> REVOKE is different from DENY, as the "Sales" principal may still have access to the
-> column through other permissions. Had we denied permissions rather than revoking them,
-> "Sales" would not be able to view the contents of the column because DENY always
-> supersedes GRANT. 
+> REVOKE is different from DENY, as the `Sales` principal may still have access to the column through other permissions. Had we denied permissions rather than revoking them, `Sales` would not be able to view the contents of the column because DENY always supersedes GRANT. 
 
 ## Permissions
 
