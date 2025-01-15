@@ -110,6 +110,26 @@ If you have configured a secure enclave in your database and you're using enclav
 
 For more information about enclave attestation, see [Configure attestation for Always Encrypted using Azure Attestation](/azure/azure-sql/database/always-encrypted-enclaves-configure-attestation)
 
+## Run Settings page
+
+The wizard supports two approaches for setting up the target encryption configuration: online and offline.
+
+With the offline approach, the target tables (and any tables related to the target tables, for example, any tables a target table have foreign key relationships with) are unavailable to write transactions throughout the duration of the operation. The semantics of foreign key constraints (CHECK or NOCHECK) are always preserved when using the offline approach.
+
+With the online approach, the operation of copying and encrypting, decrypting, or re-encrypting the data is performed incrementally. Applications can read and write data from and to the target tables throughout the data movement operation, except the last iteration, the duration of which is limited by the *Maximum downtime* parameter. To detect and process the changes applications can make while the data is being copied, the wizard enables Change Tracking in the target database. Because of that, the online approach is likely to consume more resources on the database side than the offline approach. The operation may also take much more time with the online approach, especially if a write-heavy workload is running against the database. The online approach can be used to encrypt **one table at a time** and the table must have a primary key. By default, foreign key constraints are recreated with the NOCHECK option to minimize the impact on applications. You can enforce preserving the semantics of foreign key constraints by enabling the *Keep check foreign key constraints* option.
+
+Here are the guidelines for choosing between the offline and online approaches:
+
+Use the offline approach:
+
+- To minimize the duration of the operation.
+- To encrypt/decrypt/re-encrypt columns in multiple tables at the same time.
+- If the target table doesn't have a primary key.
+
+Use the online approach:
+
+- To minimize the downtime/unavailability of the database to your applications.
+
 ## Related content
 
 - [Always Encrypted](../../../relational-databases/security/encryption/always-encrypted-database-engine.md)

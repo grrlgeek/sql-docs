@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{44FF1210-D12B-4828-BC6D-7DA370234083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "relational-databases", "relational-databases", "{652EBC7B-30D1-45CA-AD1D-957706F92FA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "replication", "replication", "{B4BDCD14-A2FE-423F-BD43-B2529140C8AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "codesnippet", "codesnippet", "{DA352E2C-6604-4F01-954F-C7DA5F0D221D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{1B644BCA-2D20-42E0-A55D-6AD7D1734A04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rmohowto", "docs\relational-databases\replication\codesnippet\csharp\rmohowto\rmohowto.csproj", "{CE9E8894-668F-45B3-8F88-C03ED313EBD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE9E8894-668F-45B3-8F88-C03ED313EBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9E8894-668F-45B3-8F88-C03ED313EBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9E8894-668F-45B3-8F88-C03ED313EBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9E8894-668F-45B3-8F88-C03ED313EBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{652EBC7B-30D1-45CA-AD1D-957706F92FA7} = {44FF1210-D12B-4828-BC6D-7DA370234083}
+		{B4BDCD14-A2FE-423F-BD43-B2529140C8AD} = {652EBC7B-30D1-45CA-AD1D-957706F92FA7}
+		{DA352E2C-6604-4F01-954F-C7DA5F0D221D} = {B4BDCD14-A2FE-423F-BD43-B2529140C8AD}
+		{1B644BCA-2D20-42E0-A55D-6AD7D1734A04} = {DA352E2C-6604-4F01-954F-C7DA5F0D221D}
+		{CE9E8894-668F-45B3-8F88-C03ED313EBD4} = {1B644BCA-2D20-42E0-A55D-6AD7D1734A04}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48F68045-6829-47F3-8F3C-5401AB75BDCC}
+	EndGlobalSection
+EndGlobal
