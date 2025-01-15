@@ -207,6 +207,12 @@ Enables .rdl report migrations to Power BI by using the feature to publish in th
 
 For more information, see [Publish .rdl files to Power BI from Power BI Report Server and Reporting Services](/power-bi/guidance/publish-reporting-services-power-bi-service).
 
+### EnableRefererValidation 
+
+*Power BI Report Server only* 
+
+Enables referer validation on the Report Server. This can be useful if reports are failing when a proxy is used. The default value is **false**.
+
 ### EnableRemoteErrors
 Includes external error information (for example, error information about report data sources) with the error messages that are returned for users who request reports from remote computers. Valid values are **true** and **false**. The default value is **false**. For more information, see [Enable remote errors &#40;Reporting Services&#41;](../../reporting-services/report-server/enable-remote-errors-reporting-services.md).  
 
