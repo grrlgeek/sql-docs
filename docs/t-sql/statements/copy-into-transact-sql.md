@@ -792,7 +792,7 @@ To execute the `COPY INTO` command, a user must be granted membership to [a work
 
 ### Data plane permissions
 
-Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](/fabric/security/permission-model.md#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
+Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](/fabric/security/permission-model#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
 
 For example, the following T-SQL script grants these permissions to an individual user via their Microsoft Entra ID.
 
