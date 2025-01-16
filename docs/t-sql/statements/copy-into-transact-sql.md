@@ -786,24 +786,21 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ## Permissions
 
-### Control plane permissions
+### Control Plane Permissions
+To execute the `COPY INTO` command, a user must first be granted access to the data warehouse through **Manage access** in the [Workspace](/fabric/data-warehouse/workspace-roles) (minimum Viewer role). Alternatively, data warehouse access can be shared with a user via [Item Permissions](/fabric/data-warehouse/share-warehouse-manage-permissions) (minimum “read” permissions) in the Fabric portal. To align with the principle of least privilege, minimum **“read"** permission is sufficient.
 
-To execute the `COPY INTO` command, a user must be granted membership to a workspace role through **Manage access** in the [Workspace](/fabric/data-warehouse/workspace-roles). Additionally, access to the Fabric warehouse item can be shared via [Item Permissions](/fabric/data-warehouse/share-warehouse-manage-permissions) in the Fabric portal.
-
-### Data plane permissions
-
-If a user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, but only have read permissions at the [data plane level](/fabric/security/permission-model#compute-permissions), administrators must also grant the INSERT and ADMINISTER DATABASE BULK OPERATIONS permissions via T-SQL commands to the user. This follows the principle of least privilege. 
+### Data Plane Permissions
+Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have read permissions at the [data plane level](/fabric/security/permission-model#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` via T-SQL commands to the user.
 
 For example, the following T-SQL script grants these permissions to an individual user via their Microsoft Entra ID.
 
 ```sql
 GRANT ADMINISTER DATABASE BULK OPERATIONS to [mike@contoso.com];
 GO
+
 GRANT INSERT to [mike@contoso.com];
 GO
 ```
-
-Once permissions are granted, users can execute `COPY INTO`.
 
 ## Remarks
 
