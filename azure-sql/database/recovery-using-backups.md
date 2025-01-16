@@ -5,7 +5,7 @@ description: Learn about point-in-time restore, which enables you to roll back a
 author: dnethi
 ms.author: dinethi
 ms.reviewer: wiassaf, mathoma, danil
-ms.date: 01/13/2025
+ms.date: 01/16/2025
 ms.service: azure-sql-database
 ms.subservice: backup-restore
 ms.topic: how-to
@@ -289,7 +289,7 @@ For more information on using geo-restore, see [Recovery using Geo-restore](reco
 > [!NOTE]  
 > For detailed information about recover from an outage, see [disaster recovery guidance](disaster-recovery-guidance.md) and the [high availability and disaster recovery checklist](high-availability-disaster-recovery-checklist.md).
 
-Geo-restore is the most basic disaster-recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) of up to 1 hour and an estimated recovery time objective (RTO) of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and isn't critical to the business, geo-restore is an appropriate disaster-recovery solution.
+Geo-restore is the most basic disaster-recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) typically around one hour and an estimated recovery time objective (RTO) of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and isn't critical to the business, geo-restore is an appropriate disaster-recovery solution.
 
 For business-critical applications that require large databases and must ensure business continuity, use [failover groups](failover-group-sql-db.md). That feature offers a much lower RPO and RTO, and the capacity is always guaranteed.
 
