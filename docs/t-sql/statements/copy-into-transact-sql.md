@@ -740,7 +740,7 @@ The COPY command requires that gzip files do not contain any trailing garbage to
 
 *FIELDQUOTE* only applies to CSV. Specifies a single character that is used as the quote character (string delimiter) in the CSV file. If not specified, the quote character (") is used as the quote character as defined in the RFC 4180 standard. Hexadecimal notation is also supported for FIELDQUOTE. Extended ASCII and multi-byte characters aren't supported with UTF-8 for FIELDQUOTE.
 
-> [!NOTE]  
+> [!NOTE]
 > FIELDQUOTE characters are escaped in string columns where there is a presence of a double FIELDQUOTE (delimiter).
 
 #### *FIELDTERMINATOR = 'field_terminator'*
@@ -786,11 +786,13 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ## Permissions
 
-### Control Plane Permissions
-To execute the `COPY INTO` command, a user must first be granted access to the data warehouse through **Manage access** in the [Workspace](/fabric/data-warehouse/workspace-roles) (minimum Viewer role). Alternatively, data warehouse access can be shared with a user via [Item Permissions](/fabric/data-warehouse/share-warehouse-manage-permissions) (minimum “read” permissions) in the Fabric portal. To align with the principle of least privilege, minimum **“read"** permission is sufficient.
+### Control plane permissions
 
-### Data Plane Permissions
-Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have read permissions at the [data plane level](/fabric/security/permission-model#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` via T-SQL commands to the user.
+To execute the `COPY INTO` command, a user must be granted membership to [a workspace role through **Manage access** in the Workspace](workspace-roles.md), with at least the Viewer role. Alternatively, warehouse access can be shared with a user via [Item Permissions](share-warehouse-manage-permissions.md) in the Fabric portal, with at least Read permissions. To align with the principle of least privilege, Read permission is sufficient.
+
+### Data plane permissions
+
+Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](../security/permission-model.md#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
 
 For example, the following T-SQL script grants these permissions to an individual user via their Microsoft Entra ID.
 
