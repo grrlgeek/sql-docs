@@ -118,7 +118,7 @@ Use Visual Studio Code to establish a connection to your server.
 
    | Property       | Suggested value | Description  |
    | --- | --- | --- |
-   | **Server name** | The fully qualified server name | Something like: **<Contoso server name>.database.windows.net**. |
+   | **Server name** | The fully qualified server name | Something like: `<Contoso-server-name>.database.windows.net`. |
    | **Database name** | mySampleDatabase | The database to connect to. |
    | **Authentication** | SQL Login | This tutorial uses SQL Authentication. |
    | **User name** | User name | The user name of the server admin account used to create the server. |
