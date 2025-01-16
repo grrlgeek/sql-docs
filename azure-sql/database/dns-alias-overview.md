@@ -5,9 +5,9 @@ description: Your applications can connect to an alias for the name of the serve
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: wiassaf, mathoma, vanto
-ms.date: 09/23/2024
+ms.date: 01/16/2025
 ms.service: azure-sql-database
-ms.subservice: high-availability
+ms.subservice: security
 ms.topic: conceptual
 ---
 # DNS alias for Azure SQL Database
@@ -23,7 +23,7 @@ A *DNS alias* can be used in place of the server name. Client programs can use t
 Common uses for a DNS alias include the following cases:
 
 - Create an easy to remember name for a server.
-- During initial development, your alias can refer to a test server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the server.
+- During initial development, your alias can refer to a test server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the clients that connect to the server.
 - Suppose the only database in your application is moved to another server. You can modify the alias without having to modify the configurations of several clients.
 - During a regional outage you use geo-restore to recover your database in a different server and region. You can modify your existing alias to point to the new server so that the existing client application could re-connect to it.
 
@@ -95,7 +95,7 @@ Presently, a DNS alias has the following limitations:
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](/windows-server/administration/windows-commands/nslookup).
 - DNS alias is subject to [naming restrictions](/azure/azure-resource-manager/management/resource-name-rules).
 
-## Related resources
+## Related content
 
 - [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
 - [Server DNS Aliases API](/rest/api/sql/server-dns-aliases)
