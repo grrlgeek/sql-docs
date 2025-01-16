@@ -1712,6 +1712,10 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to Ultradisk
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+        - name: Backup and restore using managed identities
+          href: virtual-machines/windows/backup-restore-to-url-using-managed-identities.md
+        - name: EKM with AKV using managed identities
+          href: virtual-machines/windows/managed-identity-extensible-key-management.md
         - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
