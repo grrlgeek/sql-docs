@@ -35,7 +35,7 @@ For more background, see [Virtual Service endpoints for Azure SQL Database][sql-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the [`Az.Sql` Cmdlets](/powershell/module/az.sql). For the older module, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The `Az` module replaces `AzureRM`. All future development is for the `Az.Sql` module.
 
 ## Major cmdlets
 

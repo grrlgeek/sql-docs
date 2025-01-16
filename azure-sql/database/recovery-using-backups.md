@@ -5,7 +5,7 @@ description: Learn about point-in-time restore, which enables you to roll back a
 author: dnethi
 ms.author: dinethi
 ms.reviewer: wiassaf, mathoma, danil
-ms.date: 09/27/2024
+ms.date: 01/13/2025
 ms.service: azure-sql-database
 ms.subservice: backup-restore
 ms.topic: how-to
@@ -86,7 +86,7 @@ When the restore is complete, it creates a new database on the same server as th
 You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database or use it as a data source to update the original database.
 
 > [!IMPORTANT]  
-> - You can perform a point-in-time restore of a database to the same server. Cross-server, cross-subscription and cross-geo point-in-time restore is not currently supported. To restore a database to a different region using geo-replicated backups see [Geo-restore](#geo-restore).
+> - You can perform a point-in-time restore of a database to the same server. Cross-server, cross-subscription, and cross-geo point-in-time restore is not currently supported. To restore a database to a different region using geo-replicated backups see [Geo-restore](#geo-restore).
 > - You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database.
 > - The `BackupFrequency` parameter isn't supported for Hyperscale databases.  
 > - Database restore operations are resource-intensive and might require a service tier of S3 or greater for the restoring (target) database. Once restore completes, the database or elastic pool might be scaled down, if required.
@@ -184,7 +184,9 @@ To restore a database by using the REST API:
 You can restore a deleted database to the deletion time, or an earlier point in time, on the same server by using the Azure portal, the Azure CLI, Azure PowerShell, and the REST API.
 
 > [!IMPORTANT]  
-> If you delete a server, all of its databases and their PITR backups are also deleted. You can't restore a deleted server, and you can't restore the deleted databases from PITR backups. If you had configured LTR backups for those databases, you can use those backups to restore the databases to a different server.
+> If you delete a server, all of its databases and their PITR backups are also deleted. You can't restore a deleted server, and you can't restore the deleted databases from PITR backups. 
+>
+> If you had configured LTR backups for those databases, you can use those backups to restore the databases to a different server. If the logical server has been deleted, use Azure CLI or PowerShell commands to view and restore LTR backups.
 
 ### [Azure portal](#tab/azure-portal)
 

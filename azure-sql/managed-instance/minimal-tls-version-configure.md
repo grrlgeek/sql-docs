@@ -33,8 +33,9 @@ Login failed with invalid TLS version
 ## Set minimal TLS version via PowerShell
 
 [!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The `Az` module replaces `AzureRM`. All future development is for the `Az.Sql` module. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS Version** property at the instance level:
 

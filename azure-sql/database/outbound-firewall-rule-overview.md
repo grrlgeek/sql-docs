@@ -50,7 +50,7 @@ Outbound firewall rules limit network traffic from the Azure SQL [logical server
 ## Set outbound firewall rules using PowerShell
 
 > [!IMPORTANT]
-> Azure SQL Database still supports the PowerShell Azure Resource Manager module, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The `Az` module replaces `AzureRM`. All future development is for the `Az.Sql` module. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to change the outbound networking setting (using the **RestrictOutboundNetworkAccess** property):
 
