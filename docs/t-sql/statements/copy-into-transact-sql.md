@@ -788,11 +788,11 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ### Control plane permissions
 
-To execute the `COPY INTO` command, a user must be granted membership to [a workspace role through **Manage access** in the Workspace](workspace-roles.md), with at least the Viewer role. Alternatively, warehouse access can be shared with a user via [Item Permissions](share-warehouse-manage-permissions.md) in the Fabric portal, with at least Read permissions. To align with the principle of least privilege, Read permission is sufficient.
+To execute the `COPY INTO` command, a user must be granted membership to [a workspace role through **Manage access** in the Workspace](/fabric/data-warehouse/workspace-roles), with at least the Viewer role. Alternatively, warehouse access can be shared with a user via [Item Permissions](/fabric/data-warehouse/share-warehouse-manage-permissions) in the Fabric portal, with at least Read permissions. To align with the principle of least privilege, Read permission is sufficient.
 
 ### Data plane permissions
 
-Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](../security/permission-model.md#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
+Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](/fabric/security/permission-model.md#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
 
 For example, the following T-SQL script grants these permissions to an individual user via their Microsoft Entra ID.
 
