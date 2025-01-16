@@ -40,6 +40,9 @@ This section lists the latest versions of each package per distribution, for [!I
 | --- | --- | --- | --- | --- |
 | [!INCLUDE [ssSQL22](../includes/sssql22-md.md)] | CU 17 | 2025-01-16 | 16.0.4175.1 | [Support article](/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate17) |
 
+> [!IMPORTANT]  
+> The Microsoft Entra managed identity feature for SQL Server on Azure VM isn't supported on Linux. For more information, see [Improvement: Microsoft Entra managed identity support for backup and restore database operations and for EKM with AKV in SQL Server on Azure VMs](/troubleshoot/sql/releases/sqlserver-2022/microsoft-entra-managed-identity-support-for-backup-restore-database-ekm-akv).
+
 - The **mssql-server-is** package isn't supported on SUSE in this release. For more information, see [SQL Server on Linux: Known issues](sql-server-linux-known-issues.md#sql-server-integration-services-ssis).
 
 | Distribution | Package name | Package version | Download |
