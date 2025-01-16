@@ -786,7 +786,22 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ## Permissions
 
-The COPY command requires a minimum **CONTRIBUTOR role** at the workspace level, or alternatively, the **VIEWER** role at the workspace level plus **ADMINISTER DATABASE BULK OPERATIONS** database permission and **INSERT** permission on the table objects.
+### Control plane permissions
+
+To execute the `COPY INTO` command, a user must first be granted access to the data warehouse through **Manage access** in the [Workspace](https://learn.microsoft.com/en-us/fabric/data-warehouse/workspace-roles). Additionally, data warehouse access can be shared with a user via [Item Permissions](https://learn.microsoft.com/en-us/fabric/data-warehouse/share-warehouse-manage-permissions) in the Fabric portal.
+
+### Data plane permissions
+
+Once the user has been granted control plane permissions through Workspace Roles or Item Permissions, if they only have read permissions at the [data plane level](https://learn.microsoft.com/en-us/fabric/security/permission-model#compute-permissions), administrators must also grant INSERT and ADMINISTER DATABASE BULK OPERATIONS via T-SQL commands to the user. This follows the principle of least privilege.
+
+```sql
+GRANT ADMINISTER DATABASE BULK OPERATIONS to [mike@contoso.com];
+GO
+GRANT INSERT to [mike@contoso.com];
+GO
+```
+
+Once permissions are granted, users can execute COPY INTO (with and without firewall enabled storage).
 
 ## Remarks
 
