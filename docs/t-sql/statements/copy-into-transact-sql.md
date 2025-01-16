@@ -158,12 +158,12 @@ Multiple file locations can only be specified from the same storage account and 
 
 | | CSV | Parquet | ORC |
 | :---: | :---: | :---: | :---: |
-| **Azure Blob Storage** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/KEY | SAS/KEY |
-| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/AAD | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/AAD |
+| **Azure Blob Storage** | SAS/MSI/SERVICE PRINCIPAL/KEY/Entra | SAS/KEY | SAS/KEY |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/Entra | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/Entra | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/Entra |
 
-1: The .blob endpoint (**.blob**.core.windows.net) in your external location path is required for this authentication method.
+<sup>1</sup> The `blob` endpoint (`.blob.core.windows.net`) in your external location path is required for this authentication method.
 
-2: The .dfs endpoint (**.dfs**.core.windows.net) in your external location path is required for this authentication method.
+<sup>2</sup>  The `dfs` endpoint (`.dfs.core.windows.net`) in your external location path is required for this authentication method.
 
 > [!NOTE]  
 >  
@@ -212,8 +212,8 @@ If ERRORFILE has the full path of the storage account defined, then the ERRORFIL
 
 *ERRORFILE_CREDENTIAL* only applies to CSV files. Supported data source and authentication methods are:
 
-- Azure Blob Storage  - SAS/SERVICE PRINCIPAL/AAD
-- Azure Data Lake Gen2 -   SAS/MSI/SERVICE PRINCIPAL/AAD
+- Azure Blob Storage  - SAS/SERVICE PRINCIPAL/Entra
+- Azure Data Lake Gen2 -   SAS/MSI/SERVICE PRINCIPAL/Entra
 
 - Authenticating with Shared Access Signatures (SAS)
   - *IDENTITY: A constant with a value of 'Shared Access Signature'*
@@ -639,7 +639,7 @@ Specifies where the files containing the data is staged. Currently Azure Data La
 Azure Data Lake Storage (ADLS) Gen2 offers better performance than Azure Blob Storage (legacy). Consider using an ADLS Gen2 account whenever possible.
 
 > [!NOTE]  
-> The .blob endpoint is available for ADLS Gen2 as well and currently yields the best performance. Use the .blob endpoint when .dfs is not required for your authentication method.
+> The .blob endpoint is available for ADLS Gen2 as well and currently yields the best performance. Use the `blob` endpoint when `dfs` is not required for your authentication method.
 
 - *Account* - The storage account name
 
