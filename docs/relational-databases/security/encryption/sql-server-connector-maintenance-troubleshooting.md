@@ -4,7 +4,7 @@ description: Learn about maintenance instructions and common troubleshooting ste
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: vanto, maghan
-ms.date: 09/24/2024
+ms.date: 01/16/2025
 ms.service: sql
 ms.subservice: security
 ms.topic: conceptual
@@ -39,7 +39,7 @@ Versions 1.0.0.440 and older have been replaced and are no longer supported in p
     1. DLL file date: 01/30/2018 (or older)
 1. Install (upgrade) new SQL Server Connector for Microsoft Azure Key Vault
     1. Version: 15.0.2000.440
-    1. DLL file date: 09/11/2020
+    1. DLL file date: 11/09/2024
 1. Start SQL Server service
 1. Test encrypted databases are accessible
 
@@ -50,7 +50,7 @@ Versions 1.0.0.440 and older have been replaced and are no longer supported in p
 1. Uninstall the new version using **Control Panel\Programs\Programs and Features**
     1. Application name: SQL Server Connector for Microsoft Azure Key Vault
     1. Version: 15.0.2000.440
-    1. DLL file date: 11/24/2020
+    1. DLL file date: 11/09/2024
 
 1. Install old version of SQL Server Connector for Microsoft Azure Key Vault
     1. Version: 15.0.300.96
@@ -65,13 +65,18 @@ Versions 1.0.0.440 and older have been replaced and are no longer supported in p
 
 Deep links to older versions of the SQL Server Connector
 
-- Current: [1.0.5.0 (version 15.0.2000.440) – File date November 24, 2020](https://download.microsoft.com/download/8/0/9/809494f2-bac9-4388-ad07-7eaf9745d77b/1033_15.0.2000.440/SQLServerConnectorforMicrosoftAzureKeyVault.msi)
+- Current: [1.0.5.0 (version 15.0.2000.440) – File date November 09, 2024](https://www.microsoft.com/download/details.aspx?id=45344)
+- [1.0.5.0 (version 15.0.2000.440) – File date November 24, 2020](https://download.microsoft.com/download/8/0/9/809494f2-bac9-4388-ad07-7eaf9745d77b/1033_15.0.2000.440/SQLServerConnectorforMicrosoftAzureKeyVault.msi)
 - [1.0.5.0 (version 15.0.300.96) – File date January 30, 2018](https://download.microsoft.com/download/8/0/9/809494f2-bac9-4388-ad07-7eaf9745d77b/SQL%20Server%20Connector%20for%20Microsoft%20Azure%20Key%20Vault%201.0.5.0.msi)
 - [1.0.4.0: (version 13.0.811.168)](https://download.microsoft.com/download/8/0/9/809494f2-bac9-4388-ad07-7eaf9745d77b/SQL%20Server%20Connector%20for%20Microsoft%20Azure%20Key%20Vault%201.0.4.0.msi)
 
 ### Rolling the [!INCLUDE [ssNoVersion](../../../includes/ssnoversion-md.md)] service principal
 
 [!INCLUDE [ssNoVersion](../../../includes/ssnoversion-md.md)] uses service principals created in Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)) as credentials to access the Key Vault. The service principal has a Client ID and Authentication Key. A [!INCLUDE [ssNoVersion](../../../includes/ssnoversion-md.md)] credential is set up with the **VaultName**, **Client ID**, and **Authentication Key**. The **Authentication Key** is valid for a certain period of time (one or two years). Before the time period expires a new key must be generated in Microsoft Entra ID for the service principal. Then the credential has to be changed in [!INCLUDE [ssNoVersion](../../../includes/ssnoversion-md.md)]. [!INCLUDE [ssManStudio](../../../includes/ssmanstudio-md.md)] maintains a cache for the credential in the current session, so when a credential is changed, [!INCLUDE [ssManStudio](../../../includes/ssmanstudio-md.md)] should be restarted.
+
+### Managed Identity support for SQL Server on Azure VM
+
+Starting with SQL Server 2022 Cumulative Update 17 (CU17), Microsoft Entra managed identities are supported for Extensible Key Management (EKM) with Azure Key Vault (AKV) and Managed Hardware Security Modules (HSM) on SQL Server on Azure VMs (Windows only). For more information, see [Managed Identity support for Extensible Key Management with Azure Key Vault](/azure/azure-sql/virtual-machines/windows/managed-identity-extensible-key-management). To use managed identities with the SQL Server Connector, the connector version must be 1.0.5.0 November 2024 or later. Download the latest version from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45344).
 
 ### Key Backup and Recovery
 
