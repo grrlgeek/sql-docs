@@ -4,8 +4,8 @@ titleSuffix: Azure Synapse Analytics and Microsoft Fabric
 description: Use the COPY statement in Azure Synapse Analytics and Warehouse in Microsoft Fabric for loading from external storage accounts.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: procha, mikeray, stwynant
-ms.date: 08/15/2024
+ms.reviewer: procha, mikeray, fresantos
+ms.date: 01/15/2025
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: reference
@@ -158,12 +158,12 @@ Multiple file locations can only be specified from the same storage account and 
 
 | | CSV | Parquet | ORC |
 | :---: | :---: | :---: | :---: |
-| **Azure Blob Storage** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/KEY | SAS/KEY |
-| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/AAD | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/AAD |
+| **Azure Blob Storage** | SAS/MSI/SERVICE PRINCIPAL/KEY/Entra | SAS/KEY | SAS/KEY |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/Entra | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/Entra | SAS (blob <sup>1</sup> )/MSI (dfs <sup>2</sup> )/SERVICE PRINCIPAL/KEY/Entra |
 
-1: The .blob endpoint (**.blob**.core.windows.net) in your external location path is required for this authentication method.
+<sup>1</sup> The `blob` endpoint (`.blob.core.windows.net`) in your external location path is required for this authentication method.
 
-2: The .dfs endpoint (**.dfs**.core.windows.net) in your external location path is required for this authentication method.
+<sup>2</sup>  The `dfs` endpoint (`.dfs.core.windows.net`) in your external location path is required for this authentication method.
 
 > [!NOTE]  
 >  
@@ -212,8 +212,8 @@ If ERRORFILE has the full path of the storage account defined, then the ERRORFIL
 
 *ERRORFILE_CREDENTIAL* only applies to CSV files. Supported data source and authentication methods are:
 
-- Azure Blob Storage  - SAS/SERVICE PRINCIPAL/AAD
-- Azure Data Lake Gen2 -   SAS/MSI/SERVICE PRINCIPAL/AAD
+- Azure Blob Storage  - SAS/SERVICE PRINCIPAL/Entra
+- Azure Data Lake Gen2 -   SAS/MSI/SERVICE PRINCIPAL/Entra
 
 - Authenticating with Shared Access Signatures (SAS)
   - *IDENTITY: A constant with a value of 'Shared Access Signature'*
@@ -639,7 +639,7 @@ Specifies where the files containing the data is staged. Currently Azure Data La
 Azure Data Lake Storage (ADLS) Gen2 offers better performance than Azure Blob Storage (legacy). Consider using an ADLS Gen2 account whenever possible.
 
 > [!NOTE]  
-> The .blob endpoint is available for ADLS Gen2 as well and currently yields the best performance. Use the .blob endpoint when .dfs is not required for your authentication method.
+> The .blob endpoint is available for ADLS Gen2 as well and currently yields the best performance. Use the `blob` endpoint when `dfs` is not required for your authentication method.
 
 - *Account* - The storage account name
 
@@ -740,7 +740,7 @@ The COPY command requires that gzip files do not contain any trailing garbage to
 
 *FIELDQUOTE* only applies to CSV. Specifies a single character that is used as the quote character (string delimiter) in the CSV file. If not specified, the quote character (") is used as the quote character as defined in the RFC 4180 standard. Hexadecimal notation is also supported for FIELDQUOTE. Extended ASCII and multi-byte characters aren't supported with UTF-8 for FIELDQUOTE.
 
-> [!NOTE]  
+> [!NOTE]
 > FIELDQUOTE characters are escaped in string columns where there is a presence of a double FIELDQUOTE (delimiter).
 
 #### *FIELDTERMINATOR = 'field_terminator'*
@@ -786,7 +786,23 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 ## Permissions
 
-The COPY command requires a minimum **CONTRIBUTOR role** at the workspace level, or alternatively, the **VIEWER** role at the workspace level plus **ADMINISTER DATABASE BULK OPERATIONS** database permission and **INSERT** permission on the table objects.
+### Control plane permissions
+
+To execute the `COPY INTO` command, a user must be granted membership to [a workspace role through **Manage access** in the Workspace](/fabric/data-warehouse/workspace-roles), with at least the Viewer role. Alternatively, warehouse access can be shared with a user via [Item Permissions](/fabric/data-warehouse/share-warehouse-manage-permissions) in the Fabric portal, with at least Read permissions. To align with the principle of least privilege, Read permission is sufficient.
+
+### Data plane permissions
+
+Once the user has been granted [control plane permissions](#control-plane-permissions) through workspace roles or item permissions, if they only have Read permissions at the [data plane level](/fabric/security/permission-model#compute-permissions), the user should also be granted `INSERT` and `ADMINISTER DATABASE BULK OPERATIONS` permissions via T-SQL commands.
+
+For example, the following T-SQL script grants these permissions to an individual user via their Microsoft Entra ID.
+
+```sql
+GRANT ADMINISTER DATABASE BULK OPERATIONS to [mike@contoso.com];
+GO
+
+GRANT INSERT to [mike@contoso.com];
+GO
+```
 
 ## Remarks
 
