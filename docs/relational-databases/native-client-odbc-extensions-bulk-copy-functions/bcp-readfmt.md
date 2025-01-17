@@ -27,6 +27,11 @@ RETCODE bcp_readfmt (
         LPCTSTR szFormatFile);  
 ```  
   
+Unicode and ANSI names:
+
+- bcp_readfmtA (ANSI)
+- bcp_readfmtW (Unicode)
+
 ## Arguments  
  *hdbc*  
  Is the bulk copy-enabled ODBC connection handle.  
