@@ -25,7 +25,12 @@ apitype: "DLLExport"
 RETCODE bcp_writefmt (  
         HDBC hdbc,  
         LPCTSTR szFormatFile);  
-```  
+```
+
+Unicode and ANSI names:
+
+- bcp_initA (ANSI)
+- bcp_initW (Unicode)
   
 ## Arguments  
  *hdbc*  
