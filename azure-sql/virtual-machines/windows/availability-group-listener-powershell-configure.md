@@ -248,12 +248,12 @@ Note the following guidelines on availability group listener in Azure using inte
 
 Use the following PowerShell cmdlets to create an internal load balancer for Azure Virtual Machines.
 
-* [New-AzLoadBalancer](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancer) creates a load balancer. 
-* [New-AzLoadBalancerFrontendIpConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerFrontendIpConfig) creates a front-end IP configuration for a load balancer. 
-* [New-AzLoadBalancerRuleConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerRuleConfig) creates a rule configuration for a load balancer. 
-* [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) creates a backend address pool configuration for a load balancer. 
-* [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) creates a probe configuration for a load balancer.
-* [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) removes a load balancer from an Azure resource group.
+* [New-AzLoadBalancer](/powershell/module/Az.Network/New-AzLoadBalancer) creates a load balancer. 
+* [New-AzLoadBalancerFrontendIpConfig](/powershell/module/Az.Network/New-AzLoadBalancerFrontendIpConfig) creates a front-end IP configuration for a load balancer. 
+* [New-AzLoadBalancerRuleConfig](/powershell/module/Az.Network/New-AzLoadBalancerRuleConfig) creates a rule configuration for a load balancer. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Az.Network/New-AzLoadBalancerBackendAddressPoolConfig) creates a backend address pool configuration for a load balancer. 
+* [New-AzLoadBalancerProbeConfig](/powershell/module/Az.Network/New-AzLoadBalancerProbeConfig) creates a probe configuration for a load balancer.
+* [Remove-AzLoadBalancer](/powershell/module/Az.Network/Remove-AzLoadBalancer) removes a load balancer from an Azure resource group.
 
 ## Next steps 
 
