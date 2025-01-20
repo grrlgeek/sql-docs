@@ -25,16 +25,17 @@ Azure Database Migration Service enables seamless migrations from SQL Server dat
 
 With Azure Database Migration Service currently we offer two versions:
 
-1. Azure Database Migration Service can be accessed via [Azure SQL Migration extension for Azure Data Studio](https://learn.microsoft.com/azure/dms/migration-using-azure-data-studio), [Azure portal](https://portal.azure.com/#create/Microsoft.AzureDMS), PowerShell and Azure CLI.
+1. Azure Database Migration Service can be accessed via [Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio), [Azure portal](https://portal.azure.com/#create/Microsoft.AzureDMS), PowerShell and Azure CLI.
 
   Use the latest Azure Database Migration Service in the following scenarios:
 
-- Migrate both databases to Azure SQL, especially at scale, and for extensive (in terms of number and size of databases) migrations.
-- Migrate databases to Azure Database.
+  - Migrate both databases to Azure SQL, especially at scale, and for extensive (in terms of number and size of databases) migrations.
+  - Migrate databases to Azure Database.
 
 2. Azure Database Migration Service (classic) can be accessed via Azure portal, PowerShell and Azure CLI. It is an older version of the Azure Database Migration Service that offers database modernization to Azure and support scenarios like - PostgreSQL, MySQL, and MongoDB.
 
-Note: DMS(classic) - SQL scenario are on the deprecation path. Refer [here](https://azure.microsoft.com/updates?id=retirement-azure-database-migration-service-classic-sql-server-scenarios-deprecation)
+> [!NOTE]
+> DMS(classic) - SQL scenario are on the deprecation path. Refer [here](https://azure.microsoft.com/updates?id=retirement-azure-database-migration-service-classic-sql-server-scenarios-deprecation)
 
 
 For more information, visit [Azure Database Migration Service documentation](/azure/dms/).
