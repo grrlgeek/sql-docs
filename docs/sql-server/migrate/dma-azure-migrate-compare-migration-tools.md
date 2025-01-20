@@ -25,16 +25,16 @@ Azure Database Migration Service enables seamless migrations from SQL Server dat
 
 With Azure Database Migration Service currently we offer two versions:
 
-1. Azure Database Migration Service can be accessed via [Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md), [Azure portal](https://portal.azure.com/#create/Microsoft.AzureDMS), PowerShell and Azure CLI.
+1. Azure Database Migration Service can be accessed via [Azure SQL Migration extension for Azure Data Studio](/../../dms/migration-using-azure-data-studio.md), [Azure portal](https://portal.azure.com/#create/Microsoft.AzureDMS), PowerShell and Azure CLI.
 
-Use the latest Azure Database Migration Service in the following scenarios:
+  Use the latest Azure Database Migration Service in the following scenarios:
 
 - Migrate both databases to Azure SQL, especially at scale, and for extensive (in terms of number and size of databases) migrations.
 - Migrate databases to Azure Database.
 
 2. Azure Database Migration Service (classic) can be accessed via Azure portal, PowerShell and Azure CLI. It is an older version of the Azure Database Migration Service that offers database modernization to Azure and support scenarios like - PostgreSQL, MySQL, and MongoDB.
 
-[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](/../../dms/includes/deprecation-announcement-dms-classic-sql.md)]
 
 
 For more information, visit [Azure Database Migration Service documentation](/azure/dms/).
@@ -52,6 +52,7 @@ Use Azure Migrate in the following scenarios:
 - Lift your entire data estate to SQL Server on Azure VMs.
 
 For more information, visit [Azure Migrate documentation](/azure/migrate/).
+
 <!-->
 ## Azure SQL migration extension for Azure Data Studio
 
@@ -61,8 +62,8 @@ Use Azure Migrate in the following scenarios:
 
 - Easily migrate SQL Server databases to Azure SQL Database without the need for complex scripts or manual steps.
 - Migrate small or large databases.
--->
-<!--## Database Experimentation Assistant (DEA)
+
+## Database Experimentation Assistant (DEA)
 
 Database Experimentation Assistant (DEA) is an experimentation solution for SQL Server upgrades. DEA can help you evaluate a targeted version of SQL Server for a specific workload. Customers upgrading from SQL Server 2005 and later versions, can use the analysis metrics that the tool provides.
 
