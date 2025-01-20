@@ -53,27 +53,7 @@ Use Azure Migrate in the following scenarios:
 
 For more information, visit [Azure Migrate documentation](/azure/migrate/).
 
-<!-->
-## Azure SQL migration extension for Azure Data Studio
 
-Azure SQL Migration Extension for Azure Data Studio is a powerful tool that simplifies the process of migrating SQL Server databases to Azure SQL Database. This extension is designed to work with Azure Data Studio, a cross-platform database development tool that enables developers to work with SQL Server, Azure SQL Database, and other data platforms. The extension provides a streamlined user interface that guides users through the migration process, offering several options for customization and optimization.
-
-Use Azure Migrate in the following scenarios:
-
-- Easily migrate SQL Server databases to Azure SQL Database without the need for complex scripts or manual steps.
-- Migrate small or large databases.
-
-## Database Experimentation Assistant (DEA)
-
-Database Experimentation Assistant (DEA) is an experimentation solution for SQL Server upgrades. DEA can help you evaluate a targeted version of SQL Server for a specific workload. Customers upgrading from SQL Server 2005 and later versions, can use the analysis metrics that the tool provides.
-
-Use the Database Experimentation Assistant in the following scenario:
-
-- Capture the workload of a source SQL Server environment and evaluate the workload on a source SQL Server to prepare for migration.
-- Identify compatibility errors and possible degraded queries for your SQL Server migration scenario.
-
-For more information, visit [Database Experimentation Assistant documentation](../../dea/database-experimentation-assistant-overview.md).
--->
 ## Data Migration Assistant (DMA)
 
 The Data Migration Assistant (DMA) helps you upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server or Azure SQL Database. DMA recommends performance and reliability improvements for your target environment and allows you to move your schema, data, and uncontained objects from your source server to your target server.
