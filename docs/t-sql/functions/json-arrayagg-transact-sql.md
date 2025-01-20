@@ -21,7 +21,7 @@ monikerRange: "=azuresqldb-current || =azuresqldb-mi-current"
 ---
 # JSON_ARRAYAGG (Transact-SQL)
 
-[!INCLUDE [asdb](../../includes/applies-to-version/asdb-asdbmi.md)]
+[!INCLUDE [asdb](../../includes/applies-to-version/asdb-asdbmi-fabricse-fabricdw.md)]
 
  Constructs a JSON array from an aggregation of SQL data or columns.
 
