@@ -89,7 +89,6 @@ Use the following chart to compare capabilities of the SQL migration tools:
 | Migrate (and/or upgrade) SQL Server to SQL Server on Azure VM | No | Yes | No | No | Yes (Migrate only) |
 | Migrate non-SQL objects<br />(Oracle, Access, DB2, and so on) | No | No | Yes | No | No |
 | Migrate open source databases<br />(MySQL, PostgreSQL, MariaDB, and so on) | No | No | No | Yes | No |
-| Compare workloads between source and target SQL Server | No | No | No | No | No |
 
 ## Next steps
 
