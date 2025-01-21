@@ -30,7 +30,7 @@ monikerRange: "=azuresqldb-current || =azuresqldb-mi-current"
  To create a JSON array from an aggregate instead, use [JSON_ARRAYAGG](json-arrayagg-transact-sql.md).
 
 > [!NOTE]
-> Both **json** aggregate functions `JSON_OBJECTAGG` and `JSON_ARRAYAGG` are currently in preview for Azure SQL Database and Azure SQL Managed Instance (configured with the [**Always-up-to-date** update policy](/azure/azure-sql/managed-instance/update-policy#always-up-to-date-update-policy)).
+> Both **json** aggregate functions `JSON_OBJECTAGG` and `JSON_ARRAYAGG` are currently in preview for Azure SQL Database, Azure SQL Managed Instance (configured with the [**Always-up-to-date** update policy](/azure/azure-sql/managed-instance/update-policy#always-up-to-date-update-policy)), and Fabric Datawarehouse.
 
  :::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
