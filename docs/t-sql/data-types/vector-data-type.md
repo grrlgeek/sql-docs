@@ -4,7 +4,7 @@ description: The vector data type stores vector data optimized for machine learn
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: damauri, pookam
-ms.date: 12/02/2024
+ms.date: 01/21/2025
 ms.service: sql
 ms.subservice: t-sql
 ms.topic: quickstart
