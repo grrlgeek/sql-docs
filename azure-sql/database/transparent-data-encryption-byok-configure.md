@@ -52,7 +52,7 @@ For Az module installation instructions, see [Install Azure PowerShell](/powersh
 For specifics on Key Vault, see [PowerShell instructions from Key Vault](/azure/key-vault/secrets/quick-create-powershell) and [How to use Key Vault soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery).
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (AzureRM) module was deprecated on February 29, 2024. All future development should use the Az.Sql module. Users are advised to migrate from AzureRM to the Az PowerShell module to ensure continued support and updates. The AzureRM module is no longer maintained or supported. The arguments for the commands in the Az PowerShell module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Az PowerShell module](/powershell/azure/new-azureps-module-az).
+> The PowerShell Azure Resource Manager (AzureRM) module was deprecated on February 29, 2024. All future development should use the Az.Sql module. Users are advised to migrate from AzureRM to the Az PowerShell module to ensure continued support and updates. The AzureRM module is no longer maintained or supported. The arguments for the commands in the Az PowerShell module and in the AzureRM modules are substantially identical. For more about their compatibility, see [Introducing the new Az PowerShell module](/powershell/azure/new-azureps-module-az).
 
 <a name='assign-an-azure-active-directory-azure-ad-identity-to-your-server'></a>
 
