@@ -159,7 +159,7 @@ When CHECK_POLICY is changed to ON, the following behavior occurs:
 
 - The password history is initialized with the value of the current password hash.
 
-  When CHECK_POLICY is changed to OFF, the following behavior occurs:
+When CHECK_POLICY is changed to OFF, the following behavior occurs:
 
 - CHECK_EXPIRATION is also set to OFF.
 - The password history is cleared.
