@@ -367,7 +367,7 @@ Azure Key Vault documentation:
 
 - [Get Started with Azure Key Vault](/azure/key-vault/general/overview)
 
-- PowerShell [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/) reference
+- PowerShell [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/) reference
 
 ## Related content
 
