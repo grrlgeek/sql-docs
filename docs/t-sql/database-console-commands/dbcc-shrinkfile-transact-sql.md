@@ -87,7 +87,7 @@ You can reduce an empty file's default size using `DBCC SHRINKFILE <target_size>
 
 This option isn't supported for FILESTREAM filegroup containers.
 
-If specified, `DBCC SHRINKFILE` tries to shrink the file to *target_size*. Used pages in the file's area to be freed are moved to free space in the file's kept areas. For example, with a 10-MB data file, a `DBCC SHRINKFILE` operation with an 8 *target_size*  moves all used pages in the file's last 2 MB into any unallocated pages in the file's first 8 MB. `DBCC SHRINKFILE` doesn't shrink a file past the needed stored data size. For example, if 7 MB of a 10-MB data file is used, a `DBCC SHRINKFILE` statement with a *target_size* of 6 shrinks the file to only 7 MB, not 6 MB.
+If specified, `DBCC SHRINKFILE` tries to shrink the file to *target_size*. Used pages in the file's area to be freed are moved to free space in the file's kept areas. For example, with a 10-MB data file, a `DBCC SHRINKFILE` operation with an `8` *target_size* moves all used pages in the file's last 2 MB into any unallocated pages in the file's first 8 MB. `DBCC SHRINKFILE` doesn't shrink a file past the needed stored data size. For example, if 7 MB of a 10-MB data file is used, a `DBCC SHRINKFILE` statement with a *target_size* of 6 shrinks the file to only 7 MB, not 6 MB.
 
 #### EMPTYFILE
 
@@ -128,11 +128,12 @@ This feature is similar to the [WAIT_AT_LOW_PRIORITY with online index operation
 - You cannot specify ABORT_AFTER_WAIT option NONE.
 
 #### WAIT_AT_LOW_PRIORITY
+
 **Applies to**: [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE [sssql22-md](../../includes/sssql22-md.md)] and later) and [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)].
 
-When a shrink command is executed in WAIT_AT_LOW_PRIORITY mode, new queries requiring schema stability (Sch-S) locks are not blocked by the waiting shrink operation until the shrink operation stops waiting and starts executing. The shrink operation will execute when it is able to obtain a schema modify lock (Sch-M) lock.  If a new shrink operation in WAIT_AT_LOW_PRIORITY mode cannot obtain a lock due to a long-running query, the shrink operation will eventually timeout after 1 minute by default and will silently exit.
+When a shrink command is executed in WAIT_AT_LOW_PRIORITY mode, new queries requiring schema stability (Sch-S) locks are not blocked by the waiting shrink operation until the shrink operation stops waiting and starts executing. The shrink operation executes when it is able to obtain a schema modify lock (Sch-M) lock. If a new shrink operation in WAIT_AT_LOW_PRIORITY mode cannot obtain a lock due to a long-running query, the shrink operation will eventually time out after 1 minute by default and will silently exit.
 
-If a new shrink operation in WAIT_AT_LOW_PRIORITY mode cannot obtain a lock due to a long-running query, the shrink operation will eventually timeout after 1 minute by default and will silently exit. This will occur if the shrink operation cannot obtain the Sch-M lock due to concurrent query or queries holding Sch-S locks. When a timeout occurs, an error 49516 message will be sent to the SQL Server error log, for example: `Msg 49516, Level 16, State 1, Line 134 Shrink timeout waiting to acquire schema modify lock in WLP mode to process IAM pageID 1:2865 on database ID 5`. At this point, you can simply retry the shrink operation in WAIT_AT_LOW_PRIORITY mode knowing that there would be no impact to the application.
+If a new shrink operation in WAIT_AT_LOW_PRIORITY mode cannot obtain a lock due to a long-running query, the shrink operation will eventually time out after 1 minute by default and silently exit. This will occur if the shrink operation cannot obtain the Sch-M lock due to concurrent query or queries holding Sch-S locks. When a timeout occurs, error 49516 is sent to the [SQL Server error log](../../tools/configuration-manager/viewing-the-sql-server-error-log.md), for example: `Msg 49516, Level 16, State 1, Line 134 Shrink timeout waiting to acquire schema modify lock in WLP mode to process IAM pageID 1:2865 on database ID 5`. Retry the shrink operation in `WAIT_AT_LOW_PRIORITY` mode. 
 
 #### ABORT_AFTER_WAIT = [ SELF | BLOCKERS ]
 **Applies to**: [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE [sssql22-md](../../includes/sssql22-md.md)] and later) and [!INCLUDE [ssazure-sqldb](../../includes/ssazure-sqldb.md)].
@@ -222,11 +223,11 @@ FROM sys.database_files;
 
 The shrink operation can't reduce the file size any further if there's insufficient free space available.
 
-Typically it's the log file that appears not to shrink. This non-shrinking is usually the result of a log file that hasn't been truncated. To truncate the log, you can set the database recovery model to SIMPLE, or back up the log and then run the `DBCC SHRINKFILE` operation again.
+Typically it's the log file that appears not to shrink, usually the result of a log file that hasn't been truncated by a regular transaction log backup. To truncate the log, back up the transaction log and then run the `DBCC SHRINKFILE` operation again. If point-in-time recovery is not required, consider the [SIMPLE database recovery model](../../relational-databases/backup-restore/recovery-models-sql-server.md).
 
 ### The shrink operation is blocked
 
-A transaction running under a [row versioning-based isolation level](../../t-sql/statements/set-transaction-isolation-level-transact-sql.md) can block shrink operations. For example, if a large delete operation running under a row versioning-based isolation level is in progress when a `DBCC SHRINKDATABASE` operation executes, the shrink operation waits for the delete to complete before continuing. When this blocking happens, `DBCC SHRINKFILE` and `DBCC SHRINKDATABASE` operations print an informational message (5202 for `SHRINKDATABASE` and 5203 for `SHRINKFILE`) to the SQL Server error log. This message is logged every five minutes in the first hour and then every hour. For example, if the error log contains the following error message then the following error will occur:
+A transaction running under a [row versioning-based isolation level](../../t-sql/statements/set-transaction-isolation-level-transact-sql.md) can block shrink operations. For example, if a large delete operation running under a row versioning-based isolation level is in progress when a `DBCC SHRINKDATABASE` operation executes, the shrink operation waits for the delete to complete before continuing. When this blocking happens, `DBCC SHRINKFILE` and `DBCC SHRINKDATABASE` operations print an informational message (5202 for `SHRINKDATABASE` and 5203 for `SHRINKFILE`) to the SQL Server error log. This message is logged every five minutes in the first hour and then every hour. For example:
 
 ```output
 DBCC SHRINKFILE for file ID 1 is waiting for the snapshot
@@ -318,7 +319,7 @@ GO
 
 ### E. Shrink a database file with WAIT_AT_LOW_PRIORITY
 
-The following example attempts to shrink the size of a data file in the current user database to 1 MB. The `sys.database_files` catalog view is queried to obtain the `file_id` of the data file, in this example, `file_id` 5. If a lock can't be obtained within one minute, the shrink operation will abort.
+The following example attempts to shrink the size of a data file in the current user database to 1 MB. The `sys.database_files` catalog view is queried to obtain the `file_id` of the data file, in this example, `file_id` 5. If a lock can't be obtained within one minute, the shrink operation aborts.
 
 ```sql
 USE AdventureWorks2022;
