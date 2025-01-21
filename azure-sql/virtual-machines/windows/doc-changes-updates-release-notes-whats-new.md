@@ -4,12 +4,12 @@ description: Learn about the new features for and improvements to SQL Server on 
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: randolphwest, mathoma, dpless
-ms.date: 11/19/2024
+ms.date: 01/20/2025
 ms.service: azure-vm-sql-server
 ms.subservice: service-overview
 ms.topic: whats-new
 ms.custom:
-  - ignite-2024
+- ignite-2024
 tags: azure-service-management
 ---
 # What's new with SQL Server on Azure Virtual Machines?
