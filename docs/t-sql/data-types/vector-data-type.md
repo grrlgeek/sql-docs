@@ -161,7 +161,7 @@ conn.close()
 For more information on the `get_conn` function, see [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python?view=azuresql&preserve-view=true&tabs=sign-in-azure-cli%2Cazure-portal-create%2Cazure-portal-assign%2Capp-service-identity#update-the-local-connection-configuration).
 
 > [!WARNING]
-> Make sure to add `LongAsMax=yes` in the connection string used with Python to send data using the NVARCHAR(MAX) type instead of the obsolete NTEXT to avoid any conversion error message. More details here: (PyODBC - LongAsMax)[https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-Windows#longasmax]
+> Make sure to add `LongAsMax=yes` in the connection string used with Python to send data using the **nvarchar(max)** type instead of the obsolete **ntext** to avoid any conversion error message, for example: "DataError: ('22018', '[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Operand type clash: ntext is incompatible with vector (206) (SQLExecDirectW)')". For more information, see (PyODBC - LongAsMax)[https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-Windows#longasmax]
 
 
 ---
