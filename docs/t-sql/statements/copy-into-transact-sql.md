@@ -787,7 +787,7 @@ Parser version 1.0 is available for backward compatibility only, and should be u
 
 #### MATCH_COLUMN_COUNT = { 'ON' | 'OFF' }
 
-*MATCH_COLUMN_COUNT* only applies to CSV. Default is OFF. Specifies if the COPY command should check if the column count rows in source files matches the column count of the destination table. The following behavior applies: 
+*MATCH_COLUMN_COUNT* only applies to CSV. Default is OFF. Specifies if the COPY command should check if the column count rows in source files match the column count of the destination table. The following behavior applies: 
 
 - If MATCH_COLUMN_COUNT is OFF
   - Exceeding columns from source rows are ignored
@@ -795,7 +795,7 @@ Parser version 1.0 is available for backward compatibility only, and should be u
   - If a value is not provided to a non-nullable column, the COPY command fails
 - If MATCH_COLUMN_COUNT is ON
   - The COPY command checks if the column count on each row in each file from the source matches the column count of the destination table
-  - In case of a column count mismatch, the COPY command fails
+  - If there is a column count mismatch, the COPY command fails
 
 ## Permissions
 
