@@ -11,6 +11,8 @@ helpviewer_keywords:
   - "bcp_readfmt function"
 apilocation: "sqlncli11.dll"
 apiname: "bcp_readfmt"
+apiname: "bcp_readfmtA"
+apiname: "bcp_readfmtW"
 apitype: "DLLExport"
 ---
 # bcp_readfmt

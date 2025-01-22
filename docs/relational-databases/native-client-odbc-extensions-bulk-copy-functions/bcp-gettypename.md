@@ -11,6 +11,8 @@ helpviewer_keywords:
   - "bcp_gettypename function"
 apilocation: "sqlncli11.dll"
 apiname: "bcp_gettypename"
+apiname: "bcp_gettypenameA"
+apiname: "bcp_gettypenameW"
 apitype: "DLLExport"
 ---
 # bcp_gettypename
@@ -26,6 +28,11 @@ RETCODE bcp_gettypename (
         INT token,  
         DBBOOL fIsMaxType);  
 ```  
+  
+Unicode and ANSI names:
+
+- bcp_gettypenameA (ANSI)
+- bcp_gettypenameW (Unicode)
   
 ## Arguments  
  *token*  
