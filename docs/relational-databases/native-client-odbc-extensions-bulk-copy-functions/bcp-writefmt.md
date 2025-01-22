@@ -30,7 +30,6 @@ RETCODE bcp_writefmt (
 Unicode and ANSI names:
 
 - bcp_writefmtA (ANSI)
-
 - bcp_writefmtW (Unicode)
 
 ## Arguments  
