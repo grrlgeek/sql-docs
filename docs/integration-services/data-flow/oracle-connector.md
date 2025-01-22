@@ -12,6 +12,9 @@ ms.topic: how-to
 
 [!INCLUDE[sqlserver-ssis](../../includes/applies-to-version/sqlserver.md)]
 
+> [!IMPORTANT]
+> Microsoft Connector for Oracle is deprecated now. Details refer to [the announcement](https://www.microsoft.com/en-us/sql-server/blog/2025/01/21/sql-server-integration-services-ssis-microsoft-connector-for-oracle-deprecation/).
+
 Microsoft Connector for Oracle enables the ability to export data from and load data into Oracle data source in an SSIS package.
 
 ## Version support

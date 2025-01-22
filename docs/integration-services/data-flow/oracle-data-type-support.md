@@ -12,6 +12,9 @@ ms.topic: reference
 
 [!INCLUDE[sqlserver-ssis](../../includes/applies-to-version/sqlserver-ssis.md)]
 
+> [!IMPORTANT]
+> Microsoft Connector for Oracle is deprecated now. Details refer to [the announcement](https://www.microsoft.com/en-us/sql-server/blog/2025/01/21/sql-server-integration-services-ssis-microsoft-connector-for-oracle-deprecation/).
+
 SSIS components for Oracle do not support all Oracle data types. Columns with unsupported data types will have a warning when designing packages in SSDT and will be deleted from mapping columns. Data cannot be loaded to a column with an unsupported data type.
 
 ## Data type mapping
