@@ -11,8 +11,8 @@ helpviewer_keywords:
   - "bcp_init function"
 apilocation: "sqlncli11.dll"
 apiname: "bcp_init"
- - "bcp_initA"
- - "bcp_initW"
+  - "bcp_initA"
+  - "bcp_initW"
 apitype: "DLLExport"
 ---
 # bcp_init
