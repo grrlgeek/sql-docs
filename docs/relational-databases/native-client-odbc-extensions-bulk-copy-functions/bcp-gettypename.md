@@ -10,9 +10,7 @@ ms.topic: "reference"
 helpviewer_keywords:
   - "bcp_gettypename function"
 apilocation: "sqlncli11.dll"
-apiname: "bcp_gettypename"
-  - "bcp_gettypenameA"
-  - "bcp_gettypenameW"
+apiname: ["bcp_gettypename", "bcp_gettypenameA", "bcp_gettypenameW"]
 apitype: "DLLExport"
 ---
 # bcp_gettypename

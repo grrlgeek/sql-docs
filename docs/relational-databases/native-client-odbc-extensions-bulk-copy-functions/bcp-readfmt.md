@@ -10,9 +10,7 @@ ms.topic: "reference"
 helpviewer_keywords:
   - "bcp_readfmt function"
 apilocation: "sqlncli11.dll"
-apiname: "bcp_readfmt"
-  - "bcp_readfmtA"
-  - "bcp_readfmtW"
+apiname: ["bcp_readfmt", "bcp_readfmtA", "bcp_readfmtW"]
 apitype: "DLLExport"
 ---
 # bcp_readfmt
