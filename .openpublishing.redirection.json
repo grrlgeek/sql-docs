@@ -41701,6 +41701,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/dma/dma-assess-app-data-layer.md",
+      "redirect_url": "/sql/dma/dma-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/sql-server/azure-arc/connect-at-scale-policy.md",
       "redirect_url": "/sql/sql-server/azure-arc/automatically-connect",
       "redirect_document_id": false
@@ -59314,7 +59319,7 @@
       "source_path": "docs/t-sql/language-elements/continue-transact-sql.md",
       "redirect_url": "/sql/t-sql/language-elements/while-transact-sql",
       "redirect_document_id": false
-	  },
+    },
     {
       "source_path": "docs/connect/php/configuring-iis-for-php-sql-driver.md",
       "redirect_url": "/sql/connect/php/download-drivers-php-sql-server",
