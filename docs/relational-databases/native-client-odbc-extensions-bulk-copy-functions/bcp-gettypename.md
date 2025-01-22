@@ -11,8 +11,8 @@ helpviewer_keywords:
   - "bcp_gettypename function"
 apilocation: "sqlncli11.dll"
 apiname: "bcp_gettypename"
-apiname: "bcp_gettypenameA"
-apiname: "bcp_gettypenameW"
+ - "bcp_gettypenameA"
+ - "bcp_gettypenameW"
 apitype: "DLLExport"
 ---
 # bcp_gettypename
@@ -42,12 +42,12 @@ Unicode and ANSI names:
  Indicates if token requested is a max type.  
   
 ## Returns  
- A string containing the SQL type name corresponding to the BCP type. If an invalid BCP type is specified, an empty string is returned..  
+ A string containing the SQL type name corresponding to the BCP type. If an invalid BCP type is specified, an empty string is returned.  
   
 ## Remarks  
  The BCP type tokens are defined in the sqlncli.h header file and the sqlncli11.lib library.  
   
- The table below specifies the possible BCP types, whether or not they are max types, and the expected output.  
+ The following table specifies the possible BCP types, whether they're max types, and the expected output.  
   
 |BCP type name|MaxType|Output|  
 |-------------------|-------------|------------|  
