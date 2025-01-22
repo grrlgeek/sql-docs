@@ -4,7 +4,7 @@ titleSuffix: SQL Server
 description: This quickstart shows how to install SQL Server on Red Hat Enterprise Linux (RHEL) and then create and query a database with sqlcmd.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 11/18/2024
+ms.date: 01/21/2025
 ms.service: sql
 ms.subservice: linux
 ms.topic: conceptual
@@ -43,7 +43,7 @@ For more information on supported platforms, see [Release notes for SQL Server 2
 
 > [!TIP]  
 > This tutorial requires user input and an internet connection. If you're interested in the [unattended](sql-server-linux-setup.md#unattended) or [offline](sql-server-linux-setup.md#offline) installation procedures, see [Installation guidance for SQL Server on Linux](sql-server-linux-setup.md).
-If you choose to have a pre-installed [!INCLUDE [ssnoversion-md](../includes/ssnoversion-md.md)] VM on RHEL ready to run your production-based workload, then please follow the [best practices](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for creating the SQL Server VM.
+If you choose to have a pre-installed [!INCLUDE [ssnoversion-md](../includes/ssnoversion-md.md)] VM on RHEL ready to run your production-based workload, follow the [best practices](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for creating the SQL Server VM.
 
 <!--SQL Server 2019 on Linux-->
 ::: moniker range="=sql-server-linux-ver15 || =sql-server-ver15"

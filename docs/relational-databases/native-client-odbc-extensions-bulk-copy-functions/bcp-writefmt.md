@@ -29,9 +29,9 @@ RETCODE bcp_writefmt (
 
 Unicode and ANSI names:
 
-- bcp_initA (ANSI)
-- bcp_initW (Unicode)
-  
+- bcp_writefmtA (ANSI)
+- bcp_writefmtW (Unicode)
+
 ## Arguments  
  *hdbc*  
  Is the bulk copy-enabled ODBC connection handle.  
