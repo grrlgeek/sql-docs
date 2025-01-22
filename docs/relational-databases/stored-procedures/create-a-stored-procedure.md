@@ -84,11 +84,7 @@ To create a stored procedure in SSMS:
    GO
    SET QUOTED_IDENTIFIER ON
    GO
-   -- =============================================
-   -- Author:      My Name
-   -- Create Date: 01/23/2024
-   -- Description: Returns the customer's company name.
-   -- =============================================
+ 
    CREATE PROCEDURE SalesLT.uspGetCustomerCompany
    (
        -- Add the parameters for the stored procedure here
@@ -96,6 +92,13 @@ To create a stored procedure in SSMS:
        @FirstName nvarchar(50) = NULL
    )
    AS
+   /*
+   -- =============================================
+   -- Author:      My Name
+   -- Create Date: 01/23/2024
+   -- Description: Returns the customer's company name.
+   -- =============================================
+   */
    BEGIN
        -- SET NOCOUNT ON added to prevent extra result sets from
        -- interfering with SELECT statements.
