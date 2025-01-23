@@ -3,7 +3,7 @@ title: "Change the password of the accounts used (SQL Server Configuration Manag
 description: Find out how to change the password of the accounts that the Database Engine and the SQL Server Agent use. Learn when it is important to change the password.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 07/26/2024
+ms.date: 01/23/2025
 ms.service: sql
 ms.subservice: configuration
 ms.topic: conceptual
@@ -56,7 +56,7 @@ You must be an administrator of the computer to change the password used by a se
 
 1. In the **SQL Server (**\<instancename>**) Properties** dialog box, on the Log On tab, for the account listed in the **Account Name** box, type the new password in the **Password** and **Confirm Password** boxes, and then select **OK**.
 
-   The password takes effect immediately, without restarting [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)].
+The password change made in SQL Server Configuration Manager takes effect immediately, without the need to restart the service [!INCLUDE [ssNoVersion](../../includes/ssnoversion-md.md)]. Please keep in mind that if you use the Windows Services app (services.msc) to change the account password, a service restart is be required.
 
 #### Change the password used by the SQL Server Agent service
 
