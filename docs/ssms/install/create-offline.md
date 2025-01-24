@@ -41,7 +41,7 @@ To create a complete local layout for SQL Server Management Studio, run:
 vs_ssms.exe --layout c:\localSSMSlayout --add Microsoft.Component.HelpViewer
 ```
 
-After the bootstrapper has finished downloading the layout files the local layout folder can be moved to any other machine or environment you want to install SQL Server Management Studio on without requiring an internet connection.
+After the bootstrapper has finished downloading the layout files, the local layout folder can be moved to any other machine or environment you want to install SQL Server Management Studio on without requiring an internet connection.
 
 > [!NOTE]  
 > Make sure that your full installation path is less than 80 characters and that your machine has ample storage. SQL Server Management Studio requires a minimum of 4-GB of disk space. For more information, see [System requirements for SQL Server Management Studio 21 Preview](../ssms-21/system-requirements.md).
