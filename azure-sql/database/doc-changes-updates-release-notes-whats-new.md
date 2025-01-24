@@ -5,7 +5,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma, randolphwest
-ms.date: 11/19/2024
+ms.date: 01/24/2024
 ms.service: azure-sql-database
 ms.subservice: service-overview
 ms.topic: whats-new
@@ -92,6 +92,12 @@ The following table lists features of Azure SQL Database that have been made gen
 
 Learn about significant changes to the Azure SQL Database documentation. For previous years, see the [What's new archive](doc-changes-updates-release-notes-whats-new-archive.md).
 
+### January 2025
+
+| Changes | Details |
+| --- | --- |
+| **SQL Insights retired** | SQL Insights has been retired and is no longer available. Use [database watcher](../database-watcher-overview.md) or another monitoring solution to monitor Azure SQL Database. |
+
 ### November 2024
 
 | Changes | Details |
@@ -130,7 +136,6 @@ Learn about significant changes to the Azure SQL Database documentation. For pre
 | **Maintenance window support for Hyperscale GA** | [Maintenance window](maintenance-window.md) support for Hyperscale databases is now generally available. |
 | **Local development experience for Azure SQL Database using Dev Container Templates** | We've provided details and quickstarts to get started with the new [local dev experience for Azure SQL Database](local-dev-experience-dev-containers.md). Dev Container Templates replace the previous local emulator experience. To get started, see [Quickstart: Set up a development environment with Dev Container Templates for Azure SQL Database](local-dev-experience-dev-containers-quickstart.md). |
 | **Resource limits changes** | There are [new default vCore limits](resource-limits-logical-server.md#subscription-vcore-limits-per-region) per region per subscription. Additionally, requests for increasing default DTU limits are now done with [vCores](quota-increase-request.md#vcores-per-subscription).
-
 
 ### July 2024
 

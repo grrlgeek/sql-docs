@@ -4,7 +4,7 @@ description: Learn about the new features for and improvements to SQL Server on 
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: randolphwest, mathoma, dpless
-ms.date: 01/20/2025
+ms.date: 01/24/2025
 ms.service: azure-vm-sql-server
 ms.subservice: service-overview
 ms.topic: whats-new
@@ -66,6 +66,8 @@ Learn about significant changes to the SQL Server on Azure VMs documentation. Fo
 | Changes | Details |
 | --- | --- |
 | **Managed identity support for SQL Server 2022 on Azure VM** | Starting with SQL Server 2022 Cumulative Update 17 (CU17), managed identities are supported for SQL Server on Azure VMs (Windows only). Users can now [back up to and restore SQL Server on Azure VM databases from Azure Blob storage](backup-restore-to-url-using-managed-identities.md), and utilize [EKM with AKV and Managed HSM on SQL Server on Azure VMs](managed-identity-extensible-key-management.md). |
+| **SQL Insights retired** | SQL Insights has been retired and is no longer available. Consider using [SCOM managed instance](/azure/azure-monitor/scom-manage-instance/overview) with the [SQL Server management pack](/system-center/scom/sql-server-management-pack-monitoring-configuration) or another monitoring solution to monitor SQL Server on Azure VMs. |
+
 
 ### November 2024
 
