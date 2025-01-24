@@ -3,7 +3,7 @@ title: SqlClient driver support lifecycle
 description: Product support lifecycle information for the Microsoft.Data.SqlClient .NET library.
 author: cheenamalhotra
 ms.author: cmalhotra
-ms.date: 01/09/2025
+ms.date: 01/24/2025
 ms.service: sql
 ms.subservice: connectivity
 ms.topic: conceptual
@@ -27,7 +27,7 @@ New stable (GA) releases are published every six months on a regular cadence beg
 
 | Version | Official Release Date | Latest Patch Version | Patch Release Date | Support Level | End of Support |
 |--|--|--|--|--|--|
-| 6.0 | January 9, 2025 | 6.0.0 | January 9, 2025 | Current | - |
+| 6.0 | January 9, 2025 | 6.0.1 | January 23, 2025 | Current | - |
 | 5.2 | February 28, 2024 | 5.2.2 | August 27, 2024 | Current | August 28, 2025 |
 | 5.1 | January 19, 2023 | 5.1.6 | August 27, 2024 | LTS | January 20, 2026 |
 | 3.1 | March 30, 2022 | 3.1.7 | August 20, 2024 | LTS | March 30, 2025 |
@@ -75,6 +75,7 @@ Current releases are supported for three months after a subsequent Current or LT
 
 |Database version&nbsp;&#8594;<br />&#8595; Driver Version|Azure SQL Database|Azure Synapse Analytics|Azure SQL Managed Instance|SQL Server 2022|SQL Server 2019|SQL Server 2017|SQL Server 2016|SQL Server 2014|SQL Server 2012|
 |---|---|---|---|---|---|---|---|---|---|
+|6.0|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
 |5.2|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
 |5.1|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |5.0|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
