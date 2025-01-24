@@ -88,7 +88,7 @@ connection.AccessTokenCallback = async (authParams, cancellationToken) =>
     string scope = authParams.Resource.EndsWith(defaultScopeSuffix)
         ? authParams.Resource
         : $"{authParams.Resource}{defaultScopeSuffix}";
-    AccessToken token = await cred.GetTokenAsync(
+    AccessToken token = await credential.GetTokenAsync(
         new TokenRequestContext([scope]),
         cancellationToken);
 
