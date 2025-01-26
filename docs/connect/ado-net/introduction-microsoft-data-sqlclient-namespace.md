@@ -129,7 +129,7 @@ using(SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integ
 ## 6.0 Target platform support
 
 - .NET Framework 4.6.2+ (Windows x86, Windows x64)
-- .NET 8.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET 8.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 Full release notes, including dependencies, are available in the GitHub Repository: [6.0 Release Notes](https://github.com/dotnet/SqlClient/tree/main/release-notes/6.0).
 
@@ -267,8 +267,8 @@ class Program
 ## 5.2 Target Platform Support
 
 - .NET Framework 4.6.2+ (Windows x86, Windows x64)
-- .NET 6.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET 6.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 Full release notes, including dependencies, are available in the GitHub Repository: [5.2 Release Notes](https://github.com/dotnet/SqlClient/tree/main/release-notes/5.2).
 
@@ -281,7 +281,7 @@ Full release notes, including dependencies, are available in the GitHub Reposito
 - Added support for `DateOnly` and `TimeOnly` for `SqlParameter` value and `GetFieldValue`. [#1813](https://github.com/dotnet/SqlClient/pull/1813)
 - Added support for TLS 1.3 for .NET Core and SNI Native. [#1821](https://github.com/dotnet/SqlClient/pull/1821)
 - Added `ServerCertificate` setting for `Encrypt=Mandatory` or `Encrypt=Strict`. [#1822](https://github.com/dotnet/SqlClient/pull/1822) [Read more](#server-certificate)
-- Added Windows ARM64 support when targeting .NET Framework. [#1828](https://github.com/dotnet/SqlClient/pull/1828)
+- Added Windows Arm64 support when targeting .NET Framework. [#1828](https://github.com/dotnet/SqlClient/pull/1828)
 
 ### Server Certificate
 
@@ -294,8 +294,8 @@ The default value of the `ServerCertificate` connection setting is an empty stri
 ## 5.1 Target platform support
 
 - .NET Framework 4.6.2+ (Windows x86, Windows x64)
-- .NET 6.0+ (Windows x86, Windows x64, Windows ARM64, Windows Azure Resource Manager, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET 6.0+ (Windows x86, Windows x64, Windows Arm64, Windows Azure Resource Manager, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 Full release notes, including dependencies, are available in the GitHub Repository: [5.1 Release Notes](https://github.com/dotnet/SqlClient/tree/main/release-notes/5.1).
 
@@ -388,8 +388,8 @@ Switch.Microsoft.Data.SqlClient.SuppressInsecureTLSWarning
 ## 5.0 Target platform support
 
 - .NET Framework 4.6.2+ (Windows x86, Windows x64)
-- .NET Core 3.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 3.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 Full release notes, including dependencies, are available in the GitHub Repository: [5.0 Release Notes](https://github.com/dotnet/SqlClient/tree/main/release-notes/5.0).
 
@@ -414,8 +414,8 @@ Connection string example:
 ### 4.1 Target Platform Support
 
 - .NET Framework 4.6.1+ (Windows x86, Windows x64)
-- .NET Core 3.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 3.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 ## Release notes for Microsoft.Data.SqlClient 4.0
 
@@ -499,8 +499,8 @@ using (SqlConnection connection = new SqlConnection(connectionString))
 ### 4.0 Target Platform Support
 
 - .NET Framework 4.6.1+ (Windows x86, Windows x64)
-- .NET Core 3.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 3.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 ## Release notes for Microsoft.Data.SqlClient 3.0
 
@@ -617,7 +617,7 @@ PerfView /onlyProviders=*Microsoft.Data.SqlClient.EventSource:EventCounterInterv
 **Microsoft.Data.SqlClient** now depends on the **Azure.Identity** library to acquire tokens for "Active Directory Managed Identity/MSI" and "Active Directory Service Principal" authentication modes. This change brings the following changes to the public surface area:
 
 - **Breaking Change**  
-  The "User Id" connection property now requires "Client Id" instead of "Object Id" for "User-Assigned Managed Identity".  
+  The "User ID" connection property now requires "Client ID" instead of "Object ID" for "User-Assigned Managed Identity".  
 - **Public API**  
   New read-only public property: `SqlAuthenticationParameters.ConnectionTimeout`
 - **Dependency**  
@@ -653,13 +653,13 @@ With this authentication mode, the driver acquires a token by passing "[DefaultA
 - **AzureCliCredential**
   - Enables authentication with Microsoft Entra ID using Azure CLI to obtain an access token.
 
-> InteractiveBrowserCredential is disabled in the driver implementation of "Active Directory Default", and "Active Directory Interactive" is the only option available to acquire a token using MFA/Interactive authentication.*
+> InteractiveBrowserCredential is disabled in the driver implementation of "Active Directory Default", and "Active Directory Interactive" is the only option available to acquire a token using MFA/Interactive authentication.
 
 > Further customization options are not available at the moment.
 
 ### Custom master key store provider registration enhancements
 
-Microsoft.Data.SqlClient now offers more control of where master key store providers are accessible in an application to better support multi-tenant applications and their use of column encryption/decryption. The following APIs are introduced to allow registration of custom master key store providers on instances of `SqlConnection` and `SqlCommand`:
+Microsoft.Data.SqlClient now offers more control of where master key store providers are accessible in an application to better support multitenant applications and their use of column encryption/decryption. The following APIs are introduced to allow registration of custom master key store providers on instances of `SqlConnection` and `SqlCommand`:
 
 ```cs
 public class SqlConnection
@@ -720,8 +720,8 @@ A new connection property `IPAddressPreference` is introduced to specify the IP 
 ### 3.0 Target Platform Support
 
 - .NET Framework 4.6.1+ (Windows x86, Windows x64)
-- .NET Core 2.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 2.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 ## Release notes for Microsoft.Data.SqlClient 2.1
 
@@ -742,7 +742,8 @@ Microsoft.Data.SqlClient v2.1 extends support for Always Encrypted on the follow
 
 > [!NOTE]
 > <sup>1</sup> Before Microsoft.Data.SqlClient version v2.1, Always Encrypted is only supported on Windows.
-> <sup>2</sup> Always Encrypted with secure enclaves is not supported on .NET Standard 2.0.
+>
+> <sup>2</sup> Always Encrypted with secure enclaves isn't supported on .NET Standard 2.0.
 
 <a name='azure-active-directory-device-code-flow-authentication'></a>
 
@@ -944,7 +945,7 @@ EventSource.SendCommand(eventSource, (EventCommand)(8192 | 16384), null);
 
 ### "Command Timeout" connection string property
 
-Microsoft.Data.SqlClient v2.1 introduces the "Command Timeout" connection string property to override the default of 30 seconds. The timeout for individual commands can be overridden using the `CommandTimeout` property on the SqlCommand.
+Microsoft.Data.SqlClient v2.1 introduces the "Command Timeout" connection string property to override the default of 30 seconds. The time out for individual commands can be overridden using the `CommandTimeout` property on the SqlCommand.
 
 Connection string examples:
 
@@ -961,8 +962,8 @@ Starting with Microsoft.Data.SqlClient v2.1, Microsoft.Data.SqlClient symbols ar
 ### 2.1 Target Platform Support
 
 - .NET Framework 4.6+ (Windows x86, Windows x64)
-- .NET Core 2.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 2.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 ## Release notes for Microsoft.Data.SqlClient 2.0
 
@@ -1045,7 +1046,7 @@ using(SqlConnection sqlConnection = new SqlConnection("Data Source=(local);Integ
 ```
 
 > [!NOTE]
-> Note that this override can be applied to `SqlConnection.OpenAsync()` starting with Microsoft.Data.SqlClient v6.0.0.
+> This override can be applied to `SqlConnection.OpenAsync()` starting with Microsoft.Data.SqlClient v6.0.0.
 
 #### Username support for Active Directory Interactive mode
 
@@ -1063,13 +1064,13 @@ Order hints can be provided to improve performance for bulk copy operations on t
 
 #### SNI dependency changes
 
-Microsoft.Data.SqlClient (.NET Core and .NET Standard) on Windows is now dependent on **Microsoft.Data.SqlClient.SNI.runtime**, replacing the previous dependency on **runtime.native.System.Data.SqlClient.SNI**. The new dependency adds support for the ARM platform along with the already supported platforms ARM64, x64, and x86 on Windows.
+Microsoft.Data.SqlClient (.NET Core and .NET Standard) on Windows is now dependent on **Microsoft.Data.SqlClient.SNI.runtime**, replacing the previous dependency on **runtime.native.System.Data.SqlClient.SNI**. The new dependency adds support for the ARM platform along with the already supported platforms Arm64, x64, and x86 on Windows.
 
 ### 2.0 Target Platform Support
 
 - .NET Framework 4.6+ (Windows x86, Windows x64)
-- .NET Core 2.1+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
-- .NET Standard 2.0+ (Windows x86, Windows x64, Windows ARM64, Windows ARM, Linux, macOS)
+- .NET Core 2.1+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
+- .NET Standard 2.0+ (Windows x86, Windows x64, Windows Arm64, Windows ARM, Linux, macOS)
 
 ## Release notes for Microsoft.Data.SqlClient 1.1.0
 
@@ -1176,7 +1177,7 @@ Different authentication modes can be specified by using the _Authentication_ co
 
 > [!NOTE]
 > Custom key store providers, like the Azure Key Vault provider, will need to be updated to support Microsoft.Data.SqlClient. Similarly, enclave providers will also need to be updated to support Microsoft.Data.SqlClient.
-> Always Encrypted is only supported against .NET Framework and .NET Core targets. It is not supported against .NET Standard since .NET Standard is missing certain encryption dependencies.
+> Always Encrypted is only supported against .NET Framework and .NET Core targets. It isn't supported against .NET Standard since .NET Standard is missing certain encryption dependencies.
 
 ### 1.0 Target Platform Support
 
