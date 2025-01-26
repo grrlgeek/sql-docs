@@ -26,26 +26,26 @@ The Microsoft.Data.SqlClient API details can be found in the [.NET API Browser](
 
 - Dropped support for .NET Standard. [#2386](https://github.com/dotnet/SqlClient/pull/2386)
 - Dropped support for .NET 6 [#2927](https://github.com/dotnet/SqlClient/pull/2927)
-- Dropped UWP (uap) references. [#2483](https://github.com/dotnet/SqlClient/pull/2483)
+- Dropped UWP (UAP) references. [#2483](https://github.com/dotnet/SqlClient/pull/2483)
 - Dropped SQL 2000 client-side debugging support for .NET Framework [#2981](https://github.com/dotnet/SqlClient/pull/2981), [#2940](https://github.com/dotnet/SqlClient/pull/2940)
 
 ### New features in 6.0
 
-- Added support for JSON datatype [#2916](https://github.com/dotnet/SqlClient/pull/2916), [#2892](https://github.com/dotnet/SqlClient/pull/2892), [#2891](https://github.com/dotnet/SqlClient/pull/2891), [#2880](https://github.com/dotnet/SqlClient/pull/2880), [#2882](https://github.com/dotnet/SqlClient/pull/2882), [#2829](https://github.com/dotnet/SqlClient/pull/2829), [#2830](https://github.com/dotnet/SqlClient/pull/2830)
+- Added support for JSON data type [#2916](https://github.com/dotnet/SqlClient/pull/2916), [#2892](https://github.com/dotnet/SqlClient/pull/2892), [#2891](https://github.com/dotnet/SqlClient/pull/2891), [#2880](https://github.com/dotnet/SqlClient/pull/2880), [#2882](https://github.com/dotnet/SqlClient/pull/2882), [#2829](https://github.com/dotnet/SqlClient/pull/2829), [#2830](https://github.com/dotnet/SqlClient/pull/2830)
 - Added support for .NET 9 [#2946](https://github.com/dotnet/SqlClient/pull/2946)
 - Added `Microsoft.Data.SqlClient.Diagnostics.SqlClientDiagnostic` type in .NET. [#2226](https://github.com/dotnet/SqlClient/pull/2226)
 - Added `DateOnly` and `TimeOnly` support to `DataTable` as a structured parameter. [#2258](https://github.com/dotnet/SqlClient/pull/2258)
 - Added support for `SqlConnectionOverrides` in `OpenAsync()` API [#2433](https://github.com/dotnet/SqlClient/pull/2433)
 - Added localization in Czech, Polish, and Turkish [#2987](https://github.com/dotnet/SqlClient/pull/2987)
 - Added `TokenCredential` object to take advantage of token caching in `ActiveDirectoryAuthenticationProvider`. [#2380](https://github.com/dotnet/SqlClient/pull/2380)
-- Added readme to nuget package [#2826](https://github.com/dotnet/SqlClient/pull/2826)
+- Added readme to NuGet package [#2826](https://github.com/dotnet/SqlClient/pull/2826)
 - Enabled NuGet package auditing via NuGet.org audit source [#3024](https://github.com/dotnet/SqlClient/pull/3024)
 - Added missing SqlCommand_BeginExecuteReader code sample [#3009](https://github.com/dotnet/SqlClient/pull/3009)
 - Added scope trace for `GenerateSspiClientContext`. [#2497](https://github.com/dotnet/SqlClient/pull/2497), [#2725](https://github.com/dotnet/SqlClient/pull/2725)
 
-### JSON datatype support
+### JSON data type support
 
-JSON Datatype support is now available in Microsoft.Data.SqlClient v6.0. This release introduces `SqlJson` type available as an extension to `System.Data.SqlDbTypes`:
+JSON data type support is now available in Microsoft.Data.SqlClient v6.0. This release introduces the `SqlJson` type available as an extension to `System.Data.SqlDbTypes`:
 
 ```cs
 using System;
@@ -55,7 +55,7 @@ using System.Text.Json;
 namespace Microsoft.Data.SqlTypes
 {
     /// <summary>
-    /// Represents the Json Data type in SQL Server.
+    /// Represents the Json data type in SQL Server.
     /// </summary>
     public class SqlJson : INullable
     {
@@ -93,11 +93,11 @@ namespace Microsoft.Data.SqlTypes
 }
 ```
 
-JSON datatype is supported by the driver for reading, writing, streaming and performing bulk copy operations.
+The JSON data type supports reading, writing, streaming, and bulk copy operations.
 
 ### Introducing SqlClientDiagnostics
 
-New types are available in the `Microsoft.Data.SqlClient.Diagnostics` namespace that provide a strongly-typed collection of key-value pairs to be captured by consuming applications for gathering diagnostic events emitted by the driver. Below types are introduced with this release:
+New types are available in the `Microsoft.Data.SqlClient.Diagnostics` namespace that provide a strongly-typed collection of key-value pairs. These types can be captured by consuming applications for gathering diagnostic events emitted by the driver. This release introduces the following types:
 
 - `SqlClientCommandBefore`
 - `SqlClientCommandAfter`
